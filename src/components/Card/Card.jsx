@@ -39,7 +39,7 @@ console.log('region.area', region.info);
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: 8*region.percent,  
+    width: 14*region.percent,  
     height: "100%",
     fontStyle: "normal",
     fontSize: "36px",
