@@ -1,0 +1,18 @@
+.pie-chart {
+    position: absolute;
+    top: 638px;
+    left: 900px;
+    width: 888px;
+    height: 365px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(207, 224, 248); */
+  }
+  
+  .spanPie {
+    display: block;
+    width: 200px;
+    text-decoration:underline;
+    background-color: rgb(242, 180, 180);
+  }

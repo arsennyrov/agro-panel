@@ -1,0 +1,13 @@
+.span-none {
+    display: block;
+    padding-top: 14px;
+    padding-left: 34px;
+    height: 42px;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #000000;
+}

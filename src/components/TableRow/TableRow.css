@@ -1,0 +1,97 @@
+
+.table-row {
+  width: 1704px;
+  height: 115px;
+  margin-top: 30px;
+  margin-left: 88px;
+  
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid #eeeeee;
+}
+
+td {
+  height: 42px;
+  font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px; 
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #090706;
+}
+
+.td0 {
+  display: block;
+  /* display: flex;
+  align-items: center; */
+  padding-top: 20px;
+  margin-left: 20px;
+  width: 46.3px;
+  height: 73.11px;
+}
+
+.td1 span {
+  position: relative;
+  display: block;
+  left: -120px;
+  width: 380px;
+  text-align: left;
+  /* background-color: rgb(221, 234, 248); */
+}
+
+.td2 span {
+  display: block;
+  width: 120px;
+  margin-left: 0px;
+}
+
+.td3 span {
+  /* font-family: 'TT Norms'; */
+  display: block;
+  width: 120px;
+  margin-left: 20px;
+  text-align: center;
+}  
+
+.td4 span {
+  display: block;
+  width: 120px;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.td5 span {
+  display: block;
+  width: 120px;
+  margin-left: 40px;
+  text-align: center;
+}
+
+.td6 span {
+  display: block;
+  width: 120px;
+  margin-left: 80px;
+  text-align: center;
+}
+
+.td7 span {
+  display: block;
+  width: 120px;
+  margin-left: 80px;
+  text-align: center;
+}
+
+.td4, .td6 {
+  color: #FF4D00;
+}
+
+.td2, .td7 {
+  color: #BFC0C7;
+}
+
+.td3, .td5 {
+  font-weight: 500;
+  color: #090706;
+}
