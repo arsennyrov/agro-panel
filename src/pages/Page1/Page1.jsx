@@ -31,7 +31,7 @@ const Page1 = () => {
             <div className='header'>
                 <Header />
             </div>    
-            <div className='area3 chart' style={{ fill: "#0f0", }}>
+            <div className='chart' style={{ fill: "#0f0", }}>
                 <SvgHome svgFill={[regionData[0].info, regionData[1].info, regionData[2].info]} />
             </div>
 

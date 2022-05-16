@@ -81,7 +81,7 @@ console.log('region.area', region.info);
           <span>{region.percent}%</span>
         </div>
         <div className='amount' style={ styleAmount } >
-          <span>{format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : ''}</span>
+          <span>{format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}</span>
         </div>
       </div> }
 

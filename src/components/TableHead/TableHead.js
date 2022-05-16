@@ -10,7 +10,10 @@ const lHeight = "20px"
 const TableHead = (props) => {
 
   const unitRadioGroup = useSelector(state => state.crops.unitRadioGroup);  
-  const checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
+  let checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
+    
+  if  (checkedRadioUnit==='Количество - Га') checkedRadioUnit = 'Га';  // временно
+  if  (checkedRadioUnit==='Количество - Поля') checkedRadioUnit = 'Шт'; // временно
 
   const { cropHead } = props;
 
