@@ -14,9 +14,9 @@ export function dataPage1() {
         },
         {
             area: "Северный",
-            percent: 0,
-            amount: 0,
-            info: false
+            percent: 34,
+            amount: 42000,
+            info: true
         },
         // ---------------------------------------
         {
@@ -29,13 +29,13 @@ export function dataPage1() {
             area: "Южный",
             percent: 65,
             amount: 555,
-            info: true
+            info: false
         },
         {
             area: "Северный",
             percent: 0,
             amount: 0,
-            info: false
+            info: true
         }
 
     ]
@@ -44,7 +44,6 @@ export function dataPage1() {
 function crops() {
     return [    
         {
-            urlIcon: "springWheat.png",
             title: "Яровая пшеница",
             sumHa1: 49166,
             sumHa2: 38234,
@@ -60,7 +59,6 @@ function crops() {
             sumThing6: 81
         }, 
         {
-            urlIcon: "springRapeseed.png",
             title: "Рапс яровой",
             sumHa1: 15841,
             sumHa2: 6494,
@@ -76,7 +74,6 @@ function crops() {
             sumThing6: 39
         }, 
         {
-            urlIcon: "sunflower.png",
             title: "Подсолнечник",
             sumHa1: 70899,
             sumHa2: 34031,
@@ -91,7 +88,6 @@ function crops() {
             sumThing5: 97,
             sumThing6: 50
         }, 
-        
     ]            
     };
     

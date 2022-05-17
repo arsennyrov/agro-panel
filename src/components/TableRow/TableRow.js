@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { format } from '../../containers/utils';
 import './TableRow.css';
+import { SvgSelector } from '../Svg/SvgSelector';
 
 const TableRow = ({crop}) => {
   const defaultUnit = useSelector(state => state.crops.unitRadioGroup[0].name);
@@ -14,7 +15,7 @@ const TableRow = ({crop}) => {
       <tbody>
         <tr>
           <td className='td0'>
-            <img src={process.env.PUBLIC_URL+"/img/"+crop.urlIcon} width={46.3} height={73.11} /> 
+            <SvgSelector id={crop.title} fill={'#6EAF41'} />
           </td>
           <td className='td1'><span>{crop.title}</span></td>
           <td className='td2'><span>{(checkedRadioUnit===defaultUnit) ? format(crop.sumHa1) : format(crop.sumThing1)}</span></td>

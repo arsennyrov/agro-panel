@@ -4,22 +4,14 @@ import { useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import './Page1.css';
 import Card from '../../components/Card/Card';
-import { region } from '../../containers/regions';
 import { dataPage1 } from '../../containers/data';
-import { svgChartNone, svgChartAll } from '../../containers/svgSelector';
-import Region from '../../components/Region';
-import {ReactComponent as ReactChart} from '../../containers/chart.svg';
 import SvgHome from '../../components/Svg';
-
 const colorCard   = ["#c49eea", "#9eb3fc", "#a5ded0"];
 const titleColorCard = ["#9770BD", "#8194D9", "74B5A5"];
 const widthCard = [ 572, 479, 409 ];
 
 
 const regionData = dataPage1();
-const svgChartNoneContext = svgChartNone().context;
-const svgChartAllContext = svgChartAll().context;
-const regionUtil = region();
 
 const Page1 = () => {
 
@@ -34,16 +26,6 @@ const Page1 = () => {
             <div className='chart' style={{ fill: "#0f0", }}>
                 <SvgHome svgFill={[regionData[0].info, regionData[1].info, regionData[2].info]} />
             </div>
-
-            {/* <Region 
-                top={regionUtil[1].top} 
-                left={regionUtil[1].left} 
-                width={regionUtil[1].width} 
-                height={regionUtil[1].height} 
-                number={regionUtil[1].number} 
-                active={regionUtil[1].active}
-                svg={regionUtil[1].svg} 
-            /> */}
 
             <div className='footer'>
                 <div className='container-cards'>

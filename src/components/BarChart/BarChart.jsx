@@ -1,13 +1,14 @@
 import React from "react";
+import { SvgSelector } from "../Svg/SvgSelector.js";
 import "./BarChart.css";
 
 const data = [
   {
-    name: 'Подсолнечинк',
+    name: 'Подсолнечник',
     measure: 'Га',
     value: 22341,
     percent: '25',
-    img: 'Vector03.png',
+    img: 'sunFlower',
   },
   {
     name: 'Яровая пшеница',
@@ -39,14 +40,14 @@ function BarChart() {
         {data.map((item) => {
           const barOpacity = item.percent / 100
           const barHeight = (item.percent * 2) + 'px'
-          console.log('barOpacity', barOpacity);
-          console.log('item.value', item.value);
+          // console.log('barOpacity', barOpacity);
+          // console.log('item.value', item.value);
           return (
             <div className="bar-chart__wrapper">
               <h2 className="bar-chart__value">{item.value} {item.measure}</h2>
               <h2 className="bar-chart__percent">{item.percent}%</h2>
               <div className="bar-chart__bar" style={{height: barHeight, opacity: barOpacity}}>
-                <img src={`img/${item.img}`} alt="" />
+                <SvgSelector id={item.name} />
               </div>
             </div>
           );

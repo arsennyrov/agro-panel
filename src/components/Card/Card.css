@@ -8,6 +8,81 @@
     font-weight: 500;
     font-size: 36px;
     line-height: 42px;
-
     color: #000000;
 }
+
+.container-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: "62px",
+}
+
+.title {
+    font-size: 30px;
+}
+
+.container-card {
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 20px;
+    height: 81px;
+    border-radius: 8px;
+    border-width: 3px;
+    border-style: solid;
+    z-index: 1;
+} 
+
+.pad-card {
+    height: 100%;
+    z-index: 3;
+}
+
+.percent {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    width: 30%;
+    height: 100%;
+    text-align: left;
+    font-style: normal;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px;
+    color: #000000;
+    border-radius: 8px;
+    z-index: 5;
+}
+
+.amount {
+    position: absolute;
+    top: 14px;
+    right: 5px;
+    width: "60%";
+    height: 100%;
+    padding-right: 10px;
+    text-align: right;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    border-radius: 8px;
+    color: #000000;
+    /* background-color: white; */
+    /* color: "#090706"; */
+    z-index: 5;
+    opacity: 1;
+}
+
+/* 
+
+.span-left {
+    display: inline-block;
+    text-align: left;    
+}
+
+.span-left {
+    display: inline-block;
+    text-align: right;
+} */
