@@ -1,8 +1,6 @@
-
 import React from 'react';
 
 export const SvgSelector = ({ id, fill='black' }) => {
-    console.log('============id', id, '===');
 
     switch (id) {
         case 'Рапс яровой':

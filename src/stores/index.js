@@ -9,5 +9,3 @@ export const store = configureStore({
     },
     devTools: true,
 });
-
-// console.log('objectStore', store);

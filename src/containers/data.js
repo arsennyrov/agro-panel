@@ -1,4 +1,47 @@
-export function dataPage1() {
+export function overall1() {
+    return [   
+        {
+            area: "Центральный",
+            percent: 100,
+            amount: 50000,
+            info: true
+        },
+        {
+            area: "Южный",
+            percent: 100,
+            amount: 44000,
+            info: true
+        },
+        {
+            area: "Северный",
+            percent: 100,
+            amount: 42000,
+            info: true
+        },
+        // ---------------------------------------
+        {
+            area: "Центральный",
+            percent: 100,
+            amount: 50000,
+            info: true
+        },
+        {
+            area: "Южный",
+            percent: 100,
+            amount: 44000,
+            info: true
+        },
+        {
+            area: "Северный",
+            percent: 100,
+            amount: 42000,
+            info: true
+        }
+
+    ]
+};
+
+export function overall2() {
     return [   
         {
             area: "Центральный",
@@ -21,20 +64,106 @@ export function dataPage1() {
         // ---------------------------------------
         {
             area: "Центральный",
-            percent: 50,
-            amount: 444,
+            percent: 39,
+            amount: 50000,
             info: true
         },
         {
             area: "Южный",
-            percent: 65,
-            amount: 555,
+            percent: 45,
+            amount: 44000,
+            info: true
+        },
+        {
+            area: "Северный",
+            percent: 34,
+            amount: 42000,
+            info: true
+        }
+
+    ]
+};
+
+export function overall3() {
+    return [   
+        {
+            area: "Центральный",
+            percent: 15,
+            amount: 50000,
+            info: true
+        },
+        {
+            area: "Южный",
+            percent: 13,
+            amount: 44000,
             info: false
         },
         {
             area: "Северный",
+            percent: 2,
+            amount: 42000,
+            info: true
+        },
+        // ---------------------------------------
+        {
+            area: "Центральный",
+            percent: 15,
+            amount: 50000,
+            info: false
+        },
+        {
+            area: "Южный",
+            percent: 13,
+            amount: 44000,
+            info: false
+        },
+        {
+            area: "Северный",
+            percent: 2,
+            amount: 42000,
+            info: false
+        }
+
+    ]
+};
+
+export function overall4() {
+    return [   
+        {
+            area: "Центральный",
+            percent: 9,
+            amount: 50000,
+            info: true
+        },
+        {
+            area: "Южный",
             percent: 0,
-            amount: 0,
+            amount: 44000,
+            info: true
+        },
+        {
+            area: "Северный",
+            percent: 0,
+            amount: 42000,
+            info: true
+        },
+        // ---------------------------------------
+        {
+            area: "Центральный",
+            percent: 9,
+            amount: 50000,
+            info: true
+        },
+        {
+            area: "Южный",
+            percent: 0,
+            amount: 44000,
+            info: true
+        },
+        {
+            area: "Северный",
+            percent: 0,
+            amount: 42000,
             info: true
         }
 

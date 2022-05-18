@@ -30,19 +30,26 @@ const Card = ({ color, titleColor, width, region} ) => {
       </div>
       {region.info && <div className='container-card' style={ styleContainer } >
         <div className='pad-card' style={ stylePad }>
-          <div className='percent' >
-            <span>{region.percent}%</span>
-          </div>
-          <div className='amount'>
-            <span>{format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}</span>
-          </div>
+          {(region.percent !== 0) && <>
+            <div className='percent' >
+              <span>{region.percent}%</span>
+            </div>
+            <div className='amount'>
+              <span>{format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}</span>
+            </div>
+          </>}
+          {(region.percent === 0) && <>
+            <div className='amount0' style={{ color: titleColor }}>
+              <span>{format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}</span>
+            </div>
+          </>}
         </div>
       </div> }
 
-      {!region.info && <div className='container' style={ styleContainer } >
-        <div className='percent'>
+      {!region.info && <div className='container-card' style={ styleContainer } >
+        {/* <div className='percent'> */}
         <span className='span-none'>{'нет данных'}</span>  
-        </div>
+        {/* </div> */}
       </div> }
     </>        
   );

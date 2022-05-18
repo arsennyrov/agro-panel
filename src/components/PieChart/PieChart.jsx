@@ -1,40 +1,21 @@
 import React from 'react';
-
-// import {
-//   Chart,
-//   ArgumentAxis,
-//   ValueAxis,
-//   LineSeries,
-//   PieSeries,
-//   Title,
-// } from '@devexpress/dx-react-chart-material-ui';
-
 import PieChart, {
   Legend,
-  Export,
   Series,
   Label,
   Font,
   Connector,
-  Border,
   Size,
 } from 'devextreme-react/pie-chart';
-
-// import { PieSeries } from '@devexpress/dx-react-chart';
 
 import { dataSource } from './data.js';
 import './PieChart.css';
 
 const customPalette = ["#ffbe21", "#ffd46c", "#fff5de", "#ffe9b2"];
-
 class Chart extends React.Component {
   render() {
     return (
       <div className="pie-chart">
-        {/* <PieChart id="pie"
-          palette={customPalette}
-          dataSource={dataSource}
-        > */}
         <PieChart id="pie"
         palette={customPalette}
         dataSource={dataSource}
@@ -78,15 +59,8 @@ class Chart extends React.Component {
 }
 
 function customizeText(arg) {
-  // return 'asdaslkjdlaskjdlkasjdljalskdj';
-  // return `${arg.valueText} Га ${arg.argumentText}`;
-  // return `<span>${arg.valueText} Га</span><br /><span spanPie>${arg.argumentText}</span>`;
   return `<span>${arg.valueText} Га</span><br /><span>${arg.argumentText}</span>`;
 }
-
-// function customizeText2(arg) {
-//   return `${arg.argumentText}`;
-// }
 
 export default Chart;
 

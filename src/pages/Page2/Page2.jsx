@@ -13,8 +13,8 @@ const crop = crops();
 const cropHeadM= cropHead();
 
 const Page2 = () => {
-    const defaultUnit = useSelector(state => state.crops.unitRadioGroup[0].name); 
-    const checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
+    // const defaultUnit = useSelector(state => state.crops.unitRadioGroup[0].name); 
+    // const checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
 
     const heightTab = 88+145*crop.length;
     const containerTab = { 

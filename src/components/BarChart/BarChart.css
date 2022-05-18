@@ -4,7 +4,6 @@
   left: 86px;
   width: 680px;
   height: 432px;
-  /* background-color: rgb(243, 214, 214); */
 }
 
 .bar-chart {
@@ -15,7 +14,6 @@
   height: 432px;
   display: flex;
   align-items: flex-end;
-  /* background-color: rgb(248, 247, 209); */
 }
 
 .bar-chart__span {
@@ -28,7 +26,6 @@
   text-align: left;
   letter-spacing: 0.03em;
   color: #090706;
-  /* background-color: rgb(194, 244, 184); */
 }
 
 .bar-chart__wrapper {

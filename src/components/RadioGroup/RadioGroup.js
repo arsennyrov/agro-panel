@@ -1,21 +1,12 @@
-import React,{ useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import './RadioGroup.css';
 
 import { changeRadioLeft, changeRadioRight, changeRadioUnit } from '../../stores/cropSlice';
 
 const RadioGroup = (props) => {
-  // console.log('props', props);
-
-  const selectorState = useSelector(state => state.crops)
-  // const checkedRadioLeft = useSelector(state => state.crops.selectedRadioLeft)
-  // const checkedRadioRight = useSelector(state => state.crops.selectedRadioRight)
-  // const checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit)
 
   const dispatch = useDispatch()
-
-  // console.log('selectorState', selectorState);
-
   const { 
       name, 
       title,   
@@ -36,10 +27,9 @@ const RadioGroup = (props) => {
         break;
       default:
         console.log('swith-default');
-      }        
-    }
+    }        
+  }
    
-
   return (
     <>
     <div className='radio-group'>

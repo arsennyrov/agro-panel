@@ -22,12 +22,10 @@
 	font-style: regular;
 	font-size: 30px;
 	line-height: 100%;
-	align: center;
+	text-align: center;
 	vertical-align: center;
 	letter-spacing: 3%;
-	fill-olor-style: main txt;
 	fill: solid
-	#090706
 }
 
 .radio-group .radio-group-item label {
@@ -46,12 +44,10 @@
   background: #fff;
 }
  
-/* Hover */
 .radio-group label:hover {
 	color: rgb(196, 39, 39);
 }
  
-/* Disabled */
 .radio-group input[type=radio]:disabled + label {
 	background: #efefef;
 	color: #666;

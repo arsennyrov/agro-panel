@@ -1,4 +1,3 @@
-
 export function leftRadioGroup() {
     return [
         {name: 'Количество - Га',

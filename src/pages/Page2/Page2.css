@@ -10,7 +10,6 @@
 .container-tab {
     width: 100vw;
     margin-top: 32px;
-    /* background-color: rgb(247, 237, 237); */
 }
 
 .container-chart {
@@ -18,5 +17,4 @@
     justify-content: space-around;
     width: 100vw;
     height: 44vh;
-    /* backgroun d-color: rgb(201, 211, 248); */
 }

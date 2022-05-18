@@ -4,8 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 
-    // selectedRadioLeft: leftRadioGroup()[0].name,
-    // selectedRadioRight: rightRadioGroup()[0].name,
 }
 
 export const utilSlice = createSlice({

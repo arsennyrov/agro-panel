@@ -28,7 +28,6 @@ const data = [
 
 function BarChart() {
 
-  // const heightTab = 88+145*data.length;
   const containerBar = { 
       marginTop: "10px", // heightTab,
   }
@@ -40,8 +39,7 @@ function BarChart() {
         {data.map((item) => {
           const barOpacity = item.percent / 100
           const barHeight = (item.percent * 2) + 'px'
-          // console.log('barOpacity', barOpacity);
-          // console.log('item.value', item.value);
+
           return (
             <div className="bar-chart__wrapper">
               <h2 className="bar-chart__value">{item.value} {item.measure}</h2>

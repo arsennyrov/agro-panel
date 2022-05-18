@@ -2,11 +2,9 @@
   width: 1704px;
   height: 56px;
   margin-left: 88px;
-  /* background-color: #aae; */
 }
 
 th {
-  /* width: 10vw; */
   height: 56px;
   font-family: 'TT Norms';
   font-style: normal;
@@ -38,7 +36,6 @@ th {
 }
 
 .th3 span {
-  /* font-family: 'TT Norms'; */
   display: block;
   width: 134px;
   text-align: center;
