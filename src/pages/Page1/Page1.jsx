@@ -19,7 +19,6 @@ const Page1 = () => {
     const defaultLeft = useSelector(state => state.crops.leftRadioGroup[0].name); 
     const checkedRadioLeft = useSelector(state => state.crops.selectedRadioLeft);  
     const checkedRadioRight = useSelector(state => state.crops.selectedRadioRight);  
-    console.log('checkedRadioRight', checkedRadioRight);
 
     switch (checkedRadioRight) {
         case "Почвоподготовка":        

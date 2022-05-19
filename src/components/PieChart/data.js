@@ -1,7 +1,7 @@
 export const dataSource = [
   {
     name: "Дефицит механизаторов",
-    value: 1112
+    value: 1012
   },
   { 
     name: "Остановка техники",

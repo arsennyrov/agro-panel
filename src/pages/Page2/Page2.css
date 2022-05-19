@@ -10,11 +10,13 @@
 .container-tab {
     width: 100vw;
     margin-top: 32px;
+    /* background: rgb(225, 236, 250); */
 }
 
-.container-chart {
+/* .container-chart {
     display: flex;
     justify-content: space-around;
     width: 100vw;
-    height: 44vh;
-}
+    height: 37vh;
+    background-color: rgb(248, 204, 204);
+} */

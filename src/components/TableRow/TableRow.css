@@ -1,9 +1,6 @@
 .table-row {
   width: 1704px;
-  height: 115px;
-  margin-top: 30px;
   margin-left: 88px;
-  
   table-layout: fixed;
   border-collapse: collapse;
   border: 1px solid #eeeeee;
@@ -19,6 +16,7 @@ td {
   text-align: center;
   letter-spacing: 0.03em;
   color: #090706;
+  /* background-color: rgb(249, 212, 212); */
 }
 
 .td0 {

@@ -2,3 +2,15 @@
     fill: rgba(255, 255, 255, 0.8);;
     stroke-width: 0;
 }
+
+.area1 {
+    fill: #C49EEA;
+}
+
+.area2 {
+    fill: #9EB3FC;
+}
+
+.area3 {
+    fill: #A5DED0;
+}

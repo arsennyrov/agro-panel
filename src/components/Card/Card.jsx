@@ -23,11 +23,18 @@ const Card = ({ color, titleColor, width, region} ) => {
 
   return (
     <>
-      <div className='container-title'>
+      {region.info && <div className='container-title'>
         <span className='title' style={ styleTitle }>
           {region.area}
         </span>
-      </div>
+      </div>}
+
+      {!region.info && <div className='container-title'>
+        <span className='title' style={{ color: "rgba(9, 7, 6, 0.2)" }}>
+          {region.area}
+        </span>
+      </div>}
+
       {region.info && <div className='container-card' style={ styleContainer } >
         <div className='pad-card' style={ stylePad }>
           {(region.percent !== 0) && <>
@@ -47,9 +54,7 @@ const Card = ({ color, titleColor, width, region} ) => {
       </div> }
 
       {!region.info && <div className='container-card' style={ styleContainer } >
-        {/* <div className='percent'> */}
         <span className='span-none'>{'нет данных'}</span>  
-        {/* </div> */}
       </div> }
     </>        
   );

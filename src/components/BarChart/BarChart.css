@@ -1,6 +1,7 @@
 .bar-chart__container {
   position: absolute;
-  top: 596px;
+  /* top: 596px; */
+  top: 600px;
   left: 86px;
   width: 680px;
   height: 432px;
@@ -11,7 +12,7 @@
   top: 0px;
   left: 0px;
   width: 680px;
-  height: 432px;
+  height: 360px;
   display: flex;
   align-items: flex-end;
 }
@@ -20,7 +21,7 @@
   display: block;
   font-family: 'TT Norms';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 36px;
   line-height: 42px;
   text-align: left;
@@ -31,12 +32,12 @@
 .bar-chart__wrapper {
   display: flex;
   flex-direction: column-reverse;
-  margin: 30px;
+  margin: 0px 33px 10px 0;
   /* background-color: rgb(214, 230, 243); */
 }
 
 .bar-chart__bar {
-  background-color: red;
+  background-color: rgba(225,77,0,.5);
   display: flex;
   align-items: flex-end;
   width: 100px;
@@ -47,6 +48,13 @@
 .bar-chart__value {
   margin-top: 10px;
   margin-bottom: 0;
+  font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.03em;
 }
 
 .bar-chart__percent {
@@ -54,3 +62,20 @@
   margin-top: 10px;
   margin-bottom: 0;
 }
+
+.bar-chart__false1 {
+  display: block;
+  padding-top: 25px;
+  font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-align: center;
+  letter-spacing: 0.03em;
+  background-color: rgba(238, 238, 238, 0.6);
+}
+
+

@@ -88,7 +88,7 @@ export function overall3() {
     return [   
         {
             area: "Центральный",
-            percent: 15,
+            percent: 12,
             amount: 50000,
             info: true
         },
@@ -100,30 +100,30 @@ export function overall3() {
         },
         {
             area: "Северный",
-            percent: 2,
+            percent: 8,
             amount: 42000,
             info: true
         },
-        // ---------------------------------------
+
+        
         {
             area: "Центральный",
             percent: 15,
-            amount: 50000,
-            info: false
+            amount: 850,
+            info: true
         },
         {
             area: "Южный",
             percent: 13,
-            amount: 44000,
+            amount: 455,
             info: false
         },
         {
             area: "Северный",
             percent: 2,
-            amount: 42000,
-            info: false
-        }
-
+            amount: 234,
+            info: true
+        },
     ]
 };
 
@@ -133,24 +133,24 @@ export function overall4() {
             area: "Центральный",
             percent: 9,
             amount: 50000,
-            info: true
+            info: false
         },
         {
             area: "Южный",
             percent: 0,
             amount: 44000,
-            info: true
+            info: false
         },
         {
             area: "Северный",
             percent: 0,
             amount: 42000,
-            info: true
+            info: false
         },
         // ---------------------------------------
         {
             area: "Центральный",
-            percent: 9,
+            percent: 0,
             amount: 50000,
             info: true
         },
@@ -186,6 +186,53 @@ function crops() {
             sumThing4: 333,
             sumThing5: 20,
             sumThing6: 81
+        }, 
+        {
+            title: "Рапс яровой",
+            sumHa1: 15841,
+            sumHa2: 6494,
+            sumHa3: 743,
+            sumHa4: 1985,
+            sumHa5: 0,
+            sumHa6: 41,
+            sumThing1: 4151,
+            sumThing2: 245,
+            sumThing3: 77,
+            sumThing4: 776,
+            sumThing5: 0,
+            sumThing6: 39
+        }, 
+        {
+            title: "Подсолнечник",
+            sumHa1: 70899,
+            sumHa2: 34031,
+            sumHa3: 11381,
+            sumHa4: 2943,
+            sumHa5: 652,
+            sumHa6: 48,
+            sumThing1: 5467,
+            sumThing2: 667,
+            sumThing3: 87,
+            sumThing4: 74,
+            sumThing5: 97,
+            sumThing6: 50
+        }, 
+
+        
+        {
+            title: "Яровая пшеница",
+            sumHa1: 0,
+            sumHa2: 0,
+            sumHa3: 0,
+            sumHa4: 0,
+            sumHa5: 0,
+            sumHa6: 0,
+            sumThing1: 0,
+            sumThing2: 0,
+            sumThing3: 0,
+            sumThing4: 0,
+            sumThing5: 0,
+            sumThing6: 0
         }, 
         {
             title: "Рапс яровой",

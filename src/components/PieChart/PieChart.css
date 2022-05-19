@@ -1,8 +1,8 @@
 .pie-chart {
     position: absolute;
-    top: 638px;
-    left: 900px;
-    width: 888px;
+    /* top: 850px; */
+    left: 890px;
+    width: 900px;
     height: 365px;
     display: flex;
     justify-content: center;
@@ -13,5 +13,4 @@
     display: block;
     width: 200px;
     text-decoration:underline;
-    background-color: rgb(242, 180, 180);
   }
