@@ -27,8 +27,7 @@ const problems = [
     percent: 40,
     info: true,
   },
-     
-
+ 
   {
     name: 'Подсолнечник',
     measure: 'Га',
@@ -50,8 +49,6 @@ const problems = [
     percent: 60,
     info: true,
   },
-
-
 ];
 
 function BarChart() {
@@ -68,18 +65,31 @@ function BarChart() {
           const barOpacity = .1+item.percent / 100;
 
           const styleBar = { 
-            width: (arr.length < 4) ? 200 : 100,
+            width: (arr.length < 4) ? "200px" : "100px",
             height: (item.percent * 2.1) + 'px',
-            marginRight: (arr.length < 4) ? 40 : 0,
+            marginRight: (arr.length < 4) ? "40px" : "0",
             backgroundColor: `rgba(225, 77, 0, ${barOpacity})`
           }
           const styleBarFalse = { 
-            width: (arr.length < 4) ? 200 : 100,
-            height: '137.5px',
-            marginRight: (arr.length < 4) ? 40 : 5,
+            width: (arr.length < 4) ? "200px" : "100px",
+            height: "210px",
+            marginRight: (arr.length < 4) ? "40px" : "0",
             backgroundColor: "rgba(238, 238, 238, 0.6)"
           }
           
+          const styleBarFont = {
+            width: "100px",
+            fontFamily: 'TT Norms',
+            fontStyle: "normal",
+            fontWeight: "500",
+            fontSize: "22px",
+            lineHeight: "24px",
+            textAlign: "center",
+            letterSpacing: "0.03em",
+            textTransform: "lowercase",
+            color: "#000000"
+          }
+
           return (
             <>
             { item.info && <div className="bar-chart__wrapper">
@@ -89,11 +99,12 @@ function BarChart() {
                 <SvgSelector id={item.name} />
               </div>
             </div>}
-            { !item.info && <div className="bar-chart__wrapper">
-              <span className="bar-chart__false1" style={styleBarFalse} >нет<br/>данных</span>
-              <div className="bar-chart__bar" style = { styleBarFalse }>
-                <SvgSelector id={item.name} />
-              </div>
+            { !item.info && <div className="bar-chart__wrapper" style={{backgroundColor: "rgba(238, 238, 238, 0.6)"}}>
+            <div className="div-plus"></div>
+            <span className="bar-chart__percent" style={styleBarFont}>нет<br />данных</span>
+                <div className="bar-chart__bar" style = { styleBarFalse }>
+                  <SvgSelector id={item.name} />
+                </div>
             </div>}
             </>
           );
