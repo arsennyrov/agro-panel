@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import './fonts/TT Norms/TTNorms-Black.otf';
+import './fonts/TT Norms/TTNorms-Regular.otf';
 
 import './index.css';
 import App from './App';
