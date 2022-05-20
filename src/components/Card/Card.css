@@ -1,7 +1,6 @@
 .span-none {
     position: relative;
     top: 12px;
-    /* left: -100px; */
     display: block;
     width: 100%;
     height: 100%;
@@ -19,7 +18,12 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    height: "62px",
+    height: "62px";
+
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px; 
 }
 
 .title {
@@ -30,7 +34,7 @@
     position: relative;
     box-sizing: border-box;
     margin-top: 20px;
-    height: 81px;
+    height: 82px;
     border-radius: 8px;
     border-width: 3px;
     border-style: solid;
@@ -45,14 +49,16 @@
 .percent {
     position: absolute;
     top: 14px;
-    left: 10px;
+    left: 26px;
     width: 30%;
     height: 100%;
     text-align: left;
+    font-family: 'TT Norms';
     font-style: normal;
-    font-size: 36px;
     font-weight: 700;
+    font-size: 36px;
     line-height: 42px;
+    /* text-align: center; */
     color: #000000;
     border-radius: 8px;
     z-index: 5;

@@ -20,12 +20,16 @@
 	user-select: none;
     background-color: #eee;
 	font-style: regular;
-	font-size: 30px;
-	line-height: 100%;
 	text-align: center;
 	vertical-align: center;
-	letter-spacing: 3%;
-	fill: solid
+	fill: solid;
+	font-family: 'TT Norms';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 35px;
+	letter-spacing: 0.03em;
+
 }
 
 .radio-group .radio-group-item label {

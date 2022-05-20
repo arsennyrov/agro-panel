@@ -7,7 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "TT Norms";
+  src: local("TTNorms-Black.otf"),
+   url("./fonts/TT Norms/TTNorms-Regular.otf") format("truetype");
+  font-weight: bold;
+  }
+  
+.font-face-gm {
+  font-family: "TT Norms";
+  }
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: TT Norms, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
