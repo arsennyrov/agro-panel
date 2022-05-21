@@ -1,15 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import RadioGroup from '../RadioGroup';
 
 import './TableHead.css';
 
-const nameUnit = 'unit';
-const lHeight = "20px"
-
 const TableHead = (props) => {
 
-  const unitRadioGroup = useSelector(state => state.crops.unitRadioGroup);  
   let checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
     
   if  (checkedRadioUnit==='Количество - Га') checkedRadioUnit = 'Га';  // временно
@@ -24,14 +19,7 @@ const TableHead = (props) => {
       <tr>
         <th className='th0'>
           <span>Культуры&nbsp;&nbsp;&nbsp;</span>
-          <div>
-            <RadioGroup name={nameUnit}
-              title={unitRadioGroup} 
-              lHeight = {lHeight}
-            /> 
-          </div>            
         </th>
-        {/* <th className='th1'></th> */}
         <th className='th1'><span>{cropHead.sum1}, {checkedRadioUnit}</span></th>
         <th className='th2'><span>{cropHead.sum2}, {checkedRadioUnit}</span></th>
         <th className='th3'><span>{cropHead.sum3}, {checkedRadioUnit}</span></th>

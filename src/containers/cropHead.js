@@ -1,7 +1,6 @@
 const cropHead = () => {
 return (
     {
-        urlIcon: "Га:Шт",
         sum1: "Всего",
         sum2: "Засеяно",
         sum3: `Засеяно не в срок`,

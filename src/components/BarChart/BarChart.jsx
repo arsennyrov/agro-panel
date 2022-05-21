@@ -3,65 +3,19 @@ import React from "react";
 import { SvgSelector } from "../../containers/SvgSelector";
 import { format } from '../../containers/utils';
 import crops from "../../containers/data.js";
+import { problems } from "./data";
 import "./BarChart.css";
-
-const problems = [
-  {
-    name: 'Подсолнечник',
-    measure: 'Га',
-    value: 22341,
-    percent: 3,
-    info: true,
-  },
-  {
-    name: 'Яровая пшеница',
-    measure: 'Га',
-    value: 14700,
-    percent: 0,
-    info: false,
-  },
-  {
-    name: 'Рапс яровой',
-    measure: 'Га',
-    value: 3750,
-    percent: 40,
-    info: true,
-  },
- 
-  {
-    name: 'Подсолнечник',
-    measure: 'Га',
-    value: 22341,
-    percent: 0,
-    info: true,
-  },
-  {
-    name: 'Яровая пшеница',
-    measure: 'Га',
-    value: 14700,
-    percent: 100,
-    info: true,
-  },
-  {
-    name: 'Рапс яровой',
-    measure: 'Га',
-    value: 3750,
-    percent: 60,
-    info: true,
-  },
-];
 
 function BarChart() {
 
-  const containerBar = { 
-      marginTop: (crops().length < 4 ) ?  "10px" : "200px", 
-  }
+  const problems0 = problems();
+  const containerBar = { marginTop: (crops().length < 4 ) ?  "10px" : "200px" };
 
   return (
     <div className="bar-chart__container" style={containerBar}>
       <span className="bar-chart__span">График проблем и нареканий</span>
       <div className="bar-chart">
-        {problems.map((item, ind, arr) => {
+        {problems0.map((item, ind, arr) => {
           const barOpacity = .1+item.percent / 100;
 
           const styleBar = { 
@@ -77,19 +31,6 @@ function BarChart() {
             backgroundColor: "rgba(238, 238, 238, 0.6)"
           }
           
-          const styleBarFont = {
-            width: "100px",
-            fontFamily: 'TT Norms',
-            fontStyle: "normal",
-            fontWeight: "500",
-            fontSize: "22px",
-            lineHeight: "24px",
-            textAlign: "center",
-            letterSpacing: "0.03em",
-            textTransform: "lowercase",
-            color: "#000000"
-          }
-
           return (
             <>
             { item.info && <div className="bar-chart__wrapper">
@@ -101,7 +42,7 @@ function BarChart() {
             </div>}
             { !item.info && <div className="bar-chart__wrapper" style={{backgroundColor: "rgba(238, 238, 238, 0.6)"}}>
             <div className="div-plus"></div>
-            <span className="bar-chart__percent" style={styleBarFont}>нет<br />данных</span>
+            <span className="bar-chart__percent1">нет<br />данных</span>
                 <div className="bar-chart__bar" style = { styleBarFalse }>
                   <SvgSelector id={item.name} />
                 </div>

@@ -12,10 +12,8 @@ import cropHead from '../../containers/cropHead';
 const crop = crops();
 const cropHeadM= cropHead();
 
-const Page2 = () => {
-    // const defaultUnit = useSelector(state => state.crops.unitRadioGroup[0].name); 
-    // const checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
-
+const Page2 = (props) => {
+    const checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
     const heightTab = 88+145*crop.length;
     const containerTab = { 
         height: heightTab,
@@ -25,10 +23,10 @@ const Page2 = () => {
         <div className='page2'>
            <hr></hr>  
             <div className='container-tab' style={containerTab}>
-                <TableHead cropHead={cropHeadM} />
+                <TableHead cropHead={cropHeadM} unit={checkedRadioUnit} />
                 {crop.map((item) => { 
                     return (
-                        <TableRow crop={item} />
+                        <TableRow crop={item} key={item.id} />
                     );
                 })};
             </div>

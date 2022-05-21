@@ -12,7 +12,7 @@ const Card = ({ color, titleColor, width, region} ) => {
   }
 
   const styleContainer = { 
-    width: width,
+    width: width-2,
     borderColor: color,
   }
 

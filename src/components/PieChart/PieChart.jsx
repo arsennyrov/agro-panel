@@ -10,22 +10,25 @@ import PieChart, {
 } from 'devextreme-react/pie-chart';
 import { dataSource } from './data.js';
 import crops from '../../containers/data.js';
+import { shiftArr } from '../../containers/utils.js';
 import './PieChart.css';
 
 const customPalette = ["#ffbe21", "#ffd46c", "#fff5de", "#ffe9b2"];
+
+const shiftDataSource = shiftArr(dataSource);
 class Chart extends React.Component {
 
   render() {
     return (
       <div className="pie-chart" style={{top: (crops().length <4) ? "650px" : "850px" }}>
         <PieChart id="pie"
-        palette={customPalette}
-        dataSource={dataSource}
-        startAngle={90}
-      >
+          palette={customPalette}
+          dataSource={shiftDataSource}
+          startAngle={90}
+          >
           <Size
-            height={365}
-            width={888}
+            height={400}
+            width={850}
           />
           <Legend
             visible={false}
@@ -50,17 +53,18 @@ class Chart extends React.Component {
               horizontalOffset="1000px"
               backgroundColor="none"
               customizeText={customizeText}>
-              <Font color="black" size={30} />
+              <Font color="black" size={24} />
               <Connector color="gray" visible={true} width={1.5} />
             </Label>
           </Series>
         </PieChart>
-      </div>
+    </div>
     );
   }
 }
 
 function customizeText(arg) {
+  // return `<span>${arg.valueText} Га - </span><span>${arg.argumentText}</span>`;
   return `<span>${arg.valueText} Га</span><br /><span>${arg.argumentText}</span>`;
 }
 

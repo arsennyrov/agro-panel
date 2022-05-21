@@ -22,19 +22,19 @@ export function overall1() {
         {
             area: "Центральный",
             percent: 100,
-            amount: 50000,
+            amount: 815,
             info: true
         },
         {
             area: "Южный",
             percent: 100,
-            amount: 44000,
+            amount: 377,
             info: true
         },
         {
             area: "Северный",
             percent: 100,
-            amount: 42000,
+            amount: 754,
             info: true
         }
 
@@ -65,19 +65,19 @@ export function overall2() {
         {
             area: "Центральный",
             percent: 39,
-            amount: 50000,
+            amount: 815,
             info: true
         },
         {
             area: "Южный",
             percent: 45,
-            amount: 44000,
+            amount: 377,
             info: true
         },
         {
             area: "Северный",
             percent: 34,
-            amount: 42000,
+            amount: 752,
             info: true
         }
 
@@ -151,19 +151,19 @@ export function overall4() {
         {
             area: "Центральный",
             percent: 0,
-            amount: 50000,
+            amount: 850,
             info: true
         },
         {
             area: "Южный",
             percent: 0,
-            amount: 44000,
+            amount: 415,
             info: true
         },
         {
             area: "Северный",
             percent: 0,
-            amount: 42000,
+            amount: 710,
             info: true
         }
 
@@ -173,6 +173,7 @@ export function overall4() {
 function crops() {
     return [    
         {
+            id: "1001",
             title: "Яровая пшеница",
             sumHa1: 49166,
             sumHa2: 38234,
@@ -188,6 +189,7 @@ function crops() {
             sumThing6: 81
         }, 
         {
+            id: "1002",
             title: "Рапс яровой",
             sumHa1: 15841,
             sumHa2: 6494,
@@ -203,6 +205,7 @@ function crops() {
             sumThing6: 39
         }, 
         {
+            id: "1003",
             title: "Подсолнечник",
             sumHa1: 70899,
             sumHa2: 34031,
@@ -220,6 +223,7 @@ function crops() {
 
         
         {
+            id: "2001",
             title: "Яровая пшеница",
             sumHa1: 0,
             sumHa2: 0,
@@ -235,6 +239,7 @@ function crops() {
             sumThing6: 0
         }, 
         {
+            id: "2002",
             title: "Рапс яровой",
             sumHa1: 15841,
             sumHa2: 6494,
@@ -250,6 +255,7 @@ function crops() {
             sumThing6: 39
         }, 
         {
+            id: "2003",
             title: "Подсолнечник",
             sumHa1: 70899,
             sumHa2: 34031,
