@@ -16,8 +16,6 @@ const TableRow = ({crop}) => {
     marginTop: (cropLength < 4) ? "30px" : "10px"
   }
 
-console.log('=====checkedRadioUnit', checkedRadioUnit);
-
   return (
     <>
     <table className="table-row" style={styleTableRow}>
