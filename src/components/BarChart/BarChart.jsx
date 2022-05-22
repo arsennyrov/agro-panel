@@ -28,21 +28,29 @@ function BarChart() {
             width: (arr.length < 4) ? "200px" : "100px",
             height: "210px",
             marginRight: (arr.length < 4) ? "40px" : "0",
-            backgroundColor: "rgba(238, 238, 238, 0.6)"
+            backgroundColor: "rgba(238, 238, 238, 0)"
           }
           
+          const styleBarWrapper = { 
+            width: (arr.length < 4) ? "200px" : "100px", 
+          }
+
+          const styleBarWrapperFalse = { 
+            width: (arr.length < 4) ? "200px" : "100px", 
+          }
+
           return (
             <>
-            { item.info && <div className="bar-chart__wrapper">
+            { item.info && <div className="bar-chart__wrapper" style = {styleBarWrapper}>
               <h2 className="bar-chart__value">{format(item.value)} {item.measure}</h2>
               <h2 className="bar-chart__percent">{item.percent}%</h2>
               <div className="bar-chart__bar" style = { styleBar }>
                 <SvgSelector id={item.name} />
               </div>
             </div>}
-            { !item.info && <div className="bar-chart__wrapper" style={{backgroundColor: "rgba(238, 238, 238, 0.6)"}}>
+            { !item.info && <div className="bar-chart__wrapper1" style={styleBarWrapperFalse}>
             <div className="div-plus"></div>
-            <span className="bar-chart__percent1">нет<br />данных</span>
+            <span className="bar-chart__percent1"><br />нет<br />данных</span>
                 <div className="bar-chart__bar" style = { styleBarFalse }>
                   <SvgSelector id={item.name} />
                 </div>

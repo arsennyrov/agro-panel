@@ -13,8 +13,8 @@ export function problems() {
     name: 'Яровая пшеница',
     measure: 'Га',
     value: 14700,
-    percent: 0,
-    info: false,
+    percent: 35,
+    info: false  ,
   },
   {
     id: "1003",
