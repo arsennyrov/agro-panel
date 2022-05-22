@@ -37,6 +37,7 @@ function BarChart() {
 
           const styleBarWrapperFalse = { 
             width: (arr.length < 4) ? "200px" : "100px", 
+
           }
 
           return (
@@ -50,7 +51,7 @@ function BarChart() {
             </div>}
             { !item.info && <div className="bar-chart__wrapper1" style={styleBarWrapperFalse}>
             <div className="div-plus"></div>
-            <span className="bar-chart__percent1"><br />нет<br />данных</span>
+            <span className="bar-chart__percent1" style={{fontSize: "24px" }}><br />нет<br />данных</span>
                 <div className="bar-chart__bar" style = { styleBarFalse }>
                   <SvgSelector id={item.name} />
                 </div>
