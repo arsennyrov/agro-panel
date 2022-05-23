@@ -2,25 +2,18 @@
     width: 200px;
     margin: 0px 33px 10px 0;
   }
-  
-  .bar-chart__wrapper1 {
-    /* display: flex; */
-    width: 200px;
-    /* flex-direction: column-reverse; */
-    margin: 0px 33px 10px 0;
-    background-color: rgba(238, 238, 238, 0.6);
-  }
-  
-  .bar-chart__svg {
-    display: block;
-  }
-
-  .bar-chart__bar {
+ 
+  .bar-chart__bar, .bar-chart__bar1 {
     display: flex;
     justify-content: center;
     align-items: end;
     height: 81px;
     border-radius: 5px;
+  }
+
+  .bar-chart__bar1 {
+    position: relative;
+    top: -8px;
   }
   
   .bar-chart__value {
@@ -37,12 +30,12 @@
   }
   
   .bar-chart__percent {
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 0;
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 32px;
     text-align: center;
     letter-spacing: 0.03em;
@@ -52,32 +45,18 @@
   
   .bar-chart__percent1 {
     display: block;  
+    position: relative;
+    top: 12px;
     width: 100%;
     height: 85px;
-    font-family: TT Norms;
-    font-style: "normal";
-    font-weight: "500";
-    font-size: "24px";
-    line-height:normal ;
-    text-align: "center";
-    letter-spacing: "0.03em";
-    text-transform: "lowercase";
-    color: "#000000";
-  }
-  
-  .bar-chart__false {
-    display: block;
-    margin: 0 auto;
-    font-family: 'TT Norms';
+    line-height: 28px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
     text-align: center;
     letter-spacing: 0.03em;
-    text-align: center;
-    letter-spacing: 0.03em;
-    background-color: rgba(238, 238, 238, 0.6);
+    text-transform: "lowercase";
+    color: "#000000";
   }
   
   .div-plus {

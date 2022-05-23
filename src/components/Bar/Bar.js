@@ -15,9 +15,8 @@ const Bar = ({ item, arr }) => {
     }
     const styleBarFalse = { 
       width: (arr.length < 4) ? "200px" : "100px",
-      height: "210px",
+      height: "216px",
       marginRight: (arr.length < 4) ? "40px" : "20px",
-      backgroundColor: "rgba(238, 2, 238, 0)"
     }
     
     const styleBarWrapper = { 
@@ -26,29 +25,23 @@ const Bar = ({ item, arr }) => {
 
     const styleBarWrapperFalse = { 
       width: (arr.length < 4) ? "200px" : "100px", 
-    }
-
-    const stylePercent1 = {
-        position: "relative",
-        top: "14px",
-        fontSize: "24px",
+      backgroundColor: "rgba(238, 238, 238, 0.6)"
     }
 
     return (
       <>
       { item.info && <div className="bar-chart__wrapper" style = { styleBarWrapper }>
         <div className="bar-chart__bar" style = { styleBar }>
-          <SvgSelector id={item.name} className="bar-chart__svg" />
+          <SvgSelector id={item.name} />
         </div>
         <h2 className="bar-chart__percent">{item.percent}%</h2>
         <h2 className="bar-chart__value">{format(item.value)} {item.measure}</h2>
       </div>}
-      { !item.info && <div className="bar-chart__wrapper1" style={ styleBarWrapperFalse }>
-        {/* <div className="div-plus"></div> */}
-          <div className="bar-chart__bar" style = { styleBarFalse }>
+      { !item.info && <div className="bar-chart__wrapper" style={ styleBarWrapperFalse }>
+          <div className="bar-chart__bar1" style = { styleBarFalse }>
             <SvgSelector id={ item.name } />
           </div>
-          <span className="bar-chart__percent1" style={ stylePercent1 }>нет<br/>данных</span>
+          <span className="bar-chart__percent1" >нет<br/>данных</span>
       </div>}   
       </>
     );
