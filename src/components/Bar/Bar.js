@@ -45,6 +45,6 @@ const Bar = ({ item, arr }) => {
       </div>}   
       </>
     );
-  }
+  }  
 
 export default Bar;

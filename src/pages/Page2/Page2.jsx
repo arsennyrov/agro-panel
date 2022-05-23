@@ -27,8 +27,8 @@ const Page2 = (props) => {
                 {crop.map((item) => { 
                     return (
                         <TableRow crop={item} key={item.id} />
-                    );
-                })};
+                    )
+                })}
             </div>
             <div className='container-chart'>
                 <BarChart />

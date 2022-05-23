@@ -2,21 +2,21 @@ export const dataSource = [
   {
     id: 1001,
     name: "Дефицит механизаторов",
-    value: 210
+    value: 1112
   },
   { 
     id: 1002,
     name: "Остановка техники",
-    value: 240
+    value: 549
   },
   { 
     id: 1003,
     name: "Отсутствие заказа в системе",
-    value: 1615
+    value: 215
   },
   { 
     id: 1004,
     name: "Дефицит техники",
-    value: 1764
+    value: 764
   },
 ];
