@@ -42,8 +42,9 @@ const Page1 = () => {
             <div className='header'>
                 <Header />
             </div>    
+            
             <div className='chart' style={{ fill: "#0f0", }}>
-                <SvgHome svgFill={[overall[0].info, overall[1].info, overall[2].info]} />
+                    <SvgHome svgFill={[overall[0].info, overall[1].info, overall[2].info]} />
             </div>
 
             <div className='footer'>

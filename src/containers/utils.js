@@ -11,9 +11,11 @@ export const format = ( num ) => {
     for (let i=1; i<=n1; i++) {
       result = result + ' ' + c.substr(n2+3*(i-1),3);
     }
+    // &nbsp;
 
     return result;
   }
+
 
 // Переставляет элементы массива объектов,
 // разнося элементы с наименьшими значениями.

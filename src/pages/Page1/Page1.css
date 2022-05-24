@@ -1,30 +1,48 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
 .page1 {
+    display: grid;
+    grid-template-rows:  120px 1fr 150px;
+    grid-row-gap: 6%;
+    grid-template-areas: 
+    "header"
+    "chart"
+    "footer";
     position: relative;
+    top: 10px;
     width: 1920px;
     height: 1080px;
     margin: 0 auto;
     padding: 0;
-    background-color: #fff;
+    /* background-color: rgb(208, 227, 246); */
 }
 
 .header {
+    grid-area: header;
     width: 100%;
-    height: 110px;
+    /* height: 110px; */
+    /* background-color: rgb(244, 206, 206); */
 }
 
 .chart {
-    position: absolute;
-    top: 166.17px;
-    left: 393px;
-    width: 1125px;
-    height: 673px;
-    background-image: url('../../../public/img/chart0.svg');
+    grid-area: chart;
+
+}
+
+.footer {
+    grid-area: footer;
+    width: 100%;
+    /* background-color: rgb(140, 183, 156); */
 }
 
 .container-cards {
-    position: absolute;
-    top: 897px; 
-    left: 220px; 
+    /* position: absolute; */
+    /* top: 897px; 
+    left: 220px;  */
     width: 1480px;
     height: 143px;
     margin: 0 auto;
