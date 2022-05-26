@@ -1,0 +1,131 @@
+.grid-container {
+  display: flex;
+  width: 1920px;
+  height: 500px;
+  margin: 0 auto;
+  padding: 0;
+  /* background-color: rgb(246, 243, 243); */
+}
+
+.grid {
+  display: grid;
+  width: 91%;
+  height: 450px;
+  margin: 0 auto;
+  margin-top: 32px;
+  grid-template-columns: .5fr 3fr repeat(6, 1.5fr);
+  grid-template-rows: 1.1fr 1fr;
+  grid-auto-rows: 1fr; 
+  grid-gap: 10px 0;
+  /* background-color: rgb(170, 247, 196); */
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.head-span {
+  display: block;
+  font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #090706;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  border: 2px solid #AAAAAA;
+}
+
+.col3,
+.col4,
+.col5,
+.col6,
+.col7 {
+  border-left: none;
+  border-right: none;
+}
+
+.col8 {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-left: none;
+}
+
+.col1 {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+
+  border: 2px solid #AAAAAA;
+  border-right: none;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.col2 {
+  display: flex;
+  justify-content: left;
+
+  font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: left;
+  line-height: 35px;
+  letter-spacing: 0.03em;
+  color: #090706;
+  border: 2px solid #AAAAAA;
+  border-left: none;
+  border-right: none;
+}
+
+.col5, .col7 {
+  color: #FF4D00;
+}
+
+.col3, .col8 {
+  color: #BFC0C7;
+  /* background-color: rgb(181, 242, 159); */
+}
+
+.col4, .col6 {
+  font-weight: 500;
+  color: #090706;
+}
+
+.row-false {
+  background: rgba(238, 238, 238, 0.6);
+  border: 2px solid rgba(9, 7, 6, 0.2);
+  border-radius: 12px;
+}
+
+.row-span {
+  display: block;
+}
+
+.col-false {
+  font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: center;
+  color: #090706;
+  background-color: #EEEEEE;
+}

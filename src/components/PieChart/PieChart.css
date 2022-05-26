@@ -1,7 +1,7 @@
 .pie-chart {
     position: absolute;
-    /* top: 850px; */
-    left: 900px;
+    top: 600px;
+    left: 1080px;
     width: 900px;
     height: 365px;
     display: flex;

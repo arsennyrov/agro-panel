@@ -186,7 +186,8 @@ function crops() {
             sumThing3: 240,
             sumThing4: 333,
             sumThing5: 20,
-            sumThing6: 81
+            sumThing6: 81,
+            info: true
         }, 
         {
             id: "1002",
@@ -202,7 +203,8 @@ function crops() {
             sumThing3: 77,
             sumThing4: 776,
             sumThing5: 0,
-            sumThing6: 39
+            sumThing6: 39,
+            info: true
         }, 
         {
             id: "1003",
@@ -218,7 +220,8 @@ function crops() {
             sumThing3: 87,
             sumThing4: 74,
             sumThing5: 97,
-            sumThing6: 50
+            sumThing6: 50,
+            info: true
         }, 
 
         
@@ -236,7 +239,8 @@ function crops() {
             sumThing3: 0,
             sumThing4: 0,
             sumThing5: 0,
-            sumThing6: 0
+            sumThing6: 0,
+            info: false
         }, 
         {
             id: "2002",
@@ -252,7 +256,8 @@ function crops() {
             sumThing3: 77,
             sumThing4: 776,
             sumThing5: 0,
-            sumThing6: 39
+            sumThing6: 39,
+            info: true
         }, 
         {
             id: "2003",
@@ -268,7 +273,8 @@ function crops() {
             sumThing3: 87,
             sumThing4: 74,
             sumThing5: 97,
-            sumThing6: 50
+            sumThing6: 50,
+            info: true
         }, 
     ]            
     };

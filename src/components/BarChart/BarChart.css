@@ -1,15 +1,15 @@
 .bar-chart__container {
   position: absolute;
-  top: 600px;
-  left: 86px;
+  top: 840px;
+  left: 450px;
   width: 680px;
   height: 432px;
 }
 
 .bar-chart {
   position: relative;
-  top: 0px;
-  left: 0px;
+  top: -500px;
+  left: -360px;
   width: 680px;
   height: 360px;
   display: flex;
@@ -17,6 +17,9 @@
 }
 
 .bar-chart__span {
+  position: relative;
+  top: -500px;
+  left: -350px;
   display: block;
   font-family: 'TT Norms';
   font-style: normal;
