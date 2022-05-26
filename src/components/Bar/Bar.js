@@ -3,28 +3,28 @@ import { SvgSelector } from '../../containers/SvgSelector';
 import { format } from '../../containers/utils';
 import './Bar.css';
 
-const Bar = ({ item, arr }) => {
+const Bar = ({ item, qty }) => {
 
     const barOpacity = .1+item.percent / 100;
 
     const styleBar = { 
-      width: (arr.length < 4) ? "200px" : "100px",
+      width: (qty < 4) ? "200px" : "100px",
       height: (item.percent * 2.1) + 'px',
-      marginRight: (arr.length < 4) ? "40px" : "20px",
+      marginRight: (qty < 4) ? "40px" : "20px",
       backgroundColor: `rgba(225, 77, 0, ${barOpacity})`
     }
     const styleBarFalse = { 
-      width: (arr.length < 4) ? "200px" : "100px",
+      width: (qty < 4) ? "200px" : "100px",
       height: "216px",
-      marginRight: (arr.length < 4) ? "40px" : "20px",
+      marginRight: (qty < 4) ? "40px" : "20px",
     }
     
     const styleBarWrapper = { 
-      width: (arr.length < 4) ? "200px" : "100px", 
+      width: (qty < 4) ? "200px" : "100px", 
     }
 
     const styleBarWrapperFalse = { 
-      width: (arr.length < 4) ? "200px" : "100px", 
+      width: (qty < 4) ? "200px" : "100px", 
       backgroundColor: "rgba(238, 238, 238, 0.6)"
     }
 

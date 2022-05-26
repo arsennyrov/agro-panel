@@ -12,15 +12,10 @@ const crop = crops();
 const cropHeadM= cropHead();
 
 const Page2 = (props) => {
-    const checkedRadioUnit = useSelector(state => state.crops.selectedRadioUnit);  
-    const heightTab = 88+145*crop.length;
-    const containerTab = { 
-        height: heightTab,
-    }
 
     return (
         <div className='page2'>
-            <div className='container-tab' style={containerTab}>
+            <div className='container-tab'>
 
                 <Grid data={crop} /> 
 

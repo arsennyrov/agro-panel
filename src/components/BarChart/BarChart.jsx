@@ -15,7 +15,7 @@ function BarChart() {
       <span className="bar-chart__span">График проблем и нареканий</span>
       <div className="bar-chart">
         {problems0.map(item => 
-          <Bar key={item.id} item={item} arr={problems0} />
+          <Bar key={item.id} item={item} qty={problems0.length} />
         )}
       </div>
     </div>
