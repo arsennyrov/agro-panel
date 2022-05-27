@@ -1,6 +1,5 @@
 import React from "react";
 
-import crops from "../../containers/data.js";
 import { problems } from "./data";
 import { format } from '../../containers/utils';
 import "./BarChart.css";
@@ -8,11 +7,10 @@ import "./BarChart.css";
 function BarChart() {
 
   const problems0 = problems();
-  const containerBar = { marginTop: (crops().length < 4 ) ?  "10px" : "220px" };
   console.log('problems0', problems0);
 
   return (
-    <div className="bar-chart__container" style={containerBar}>
+    <div className="bar-chart__container">
       <span className="bar-chart__span">График проблем и нареканий</span>
       <div className="bars-container">
         {problems0.map(item => {
