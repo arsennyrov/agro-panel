@@ -18,12 +18,17 @@ import Highcharts from 'highcharts/highstock';
 // const customPalette = ["#ffbe21", "#ffd46c", "#fff5de", "#ffe9b2"];
 // const shiftDataSource = shiftArr(dataSource);
 
+
+
 const options = {
   chart: {
     plotBackgroundColor: null,
     plotBorderWidth: null,
     plotShadow: false,
-    type: 'pie'
+    type: 'pie',
+    style: {
+      fontFamily: 'TT Norms',
+    },
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -33,15 +38,17 @@ const options = {
       valueSuffix: '%'
     }
   },
-  title: '',
+  title: false,
   plotOptions: {
     pie: {
       allowPointSelect: true,
-      cursor: 'pointer',
       colors: ["#ffbe21", "#ffd46c", "#fff5de", "#ffe9b2"],
       dataLabels: {
         enabled: true,
-        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+          fontSize:'20px'
+        }
       }
     }
   },
@@ -58,8 +65,12 @@ const options = {
     }, {
       name: 'Дефицит техники',
       y: 28.9
-    }]
-  }]
+    }],
+    enableMouseTracking: false,
+  }],
+  credits: {
+    enabled: false
+  },
 };
 
 

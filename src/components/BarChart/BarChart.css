@@ -1,32 +1,124 @@
 .bar-chart__container {
-  position: absolute;
-  top: 900px;
-  left: 450px;
-  width: 680px;
-  height: 432px;
-}
-
-.bar-chart {
-  position: relative;
-  top: -500px;
-  left: -360px;
-  width: 680px;
-  height: 360px;
-  display: flex;
-  align-items: flex-end;
+    position: absolute;
+    top: 35%;
+    left: 81px;
+    width: 50%;
+    height: 450px;
 }
 
 .bar-chart__span {
-  position: relative;
-  top: -500px;
-  left: -350px;
-  display: block;
-  font-family: 'TT Norms';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 42px;
-  text-align: left;
-  letter-spacing: 0.03em;
-  color: #090706;
+    position: relative;
+    left: -220px;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 0.03em;
+    color: #090706;
 }
+
+.bars-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 35.5px;
+    grid-auto-columns: 1fr;
+
+    width: 773px;
+    height: 337px;
+    margin-top: 60px;  
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0 35.5px; 
+}
+
+.bar-container1,
+.bar-container2,
+.bar-container3  {
+    display: flex;
+    flex-direction: column;
+    width: 100.5px;
+    height: 337px;
+    background-position: center;
+    background-repeat: no-repeat
+}
+
+.bar-container1 {
+    background-image: url('../../../public/img/springWheat.svg');
+}
+
+.bar-container2 {
+    background-image: url('../../../public/img/springRapeseed.svg');
+}
+
+.bar-container3 {
+    background-image: url('../../../public/img/sunflower.svg');
+}
+
+.bar-height {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+
+    width: 100.5px;
+    height: 212px;
+    color:black;
+    background-position: bottom;
+    background-Repeat: no-repeat;
+}
+
+.bar-chart1,
+.bar-chart2,
+.bar-chart3 {
+    position: relative;
+    width: 100.5px;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    z-index: 5;
+}
+
+.bar-chart1 {
+    background-image: url('../../../public/img/springWheat.svg');
+}
+
+.bar-chart2 {
+    background-image: url('../../../public/img/springRapeseed.svg');
+}
+
+.bar-chart3 {
+    background-image: url('../../../public/img/sunflower.svg');
+}
+
+
+.bar-title {
+    width: 100.5px;
+    height: 93px;
+    background-color: #FFFFFF;
+}
+
+.barTitle1 {
+    display: block;
+    margin-top: 20px;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #BFC0C7;
+}
+
+.barTitle2 {
+    display: block;
+    margin-top: 10px;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #090706;
+}    

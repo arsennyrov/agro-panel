@@ -278,7 +278,6 @@ function crops() {
         }, 
     ]            
     };
-    
     export default crops;
     
     
