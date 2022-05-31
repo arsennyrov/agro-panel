@@ -40,7 +40,7 @@ const Card = ({color, width, title, region}) => {
 
                 {(region.percent === 0) && <>
                 <div className='card-pad'  style={{top: "0px", left: "10vw"}}>
-                    <span className='card-span-amount' style={{color: "color"}}>
+                    <span className='card-span-amount' style={{color: color}}>
                         {format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}
                     </span>
                 </div> 
