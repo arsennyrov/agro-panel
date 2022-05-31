@@ -115,4 +115,15 @@
     white-space: nowrap;
     letter-spacing: 0.03em;
     color: #090706;
-}    
+}
+
+.btn2 {
+    position: relative;
+    top: -4vh;
+    left: 27vw;
+    width: 8vw;
+    height: 3vh;
+    display: flex;
+    justify-content: space-between;
+}
+

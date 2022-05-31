@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { SvgSelector } from '../../containers/SvgSelector';
 import './Grid.css';
+import Button from '../Button/Button';
 
 const Grid = ({ data }) => {
 
   const checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
+
+  const [data0, setData0] = useState(data);  
+  const data3 = data;
 
   const format = (num) => {
     return (
@@ -14,13 +18,25 @@ const Grid = ({ data }) => {
       maximumFractionDigits: 0
   }).format(num))}
 
-  const gapGrid = (data.length <4) ? "30px" : "10px";
+  const gapGrid = (data0.length <4) ? "30px" : "10px";
+
+  const onClick1 = () => {
+    setData0(data);
+  }
+
+  const onClick2 = () => {
+    const data4 = data3.slice(0,data0.length-1);
+    setData0(data4);
+  }
 
   return (
     <div className='grid-container'>
         <div className='grid' style={{ gridRowGap: gapGrid }}>
           <div className='head'><span className='head-span'>Культуры</span></div>
-          <div className='head'></div>
+          <div className='head'> 
+            <Button name={'6'} onClick={onClick1} />
+            <Button name={'-'} onClick={onClick2} />
+          </div>
           <div className='head'><span className='head-span'>Всего, {checkedUnit}</span></div>
           <div className='head'><span className='head-span'>Засеяно, {checkedUnit}</span></div>
           <div className='head'><span className='head-span'>Засеяно <br></br>не в срок, {checkedUnit}</span></div>
@@ -28,7 +44,7 @@ const Grid = ({ data }) => {
           <div className='head'><span className='head-span'>Засеяно сегодня <br></br>не в срок, {checkedUnit}</span></div>
           <div className='head'><span className='head-span'>Засеяно <br></br>всего, {checkedUnit}</span></div>
 
-          {data.map((item) => { 
+          {data0.map((item) => { 
             return (
               <>
                 { item.info && <>
