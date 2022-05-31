@@ -1,17 +1,14 @@
 .pie-chart {
-    position: absolute;
-    top: 60%;
-    left: 1000px;
-    width: 900px;
-    height: 365px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(249, 230, 230); */
+    min-width: 50%;
+    flex: 6 0 0;
   }
-  
-  .spanPie {
-    display: block;
-    width: 200px;
-    text-decoration:underline;
-  }
+
+.pie-chart__label {
+  font-size: 1.25rem;
+  font-weight: 400;
+  overflow: visible !important;
+  text-overflow: 'none';
+}

@@ -3,19 +3,19 @@ export function area() {
         {
             title: 'Центральный',
             number: '1',
-            widthCard: 572,
+            widthCard: 32,
             color: '#C49EEA',
         },
         {
             title: 'Южный',
             number: '2',
-            widthCard: 479,
+            widthCard: 26,
             color: '#9EB3FC',
         },
         {
             title: 'Северный',
             number: '3',
-            widthCard: 409,
+            widthCard: 22.5,
             color: '#A5DED0',
         },
         ]

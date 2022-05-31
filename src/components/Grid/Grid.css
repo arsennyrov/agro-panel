@@ -1,23 +1,14 @@
 .grid-container {
   display: flex;
-  width: 1920px;
-  height: 500px;
-  margin: 0 auto;
+  height: 100%;
   padding: 0;
-  /* background-color: rgb(246, 243, 243); */
 }
 
 .grid {
   display: grid;
-  width: 91%;
-  height: 500px;
-  margin: 0 auto;
-  margin-top: 32px;
-  grid-template-columns: .5fr 3fr repeat(6, 1.5fr);
-  grid-template-rows: 1.1fr 1fr;
-  grid-auto-rows: 1fr; 
-  grid-gap: 10px 0;
-  /* background-color: rgb(170, 247, 196); */
+  height: 100%;
+  grid-template-columns: .5fr 3fr repeat(6, 2.5fr);
+  grid-gap: 1vw 0;
 }
 
 .head {
@@ -31,10 +22,11 @@
   font-family: 'TT Norms';
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.2vw;
   line-height: 28px;
   text-align: center;
   letter-spacing: 0.03em;
+  white-space: nowrap;
   color: #090706;
 }
 
@@ -45,10 +37,11 @@
   font-family: 'TT Norms';
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 1.8vw;
   line-height: 35px;
   text-align: center;
   letter-spacing: 0.03em;
+  white-space: nowrap;
   border: 2px solid #AAAAAA;
 }
 
@@ -81,11 +74,10 @@
 .col2 {
   display: flex;
   justify-content: left;
-
   font-family: 'TT Norms';
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 1.8vw;
   text-align: left;
   line-height: 35px;
   letter-spacing: 0.03em;
@@ -123,7 +115,7 @@
   font-family: 'TT Norms';
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 1.8vw;
   line-height: 35px;
   text-align: center;
   color: #090706;

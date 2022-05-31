@@ -1,11 +1,11 @@
 .radio-group {
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
   border-radius: 20px;
+  margin-left: .1vw;
   background: #eee;
-}
-
-.radio-group-item {
-  display: inline-block;
 }
 
 .radio-group-item input[type=radio] {
@@ -13,23 +13,23 @@
 }
 
 .radio-group label {
-	display: inline-block;
+	/* display: inline-block; */
+	display: block;
 	cursor: pointer;
-	padding: 0px 15px;
+	padding: 0px 1vw;
 	border: 1px solid #eee;
 	user-select: none;
     background-color: #eee;
 	font-style: regular;
 	text-align: center;
-	vertical-align: center;
 	fill: solid;
 	font-family: 'TT Norms';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 30px;
-	line-height: 35px;
+	font-size: 1.5vw;
+	line-height: 65px;
+	white-space: nowrap;
 	letter-spacing: 0.03em;
-
 }
 
 .radio-group .radio-group-item label {

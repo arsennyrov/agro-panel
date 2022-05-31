@@ -8,8 +8,6 @@ const Grid = ({ data }) => {
 
   const checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
 
-  console.log('checkedRadioUnit', checkedUnit);
-
   const format = (num) => {
     return (
     new Intl.NumberFormat("ru-RU", {

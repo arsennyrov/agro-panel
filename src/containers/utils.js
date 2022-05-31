@@ -1,20 +1,8 @@
-// Возвращает отфарматированное с пробелами число/строку
-export const format = ( num ) => {
-  if (num == 0) {
-    return "-";
-  }
-  const c = String(num);
-    const cl = c.length;
-    const n1 = Math.trunc(cl/3);
-    const n2 = cl%3;
-    let result = c.substr(0,n2);
-    for (let i=1; i<=n1; i++) {
-      result = result + ' ' + c.substr(n2+3*(i-1),3);
-    }
-    // &nbsp;
-
-    return result;
-  }
+export const format = (num) => {
+  return (
+  new Intl.NumberFormat("ru-RU", {
+    maximumFractionDigits: 0
+}).format(num))}
 
 
 // Переставляет элементы массива объектов,

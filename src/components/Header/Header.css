@@ -3,23 +3,33 @@
     justify-content:space-between;
     align-items: center;
     width: 100%;
-    height: 110px;
+    height: 100px;
+    margin-top: 15px;
 }
 
 .logo {
-    width: 270px;
-    height: 95px;
-    padding: 15px 0 0 20px;
+    padding: 15px;
+}
+
+.left-radiogroup,
+.right-radiogroup {
+    height: 65px;
+    margin: 1vh 1.5vw;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    /* font-size: .6rem; */
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.03rem;
+    color: #090706;
 }
 
 .left-radiogroup {
-    width: 616px;
-    height: 65px;
-    margin: 28px 0 0 60px;
+    /* width: 616px; */
 }
-
 .right-radiogroup {
-    width: 841px;
-    height: 65px;
-    margin: 28px 0 0 60px;
+    /* width: 841px; */
 }

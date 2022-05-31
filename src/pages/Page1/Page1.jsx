@@ -3,21 +3,14 @@ import { useSelector } from 'react-redux';
 
 import Header from '../../components/Header';
 import './Page1.css';
-import Card from '../../components/Card/Card';
+import Cards from '../../components/Cards/Cards';
 import { overall1, overall2, overall3, overall4 } from '../../containers/data';
-import { area } from '../../containers/regions';
 import SvgHome from '../../components/Svg';
 
-const areas = area();
-const colorCard = [areas[0].color, areas[1].color, areas[2].color,];
-const titleColorCard = [areas[0].color, areas[1].color, areas[2].color,];
-const widthCard0 = [areas[0].widthCard, areas[1].widthCard, areas[2].widthCard,];
 let overall = overall1();
 
 const Page1 = () => {
 
-    const defaultLeft = useSelector(state => state.crops.leftRadioGroup[0].name); 
-    const checkedRadioLeft = useSelector(state => state.crops.selectedRadioLeft);  
     const checkedRadioRight = useSelector(state => state.crops.selectedRadioRight);  
 
     switch (checkedRadioRight) {
@@ -47,31 +40,10 @@ const Page1 = () => {
                     <SvgHome svgFill={[overall[0].info, overall[1].info, overall[2].info]} />
             </div>
 
-            <div className='footer'>
-                <div className='container-cards'>
-                    <div className='card1'>
-                        <Card 
-                            color={colorCard[0]} 
-                            titleColor={titleColorCard[0]} 
-                            width={widthCard0[0]}
-                            region={(checkedRadioLeft===defaultLeft) ? overall[0] : overall[3]} />
-                    </div>
-                    <div className='card2'>
-                        <Card  
-                            color={colorCard[1]} 
-                            titleColor={titleColorCard[1]} 
-                            width={widthCard0[1]}
-                            region={(checkedRadioLeft===defaultLeft) ? overall[1] : overall[4]} />
-                    </div>
-                    <div className='card3'>
-                        <Card 
-                            color={colorCard[2]} 
-                            titleColor={titleColorCard[2]} 
-                            width={widthCard0[2]}
-                            region={(checkedRadioLeft===defaultLeft) ? overall[2] : overall[5]} />
-                    </div>
-                </div>
+            <div className='container-cards'>
+                <Cards overall={overall} />
             </div>
+
         </div>
     );
 };

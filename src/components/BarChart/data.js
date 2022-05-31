@@ -2,7 +2,7 @@ export function problems() {
   return [  
   {
     id: "1001",
-    name: 'Подсолнечник',
+    name: 'Рапс яровой',
     measure: 'Га',
     value: 22341,
     percent: 3,
@@ -18,7 +18,7 @@ export function problems() {
   },
   {
     id: "1003",
-    name: 'Рапс яровой',
+    name: 'Подсолнечник',
     measure: 'Га',
     value: 3750,
     percent: 40,

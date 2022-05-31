@@ -1,101 +1,93 @@
-.span-none {
-    position: relative;
-    top: 12px;
+.card-title {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    align-items:center;
+}
+.card-span-title,
+.card-span-title-none {
     display: block;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8vw;
+    line-height: 2rem;
+}
+
+.card-span-title-none {
+    color: rgba(9, 7, 6, 0.2);
+}
+
+.card-wropper {
+    box-sizing: border-box;
+    width: 100%;
+    height: 82px;
+    border-radius: 8px;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.card-percent {
     width: 100%;
     height: 100%;
+}
+
+.card-pad {
+    position: relative;
+    top: -76px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-span-percent {
+    padding-left: 1.2vw;
+    display: inline-block;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8vw;  
+    line-height: 1.4rem;
+    text-align: left;
+    color: #000000;
+}
+
+.card-amount {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgb(197, 201, 247);
+}
+
+.card-span-amount {
+    padding-right: 1vw;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8vw;
+    line-height: 1.4rem;
+    white-space: nowrap;
+    text-align: right;
+    color: #000000;
+}
+
+.span-none {
+    position: relative;
+    top: -4.1vh;
+    left: 3px;
+    display: block;
+    width: 95%;
+    height: 76px;
     text-align: left;
     padding-left: 34px;
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 500;
-    font-size: 36px;
-    line-height: 42px;
-    color: #000000;
-}
-
-.container-title {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    height: "62px";
-
-    font-family: 'TT Norms';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px; 
-}
-
-.title {
-    font-size: 30px;
-}
-
-.container-card {
-    position: relative;
-    box-sizing: border-box;
-    margin-top: 20px;
-    height: 82px;
-    border-radius: 8px;
-    border-width: 3px;
-    border-style: solid;
-    z-index: 1;
-} 
-
-.pad-card {
-    height: 100%;
-    z-index: 3;
-}
-
-.percent {
-    position: absolute;
-    top: 14px;
-    left: 26px;
-    width: 30%;
-    height: 100%;
-    text-align: left;
-    font-family: 'TT Norms';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 42px;
-    /* text-align: center; */
+    font-size: 1.8vw; 
+    line-height: 66px;
     color: #000000;
     border-radius: 8px;
-    z-index: 5;
-  }
-
-.amount {
-    position: absolute;
-    top: 14px;
-    right: 5px;
-    width: 60%;
-    height: 100%;
-    padding-right: 10px;
-    text-align: right;
-    font-family: 'TT Norms';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 42px;
-    border-radius: 8px;
-    color: #000000;
-    z-index: 5;
-    opacity: 1;
-}
-
-.amount0 {
-    position: absolute;
-    top: 14px;
-    right: 5px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-family: 'TT Norms';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 42px;
-    border-radius: 8px;
-    z-index: 5;
-    opacity: 1;
+    background-color: #ffffff;
 }

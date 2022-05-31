@@ -10,7 +10,6 @@ const RadioGroup = (props) => {
   const { 
       name, 
       title,   
-      lHeight = "35px", 
   } = props; 
 
   const handleChange = (e) => {
@@ -38,15 +37,14 @@ const RadioGroup = (props) => {
             <input
               type="radio" 
               value={item.name}
-              id={''+item.id}
+              id={item.id}
               onChange={handleChange} 
               name={name} 
               defaultChecked={(index===0)}
             />
-            <label
-              htmlFor = {item.id}
-              style = {{ lineHeight: lHeight }}
-            >{item.name}</label>
+            <label htmlFor = {item.id}>
+                {item.name}
+            </label>
         </div>           
         )}
     </div> 
