@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+.page3 {
+    width: 90vw;
+    height: 90vh;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background-image: url('../../../public/img/maket3.png');
+    background-position: center bottom 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -115,8 +115,8 @@ export function overall3() {
         {
             area: "Южный",
             percent: 13,
-            amount: 455,
-            info: false
+            amount: 45500,
+            info: true
         },
         {
             area: "Северный",
@@ -164,7 +164,7 @@ export function overall4() {
             area: "Северный",
             percent: 0,
             amount: 710,
-            info: true
+            info: false
         }
 
     ]

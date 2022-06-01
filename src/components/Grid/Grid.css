@@ -63,12 +63,16 @@
 .col1 {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 
   border: 2px solid #AAAAAA;
   border-right: none;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
+}
+
+.svgselector-wropper {
+  height: 4.5vh;
 }
 
 .col2 {

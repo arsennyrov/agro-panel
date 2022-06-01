@@ -48,18 +48,18 @@ const Grid = ({ data }) => {
             return (
               <>
                 { item.info && <>
-                  <div className='col1'>
+                  <div className='colh col col1'>
                     <div className='svgselector-wropper'>
                       <SvgSelector id={item.title} fill={'#6EAF41'} />
                     </div>  
                   </div >
-                  <div className='col col2'><span className='row-span'>{item.title}</span></div>
-                  <div className='col col3'><span className='row-span'>{format(item.sumHa1)}</span></div>
-                  <div className='col col4'><span className='row-span'>{format(item.sumHa2)}</span></div>
-                  <div className='col col5'><span className='row-span'>{format(item.sumHa3)}</span></div>
-                  <div className='col col6'><span className='row-span'>{format(item.sumHa4)}</span></div>
-                  <div className='col col7'><span className='row-span'>{format(item.sumHa5)}</span></div>
-                  <div className='col col8'><span className='row-span'>{format(item.sumHa6)}</span></div>
+                  <div className='colh col col2'><span className='row-span'>{item.title}</span></div>
+                  <div className='colh col col3'><span className='row-span'>{format(item.sumHa1)}</span></div>
+                  <div className='colh col col4'><span className='row-span'>{format(item.sumHa2)}</span></div>
+                  <div className='colh col col5'><span className='row-span'>{format(item.sumHa3)}</span></div>
+                  <div className='colh col col6'><span className='row-span'>{format(item.sumHa4)}</span></div>
+                  <div className='colh col col7'><span className='row-span'>{format(item.sumHa5)}</span></div>
+                  <div className='colh col col8'><span className='row-span'>{format(item.sumHa6)}</span></div>
                 </>
                 }
                 { !item.info && <>
