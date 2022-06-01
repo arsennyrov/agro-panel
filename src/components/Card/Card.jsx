@@ -10,7 +10,6 @@ const Card = ({color, width, title, region}) => {
     
     const stylePercent = {
         width: `${region.percent*width/100}vw`,
-        //  width: `${region.percent}%`,
         backgroundColor: color,
       }
 
@@ -25,10 +24,8 @@ const Card = ({color, width, title, region}) => {
 
             <div className='card-wropper' style={{borderColor: color}}>
 
-                {!region.info && // <div className='card'>
-                        <span className='span-none'>{'нет данных'}</span>
-               // </div>
-                }
+                {!region.info && <span className='span-none'>{'нет данных'}
+                </span>}
 
                 {(region.percent !== 0 && region.info) && <>
                 <div className='card-percent' style={stylePercent}>
@@ -49,10 +46,7 @@ const Card = ({color, width, title, region}) => {
                         {format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}
                     </span>
                 </div> 
-
                 </> } 
-
-
             </div>
         </>
     );

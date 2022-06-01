@@ -1,15 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import BarChart from '../../components/BarChart';
 import PieChart from '../../components/PieChart';
 import './Page2.css';
 import crops from '../../containers/data';
-import cropHead from '../../containers/cropHead';
 import Grid from '../../components/Grid';
 
 const crop = crops();
-const cropHeadM= cropHead();
 
 const Page2 = (props) => {
 
