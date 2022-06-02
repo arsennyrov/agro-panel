@@ -11,7 +11,6 @@ const Grid = ({ data }) => {
 
   const [data0, setData0] = useState(data);  
   const data3 = data;
-  // const colorInit = [ false, false, false, false, false, false ];
   const [colorBorder, setColorBorder] = useState(false, false, false, false, false, false);
   
   const format = (num) => {
@@ -55,7 +54,8 @@ console.log('cb', colorBorder);
           {data0.map((item, index) => { 
             return (
               <div className={ colorBorder[index] ? `row-wroper row-wrop${index}` : 'row-wroper row-wrop' } 
-                onClick={handleClick(index)}>
+                   key={item.id}
+                   onClick={handleClick(index)}>
                 { item.info && <>
                   <div className='colh col col1'>
                     <div className='svgselector-wropper'>
