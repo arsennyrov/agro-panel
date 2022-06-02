@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// import crops from "../../containers/data.js";
 import { problems } from "./data";
 import { format } from '../../containers/utils';
 import "./BarChart.css";
@@ -12,8 +11,6 @@ function BarChart() {
  
   const [data0, setData0] = useState(problems0);  
   const data3 = problems0;
-
-    
 
   const onClick1 = () => {
     setData0(problems);

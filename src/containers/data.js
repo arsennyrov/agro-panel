@@ -227,7 +227,7 @@ function crops() {
         
         {
             id: "2001",
-            title: "Яровая пшеница",
+            title: "Яровая пшеница_",
             sumHa1: 0,
             sumHa2: 0,
             sumHa3: 0,
@@ -244,7 +244,7 @@ function crops() {
         }, 
         {
             id: "2002",
-            title: "Рапс яровой",
+            title: "Рапс яровой_",
             sumHa1: 15841,
             sumHa2: 6494,
             sumHa3: 743,
@@ -261,7 +261,7 @@ function crops() {
         }, 
         {
             id: "2003",
-            title: "Подсолнечник",
+            title: "Подсолнечник_",
             sumHa1: 70899,
             sumHa2: 34031,
             sumHa3: 11381,
