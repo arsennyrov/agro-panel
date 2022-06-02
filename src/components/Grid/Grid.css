@@ -13,8 +13,8 @@
 .head-wrop {
   display: grid;
   margin-top: 1.5vh;
-    margin-bottom: 1vh;
-  height:6vh;
+  margin-bottom: 1vh;
+  /* height:6vh; */
   grid-template-columns: .5fr 3fr repeat(6, 2.5fr);
 }  
 
@@ -39,7 +39,7 @@
 
 .row-wroper {
   display: grid;
-  height: 6vh;
+  /* height: 6%; */
   margin-top: .8vh;
   grid-template-columns: .5fr 3fr repeat(6, 2.5fr);
   border-radius: 12px;
