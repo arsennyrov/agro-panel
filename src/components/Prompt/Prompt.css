@@ -1,0 +1,36 @@
+.prompt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10.5vw;
+    height: 9vh;
+    /* background-color: rgb(238, 227, 227); */
+}
+
+.prompt__square {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #eeeeee;
+}
+
+.prompt__text {
+    display: flex;
+    flex-direction: column;
+    width: 9vw;
+}
+
+.span123 {
+    display: block;
+    white-space: nowrap;
+
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+}

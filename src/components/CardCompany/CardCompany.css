@@ -1,0 +1,66 @@
+.card-company {
+    width: 100%;
+    height: 24%;
+    border: 3px solid rgb(255,244,251);
+    border-radius: 12px;
+    /* background-color: rgb(247, 209, 209); */
+}
+
+.card-company__container {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    width: 100%;
+    height: 85%;
+    color:black;
+    border-top-width: 1px;
+    border-top-color: #dddddd;
+    /* background-color: #C49EEA; */
+}
+
+.card-company__name {
+    display: block;
+    height: 20%;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30    px;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.03em;
+    background-color: rgb(241,225,252);
+}
+
+.card-company__name-span {
+    display: block;
+}
+
+.card-company__crop {
+    width: 100%;
+    height: 97%;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #dddddd;
+    /* background-color: rgb(191, 239, 174); */   
+}
+
+.card-company__crop-span {
+    display: block;
+    width: 100px;
+    height: 60px;
+
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 1.4vw;
+    letter-spacing: 0.03em;
+    color: #0000ff;
+    /* background-color: rgb(129, 251, 163); */
+}
+
+.card-company__crop-state2 {
+    background-color: rgb(249, 184, 224);
+}

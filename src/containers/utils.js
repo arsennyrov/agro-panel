@@ -21,3 +21,33 @@ export const shiftArr = (arr) => {
   
     return m;
   }
+
+  export function cropsState() {
+    return [   
+      {color: 'rgb(204,239,183)', 
+       text: ['В процессе','(в срок)']},
+      {color: 'rgb(170,210,147)',
+       text: ['В процессе','(не в срок)']}, 
+      {color: 'rgb(254,226,212)',
+       text: ['Должны','начать посев']},
+      {color: 'rgb(255,199,176)',
+       text: ['Должны','уже досеять','(в срок)']},
+      {color: 'rgb(217,171,156)',
+       text: ['Должны','уже досеять','(не в срок)']},
+      {color: 'rgb(239,239,239)',
+       text: ['Посеяно']},
+      {color: 'rgb(192,192,200)',
+       text: ['Посеяно','не в срок']},
+      {color: 'rgb(255,255,255)',
+       text: ['Не начато']}
+    ]
+    };
+
+    // <Propmpt color={'rgb(254,226,212)'} text={['Должны','начать посев']} />
+    // </div>
+    // <div className='prompt-wrap'>
+    //     <Propmpt color={'rgb(255,199,176)'} text={['Должны','уже досеять','(в срок)']} />
+    // </div>
+    // <div className='prompt-wrap'>
+    //     <Propmpt color={'rgb(217,171,156)'} text={['Должны','уже досеять','(не в срок)']} />
+    // </div>
