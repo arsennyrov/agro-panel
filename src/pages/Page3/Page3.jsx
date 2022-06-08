@@ -4,22 +4,36 @@ import CardCompany from '../../components/CardCompany';
 
 import Propmpt from '../../components/Prompt';
 import { cropState } from '../../containers/cropState';
-import { cropsState } from '../../containers/utils';
+import { cropStateOptions } from '../../containers/utils';
 import './Page3.css';
 
 const Page3 = () => {
 
     const cropStates = cropState();
-    const cropsState0 = cropsState();
+    const cropsState0 = cropStateOptions();
     const cropStatesSort = cropStates.sort()
            .sort((a, b) => a.id > b.id ? 1 : -1);
 
-    const companys = [cropStatesSort[0].company]; // спиок фирм региона
-    let j = 0;
+    const companys1 = []; // спиок фирм региона 1
+    const companys2 = []; 
+    const companys3 = []; 
+    let j = -1;
     for(let i=0; i<=cropStatesSort.length-1; i++) {
-        if (companys[j] !== cropStatesSort[i].company) {
-            j=j+1;
-            companys[j] = cropStatesSort[i].company;
+        if  ( (companys1[j] !== cropStatesSort[i].company) && 
+              (companys2[j] !== cropStatesSort[i].company) &&
+              (companys3[j] !== cropStatesSort[i].company) )
+              j=j+1;
+            switch(cropStatesSort[i].region) {
+                case 1:
+                    companys1[j] = cropStatesSort[i].company;
+                    break;
+                case 2:
+                    companys2[j] = cropStatesSort[i].company;
+                    break;
+                case 3:
+                    companys3[j] = cropStatesSort[i].company;
+                    break;
+                default:
         }
     }
 
@@ -41,10 +55,9 @@ const Page3 = () => {
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
-                        <CardCompany cropsCompany={cropsCompany(companys[0])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[1])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[2])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[3])} />
+                        {companys1.map(item => 
+                            <CardCompany cropsCompany={cropsCompany(item)} />
+                        )}        
                     </div>
                 </div>
 
@@ -53,11 +66,9 @@ const Page3 = () => {
                 <div className='region2'>
                     <h3>Южный регион</h3>
                     <div className='context-region2'>
-                        <CardCompany cropsCompany={cropsCompany(companys[4])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[5])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[6])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[7])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[8])} />
+                        {companys2.map(item => 
+                            <CardCompany cropsCompany={cropsCompany(item)} />
+                        )}                     
                     </div>
                 </div>
 
@@ -66,9 +77,11 @@ const Page3 = () => {
                 <div className='region3'>
                     <h3>Северный регион</h3>
                     <div className='context-region3'>
-                        <CardCompany cropsCompany={cropsCompany(companys[9])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[10])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[11])} />
+                        {companys3.map(item => 
+                            <div className='wrop-card-company'>
+                                <CardCompany cropsCompany={cropsCompany(item)} />
+                            </div>
+                        )}        
                     </div>
                 </div>
             </div>

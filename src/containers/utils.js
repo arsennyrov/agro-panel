@@ -22,7 +22,7 @@ export const shiftArr = (arr) => {
     return m;
   }
 
-  export function cropsState() {
+  export function cropStateOptions() {
     return [   
       {color: 'rgb(204,239,183)', 
        text: ['В процессе','(в срок)']},

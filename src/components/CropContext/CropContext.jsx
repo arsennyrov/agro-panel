@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { cropsState } from '../../containers/utils';
+import { cropStateOptions } from '../../containers/utils';
 import './CropContext.css';
 
 const CropContext = ({itemName, itemSum}) => {
-    const cropsState0 = cropsState();
+    const cropsState0 = cropStateOptions();
     
     const itemSum0 = [];
     let j = 0;
