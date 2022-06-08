@@ -13,13 +13,17 @@
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 400;
-    font-size: .9vw;
+    font-size: .8vw;
     line-height: 1.4vw;
     letter-spacing: 0.03em;
 }
 
+.crop-context-span1 {
+    font-size: .9vw;
+}
+
 .crop-context-span12 {
-    color: rgb(220,72,32);
+    color: rgb(220, 128, 72);
 }
 
 .crop-context-span1 {
