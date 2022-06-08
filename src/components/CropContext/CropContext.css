@@ -8,23 +8,25 @@
 
 .crop-context-span1, 
 .crop-context-span2,
-.crop-context-span3,
-.crop-context-span4 {
+.crop-context-span12 {
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 400;
-    font-size: 1vw;
+    font-size: .9vw;
     line-height: 1.4vw;
     letter-spacing: 0.03em;
 }
 
+.crop-context-span12 {
+    color: rgb(220,72,32);
+}
 
 .crop-context-span1 {
     display: block;
     position: absolute;
     top: 1vh;
     left: .6vw;
-    /* white-space: nowrap; */
+    white-space: nowrap;
 }
 
 .crop-context-span2 {
@@ -32,6 +34,7 @@
     position: absolute;
     top: 3.6vh;
     left: .6vw;
+    white-space: nowrap;
 }
 
 .crop-context-span3 {
@@ -39,13 +42,7 @@
     position: absolute;
     top: 5.6vh;
     left: .6vw;
-}
-
-.crop-context-span4 {
-    /* margin-top: 2vh; */
-    position: absolute;
-    top: 7.6vh;
-    left: .6vw;
+    white-space: nowrap;
 }
 
 .crop-div {

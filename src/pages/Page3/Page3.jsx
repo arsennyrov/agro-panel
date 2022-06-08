@@ -53,11 +53,11 @@ const Page3 = () => {
                 <div className='region2'>
                     <h3>Южный регион</h3>
                     <div className='context-region2'>
-                        {/* <CardCompany cropsCompany={cropsCompany(companys[4])} />
+                        <CardCompany cropsCompany={cropsCompany(companys[4])} />
                         <CardCompany cropsCompany={cropsCompany(companys[5])} />
                         <CardCompany cropsCompany={cropsCompany(companys[6])} />
                         <CardCompany cropsCompany={cropsCompany(companys[7])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[8])} /> */}
+                        <CardCompany cropsCompany={cropsCompany(companys[8])} />
                     </div>
                 </div>
 
@@ -66,14 +66,13 @@ const Page3 = () => {
                 <div className='region3'>
                     <h3>Северный регион</h3>
                     <div className='context-region3'>
-                        {/* <CardCompany cropsCompany={cropsCompany(companys[0])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[1])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[2])} />
-                        <CardCompany cropsCompany={cropsCompany(companys[3])} /> */}
+                        <CardCompany cropsCompany={cropsCompany(companys[9])} />
+                        <CardCompany cropsCompany={cropsCompany(companys[10])} />
+                        <CardCompany cropsCompany={cropsCompany(companys[11])} />
                     </div>
                 </div>
-            </div>         
-            
+            </div>
+
             <div className='page3__footer'>
                 {cropsState0.map(item => { 
                     return (

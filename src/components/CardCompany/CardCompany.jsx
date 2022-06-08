@@ -28,15 +28,32 @@ const CardCompany = ({ cropsCompany }) => {
     let sum1All = 0;
     for(let i=0; i<crops1.length; i++) {
         sum1[i] = crops1[i].sum.reduce((a, b) => a + b, 0);
+        if (sum1[i] === 0) sum1[i] = 500;
         sum1All = sum1All + sum1[i];
     }        
 
     const wcol = [];
-        wcol[0] = 1+(10*sum1[0]/sum1All).toFixed(1);
-        wcol[1] = 1+(10*sum1[1]/sum1All).toFixed(1);
-        wcol[2] = 1+(10*sum1[2]/sum1All).toFixed(1);
+    for(let i=0; i<crops1.length; i++) {
+        wcol[i] = 1+(10*sum1[i]/sum1All).toFixed(1);
+    }
 
-    const styleContainer = {gridTemplateColumns: `${wcol[0]}fr ${wcol[1]}fr ${wcol[2]}fr`};
+    console.log('===wcol.length', wcol.length);
+
+        let styleContainer = {}
+        switch (wcol.length) {
+            case 3:
+                styleContainer = {gridTemplateColumns: `${wcol[0]}fr ${wcol[1]}fr ${wcol[2]}fr`};        
+                break;
+            case 2:
+                styleContainer = {gridTemplateColumns: `${wcol[0]}fr ${wcol[1]}fr`};        
+                break;
+            case 1:
+                styleContainer = {gridTemplateColumns: `${wcol[0]}fr`};        
+                break;
+            default:
+                styleContainer = {gridTemplateColumns: `${wcol[0]}fr ${wcol[1]}fr ${wcol[2]}fr`}; 
+            }
+
     const styleCrop = {};
 
     return (

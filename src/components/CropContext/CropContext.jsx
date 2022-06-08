@@ -26,10 +26,12 @@ const CropContext = ({itemName, itemSum}) => {
         itemSum0[i].count = itemSum0.length;
         itemSum0[i].width = (itemSum0[i].sum/ratio).toFixed(2);
         if (itemSum0.length === 2) {
-            itemSum0[i].text1 = ""+itemSum0[1].sum + "("+itemSum0[0].sum+")";
+            itemSum0[i].text1 = ""+itemSum0[1].sum;
+            itemSum0[i].text12 = "("+itemSum0[0].sum+")";
         }
         if (itemSum0.length === 3) {
-            itemSum0[i].text1 = ""+itemSum0[2].sum + "("+itemSum0[1].sum+")";
+            itemSum0[i].text1 = ""+itemSum0[2].sum;
+            itemSum0[i].text12 = "("+itemSum0[1].sum+")";
             itemSum0[i].text2 = (itemSum0.length>2) ? "Осталось "+itemSum0[0].sum + " Га" : ""
         }
     }
@@ -55,6 +57,9 @@ const CropContext = ({itemName, itemSum}) => {
 
                         <span className='crop-context-span2' style = {{}}>
                            {item.text1}
+                            <span className='crop-context-span12' style = {{}}>
+                                {item.text12}
+                            </span> 
                         </span> 
                         <span className='crop-context-span3' style = {{}}>
                             {item.text2}
