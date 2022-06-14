@@ -39,5 +39,6 @@
     position: absolute;
     top: 4.4vh;
     left: .6vw;
+    text-align: left;
     white-space: normal;
 }

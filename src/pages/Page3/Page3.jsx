@@ -15,9 +15,6 @@ const Page3 = () => {
     const companys1 = []; // спиок фирм региона 1
     const companys2 = []; 
     const companys3 = []; 
-    const lays1 = [];
-    const lays2 = [];
-    const lays3 = [];
 
     let j = -1;
     for(let i=0; i<=cropState0.length-1; i++) {
@@ -38,10 +35,6 @@ const Page3 = () => {
                 default:
         }
     }
-
-    // console.log('companys1', companys1);
-    // console.log('companys2', companys2);
-    // console.log('companys3', companys3);
 
     const cropsCompany = (name) => {
         const data = [];

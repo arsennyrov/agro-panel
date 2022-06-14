@@ -33,8 +33,6 @@ const Grid = ({ data }) => {
     setColorBorder(colorInit);
   }
 
-console.log('cb', colorBorder);
-
   return (
     <div className='grid-container'>
         <div className='grid'>

@@ -1,15 +1,12 @@
 // Раскрашивает окна культур в цвета по статусу
 
-import React, { useState } from 'react';
+import React from 'react';
 import { cropStateOptions } from '../../containers/utils';
 import './CropContext.css';
 
 const CropContext = ({itemName, itemSum, wcol}) => {
     const cropsState0 = cropStateOptions();
     
-console.log('cropsState0', cropsState0);    
-console.log('itemSum', itemSum);
-
     const itemSum0 = [];
     let j = 0;
     for(let i=0; i<itemSum.length; i++) {
@@ -61,13 +58,13 @@ console.log('itemSum', itemSum);
                             backgroundColor: item.color
                          }}>
 
-                        <span className='crop-context-span2' style = {{}}>
+                        <span className='crop-context-span2'>
                            {item.text1}
-                            <span className='crop-context-span12' style = {{}}>
+                            <span className='crop-context-span12'>
                                 {item.text12}
                             </span> 
                         </span> 
-                        <span className='crop-context-span3' style = {{}}>
+                        <span className='crop-context-span3'>
                             {item.text2}
                         </span> 
                     </div>
