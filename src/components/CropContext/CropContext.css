@@ -14,7 +14,6 @@
     font-weight: 400;
     font-size: 1vw;
     line-height: 1.2vw;
-    text-align: left;
     letter-spacing: 0.03em;
     white-space: nowrap;
 }
@@ -40,7 +39,5 @@
     position: absolute;
     top: 4.4vh;
     left: .6vw;
-    font-size: .9vw;
-    line-height: 1.1vw;
     white-space: normal;
 }

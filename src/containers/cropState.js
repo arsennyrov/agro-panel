@@ -184,12 +184,12 @@ export function cropState () {
             company: 'ООО "Данков-АгроИнвест"',
             id: 3001,
             region: 3,
-            lay: 1,
+            lay: 3,
 
             crops: [
             {
                 name: "Подсолнечник",
-                sum: [0, 0, 0, 0, 0, 0, 0, 1000],
+                sum: [0, 0, 0, 0, 0, 0, 0, 1],
             },
             {
                 name: "Пшеница",

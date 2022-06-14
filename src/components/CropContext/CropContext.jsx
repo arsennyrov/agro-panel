@@ -6,6 +6,9 @@ import './CropContext.css';
 
 const CropContext = ({itemName, itemSum, wcol}) => {
     const cropsState0 = cropStateOptions();
+    
+console.log('cropsState0', cropsState0);    
+console.log('itemSum', itemSum);
 
     const itemSum0 = [];
     let j = 0;

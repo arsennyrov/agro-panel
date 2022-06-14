@@ -1,9 +1,9 @@
 .card-company {
     width: 100%;
     height: 100%;
-    border-width: 2px;
-    border-style: solid;
+    border: 2px solid rgb(210,192,234);
     border-radius: 8px;
+    /* background-color: rgb(247, 209, 209); */
 }
 
 .card-company__container {
@@ -11,6 +11,9 @@
     width: 100%;
     height: 80%;
     color:black;
+    /* border: 2px solid rgb(210,192,234); */
+    /* border-radius: 8px; */
+    /* background-color: #C49EEA; */
 }
 
 .crop-div10 {
@@ -166,4 +169,5 @@
     line-height: 1.4vw;
     letter-spacing: 0.03em;
     color: #0000ff;
+    /* background-color: rgb(129, 251, 163); */
 }

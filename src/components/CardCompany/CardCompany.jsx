@@ -6,6 +6,8 @@ import './CardCompany.css';
 
 const CardCompany = ({ name, region, cropsCompany }) => {
 
+console.log('===cropsCompany', cropsCompany[0].crops);
+
     const crops0 = cropsCompany[0].crops;
 
     for(let i=0; i<crops0.length; i++) {
@@ -26,6 +28,8 @@ const CardCompany = ({ name, region, cropsCompany }) => {
 
     const crops1 = [].concat(crops0);
 
+    console.log('=====crops0', crops0);
+ 
     const sum1 = [];
     let sum1All = 0;
     for(let i=0; i<crops1.length; i++) {
@@ -37,12 +41,17 @@ const CardCompany = ({ name, region, cropsCompany }) => {
     }        
 
     const wcol = [];
+    let sumWcol = 0;
     for(let i=0; i<crops1.length; i++) {
         wcol[i] = 1+(10*sum1[i]/sum1All).toFixed(1);
+        sumWcol+=wcol[i];
     }
 
+
+
     let styleContainer = {}
-    switch (cropsCompany[0].lay) {
+    // switch (cropsCompany[0].crops.length) {
+        switch (cropsCompany[0].lay) {
         case 1:
             styleContainer = {gridTemplateColumns: `${wcol[0]}fr ${wcol[1]}fr ${wcol[2]}fr`};        
             break;
@@ -51,26 +60,31 @@ const CardCompany = ({ name, region, cropsCompany }) => {
             break;
         default:
             {
+                // if (wcol[0] <= wcol[1]) {
+                //     wcol[0] = (sumWcol/2).toFixed(1)
+                // } else {
+                //     wcol[1] = (sumWcol/2).toFixed(1)
+                // }
                 styleContainer = {gridTemplateColumns: `${wcol[0]}fr) ${wcol[1]}fr`}; 
             }
         }
 
-    let styleCardCompany = {}
-    switch(region) {
-        case 1: 
-            styleCardCompany = {borderColor: "#C49EEA"}
-            break;
-        case 2: 
-            styleCardCompany = {borderColor: "#9EB3FC"}
-            break;
-        case 3: 
-            styleCardCompany = {borderColor: "#A5DED0"}
-            break;
-        default:
-    }
-
-    return (
-        <div className='card-company' style={styleCardCompany}>
+        let styleCardCompany = {}
+        switch(region) {
+            case 1: 
+                styleCardCompany = {borderColor: "#C49EEA"}
+                break;
+            case 2: 
+                styleCardCompany = {borderColor: "#9EB3FC"}
+                break;
+            case 3: 
+                styleCardCompany = {borderColor: "#A5DED0"}
+                break;
+            default:
+        }
+    
+        return (
+            <div className='card-company' style={styleCardCompany}>
             <div className='card-company__name'>
                 <span className='card-company__name-span'>
                     {name}
