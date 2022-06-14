@@ -7,9 +7,9 @@
 .card-span-title,
 .card-span-title-none {
     display: block;
-    font-family: 'TT Norms';
+    font-family: 'TTNorms';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.8vw;
     line-height: 2rem;
 }
@@ -59,7 +59,7 @@
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.8vw;  
+    font-size: 1.8vw;
     line-height: 1.4rem;
     text-align: left;
     color: #000000;
@@ -78,7 +78,7 @@
     padding-right: 1vw;
     font-family: 'TT Norms';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 1.8vw;
     line-height: 1.4rem;
     white-space: nowrap;

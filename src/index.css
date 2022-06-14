@@ -11,7 +11,7 @@ body {
   font-family: "TT Norms";
   src: local("TTNorms-Black.otf"),
    url("./fonts/TT Norms/TTNorms-Regular.otf") format("truetype");
-  font-weight: bold;
+  /* font-weight: bold; */
   }
   
 .font-face-gm {

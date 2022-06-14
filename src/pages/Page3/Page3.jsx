@@ -9,29 +9,28 @@ import './Page3.css';
 
 const Page3 = () => {
 
-    const cropStates = cropState();
-    const cropsState0 = cropStateOptions();
-    const cropStatesSort = cropStates.sort()
-           .sort((a, b) => a.id > b.id ? 1 : -1);
+    const cropState0 = cropState();
+    const cropsStateOptions0 = cropStateOptions();
 
     const companys1 = []; // спиок фирм региона 1
     const companys2 = []; 
     const companys3 = []; 
+
     let j = -1;
-    for(let i=0; i<=cropStatesSort.length-1; i++) {
-        if  ( (companys1[j] !== cropStatesSort[i].company) && 
-              (companys2[j] !== cropStatesSort[i].company) &&
-              (companys3[j] !== cropStatesSort[i].company) )
+    for(let i=0; i<=cropState0.length-1; i++) {
+        if  ( (companys1[j] !== cropState0[i].company) && 
+              (companys2[j] !== cropState0[i].company) &&
+              (companys3[j] !== cropState0[i].company) )
               j=j+1;
-            switch(cropStatesSort[i].region) {
+            switch(cropState0[i].region) {
                 case 1:
-                    companys1[j] = cropStatesSort[i].company;
+                    companys1[j] = cropState0[i].company;
                     break;
                 case 2:
-                    companys2[j] = cropStatesSort[i].company;
+                    companys2[j] = cropState0[i].company;
                     break;
                 case 3:
-                    companys3[j] = cropStatesSort[i].company;
+                    companys3[j] = cropState0[i].company;
                     break;
                 default:
         }
@@ -40,9 +39,9 @@ const Page3 = () => {
     const cropsCompany = (name) => {
         const data = [];
         let j = 0;
-        for(let i=0; i<cropStates.length; i++) {
-            if (cropStatesSort[i].company === name) {
-                data[j] = cropStates[i];
+        for(let i=0; i<cropState0.length; i++) {
+            if (cropState0[i].company === name) {
+                data[j] = cropState0[i];
                 j=j+1;
             }
         }
@@ -55,8 +54,12 @@ const Page3 = () => {
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
-                        {companys1.map(item => 
-                            <CardCompany cropsCompany={cropsCompany(item)} />
+                        {companys1.map((item, index) => 
+                            <CardCompany
+                                name={item}
+                                region={1}
+                                cropsCompany={cropsCompany(item)}
+                            />
                         )}        
                     </div>
                 </div>
@@ -66,8 +69,12 @@ const Page3 = () => {
                 <div className='region2'>
                     <h3>Южный регион</h3>
                     <div className='context-region2'>
-                        {companys2.map(item => 
-                            <CardCompany cropsCompany={cropsCompany(item)} />
+                        {companys2.map((item, index) => 
+                            <CardCompany 
+                                name={item}
+                                region={2}
+                                cropsCompany={cropsCompany(item)} 
+                            />
                         )}                     
                     </div>
                 </div>
@@ -77,9 +84,13 @@ const Page3 = () => {
                 <div className='region3'>
                     <h3>Северный регион</h3>
                     <div className='context-region3'>
-                        {companys3.map(item => 
+                        {companys3.map((item, index) => 
                             <div className='wrop-card-company'>
-                                <CardCompany cropsCompany={cropsCompany(item)} />
+                                <CardCompany 
+                                    name={item}
+                                    region={3}
+                                    cropsCompany={cropsCompany(item)} 
+                                />
                             </div>
                         )}        
                     </div>
@@ -87,7 +98,7 @@ const Page3 = () => {
             </div>
 
             <div className='page3__footer'>
-                {cropsState0.map(item => { 
+                {cropsStateOptions0.map(item => { 
                     return (
                         <div className='prompt-wrap'>
                             <Propmpt color={item.color} text={item.text} />

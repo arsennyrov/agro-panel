@@ -1,10 +1,12 @@
+// Раскрашивает окна культур в цвета по статусу
+
 import React, { useState } from 'react';
 import { cropStateOptions } from '../../containers/utils';
 import './CropContext.css';
 
-const CropContext = ({itemName, itemSum}) => {
+const CropContext = ({itemName, itemSum, wcol}) => {
     const cropsState0 = cropStateOptions();
-    
+
     const itemSum0 = [];
     let j = 0;
     for(let i=0; i<itemSum.length; i++) {
@@ -15,7 +17,7 @@ const CropContext = ({itemName, itemSum}) => {
                        count: 0,
                       };
             itemSum0.push(obj);
-        } 
+         }
     }
 
     itemSum0.sort((a, b) => a.step > b.step ? -1 : 1);
@@ -25,6 +27,10 @@ const CropContext = ({itemName, itemSum}) => {
     for(let i=0; i<itemSum0.length; i++) {
         itemSum0[i].count = itemSum0.length;
         itemSum0[i].width = (itemSum0[i].sum/ratio).toFixed(2);
+        if (itemSum0.length === 1) {
+            if (itemSum0[0].sum > 1)
+                itemSum0[i].text1 = ""+itemSum0[0].sum;
+        }
         if (itemSum0.length === 2) {
             itemSum0[i].text1 = ""+itemSum0[1].sum;
             itemSum0[i].text12 = "("+itemSum0[0].sum+")";
@@ -36,24 +42,21 @@ const CropContext = ({itemName, itemSum}) => {
         }
     }
 
-    // itemSum0.reverse();
-
-    console.log('itemSum0', itemSum0);
-
     return (
         <div className='cropContext'>
             <span className='crop-context-span1'>
                 {itemName}
             </span> 
 
-            {itemSum0.map((item, index) => { 
+            {itemSum0.map ((item, index) => { 
                 return (
-                    <>
-                    <div className={`crop-div${item.step}`} 
-                        style = {{width: `${item.width}%`, 
-                                  height: "100%",
-                                  order: item.step<7 ? "0" : "1",  
-                                  backgroundColor: item.color}}>
+                    <div className={`context-div${index}`} 
+                         style = {{
+                            width: `${item.width}%`, 
+                            height: "100%",
+                            order: item.step<7 ? "0" : "1",  
+                            backgroundColor: item.color
+                         }}>
 
                         <span className='crop-context-span2' style = {{}}>
                            {item.text1}
@@ -65,7 +68,6 @@ const CropContext = ({itemName, itemSum}) => {
                             {item.text2}
                         </span> 
                     </div>
-                    </>
             )})}    
         </div>
     );

@@ -6,15 +6,19 @@
 
 .card1 {
     width: 32vw;
+    font-family: "TT Norms";
+    font-weight: 700;
     color: #C49EEA;
 }
 .card2 {
     width: 26vw;
+    font-family: "TT Norms";
     color: #9EB3FC;
     margin-left: 10px;
 }
 .card3 {
     width: 22.5vw;
+    font-family: "TT Norms";
     color: #A5DED0;
     margin-left: 10px;
 }

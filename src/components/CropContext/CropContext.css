@@ -3,7 +3,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content:flex-start ;
 }
 
 .crop-context-span1, 
@@ -13,13 +12,11 @@
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 400;
-    font-size: .8vw;
-    line-height: 1.4vw;
+    font-size: 1vw;
+    line-height: 1.2vw;
+    text-align: left;
     letter-spacing: 0.03em;
-}
-
-.crop-context-span1 {
-    font-size: .9vw;
+    white-space: nowrap;
 }
 
 .crop-context-span12 {
@@ -29,29 +26,21 @@
 .crop-context-span1 {
     display: block;
     position: absolute;
-    top: 1vh;
+    top: .5vh;
     left: .6vw;
-    white-space: nowrap;
 }
 
 .crop-context-span2 {
-    /* margin-top: 2vh; */
     position: absolute;
-    top: 3.6vh;
+    top: 2.5vh;
     left: .6vw;
-    white-space: nowrap;
 }
 
 .crop-context-span3 {
-    /* margin-top: 2vh; */
     position: absolute;
-    top: 5.6vh;
+    top: 4.4vh;
     left: .6vw;
-    white-space: nowrap;
-}
-
-.crop-div {
-    position: relative;
-    height: "100%";
-
+    font-size: .9vw;
+    line-height: 1.1vw;
+    white-space: normal;
 }
