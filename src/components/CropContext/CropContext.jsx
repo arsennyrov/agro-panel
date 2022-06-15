@@ -1,10 +1,18 @@
 // Раскрашивает окна культур в цвета по статусу
 
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { cropStateOptions } from '../../containers/utils';
 import './CropContext.css';
 
-const CropContext = ({itemName, itemSum, wcol}) => {
+const CropContext = ({ itemName, itemSum }) => {
+
+    CropContext.propTypes = {
+        itemName: PropTypes.string,
+        itemSum: PropTypes.array
+    }        
+
     const cropsState0 = cropStateOptions();
     
     const itemSum0 = [];

@@ -1,8 +1,19 @@
 .card-company {
     width: 100%;
     height: 100%;
-    border: 2px solid rgb(210,192,234);
+    border-width: 2px;
+    border-style: solid;
     border-radius: 8px;
+}
+
+.card-company1 {
+    border-color: #C49EEA;
+}
+.card-company2 {
+    border-color: #9EB3FC;
+}
+.card-company3 {
+    border-color: #A5DED0;
 }
 
 .card-company__container {
@@ -118,6 +129,18 @@
     text-align: right;
     letter-spacing: 0.03em;
     background-color: rgb(241,225,252);
+}
+
+.card-company__name1 {
+    background-color: rgb(241,225,252);
+}
+
+.card-company__name2 {
+    background-color: rgb(226,232,254);
+}
+
+.card-company__name3 {
+    background-color: rgb(222,247,243);
 }
 
 .card-company__name-span {

@@ -1,10 +1,18 @@
 // Расставляет окна культур внутри окна компании
 
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import CropContext from '../CropContext';
 import './CardCompany.css';
 
 const CardCompany = ({ name, region, cropsCompany }) => {
+
+    CardCompany.propTypes = {
+        name: PropTypes.string,
+        region: PropTypes.number,
+        cropsCompany: PropTypes.array
+    }
 
     const crops0 = cropsCompany[0].crops;
 
@@ -61,29 +69,22 @@ const CardCompany = ({ name, region, cropsCompany }) => {
             if (flag > 1) styleContainer = {gridTemplateColumns: `1fr 1fr`};
         }
 
-        let styleCardCompany = {}
-        switch(region) {
-            case 1: 
-                styleCardCompany = {borderColor: "#C49EEA"}
-                break;
-            case 2: 
-                styleCardCompany = {borderColor: "#9EB3FC"}
-                break;
-            case 3: 
-                styleCardCompany = {borderColor: "#A5DED0"}
-                break;
-            default:
-        }
+        let styleSpan = {};
+        if ((name === 'ООО "АГРОЛИПЕЦК"') || (name === 'ЗАО "Дмитриев-Агро-Инвест"')) {
+            styleSpan = {fontSize: '.8rem'};
+        } else {
+            styleSpan = {fontSize: '1rem'};
+        }           
     
         return (
-            <div className='card-company' style={styleCardCompany}>
-            <div className='card-company__name'>
-                <span className='card-company__name-span'>
+            <div className={`card-company card-company${region}`}>
+            <div className={`card-company__name card-company__name${region}`}>
+                <span className='card-company__name-span' style={styleSpan}>
                     {name}
                 </span>
             </div>
 
-            <div className='card-company__container' style = {styleContainer}>
+            <div className='card-company__container' style={styleContainer}>
                 {crops1.map((item, index) => { 
                     return (
                         <div className={`crop-div crop-div${cropsCompany[0].layCrops}${index}`}> 
