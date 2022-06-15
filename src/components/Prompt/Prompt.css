@@ -3,8 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 10.5vw;
-    height: 9vh;
-    /* background-color: rgb(238, 227, 227); */
+    height: 7.5vh;
 }
 
 .prompt__square {
@@ -26,11 +25,10 @@
 .span123 {
     display: block;
     white-space: nowrap;
-
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.2vw;
+    font-size: 1vw;
     line-height: 20px;
     letter-spacing: 0.03em;
 }

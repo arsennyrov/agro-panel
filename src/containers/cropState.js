@@ -206,7 +206,7 @@ export function cropState () {
             company: 'ООО "Сосновка-АГРО-Инвест"',
             id: 3002,
             region: 3,
-            layCrops: 4,
+            layCrops: 5,
             crops: [
             {
                 name: "Пшеница",
