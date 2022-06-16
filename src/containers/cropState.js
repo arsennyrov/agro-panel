@@ -4,6 +4,7 @@ export function cropState () {
             company: 'ООО "Долгоруково-АгроИнвест"',
             id: 1001,
             region: 1,
+            layCompany: 1,
             layCrops: 1,
             
             crops: [
@@ -26,6 +27,7 @@ export function cropState () {
             company: 'ЗАО "Касторное-АгроИнвест"',
             id: 1002,
             region: 1,
+            layCompany: 1,
             layCrops: 1,
 
             crops: [
@@ -48,6 +50,7 @@ export function cropState () {
             company: 'ООО "АГРОЛИПЕЦК"',
             id: 1003,
             region: 1,
+            layCompany:21,
             layCrops: 2,
 
             crops: [
@@ -70,6 +73,7 @@ export function cropState () {
             company: 'ЗАО "Дмитриев-Агро-Инвест"',
             id: 1004,
             region: 1,
+            layCompany: 22,
             layCrops: 3,
 
             crops: [
@@ -88,11 +92,11 @@ export function cropState () {
             ]
         },
 
-
         {
             company: 'ООО "Новохоперск-АгроИнвест"',
             id: 2001,
             region: 2,
+            layCompany: 1,
             layCrops: 6,
 
             crops: [
@@ -111,6 +115,7 @@ export function cropState () {
             company: 'ООО "Елань-АгроИнвест"',
             id: 2002,
             region: 2,
+            layCompany: 21,
             layCrops: 6,
 
             crops: [
@@ -129,6 +134,7 @@ export function cropState () {
             company: 'ООО "Городище-АгроИнвест"',
             id: 2003,
             region: 2,
+            layCompany: 22,
             layCrops: 6,
 
             crops: [
@@ -147,6 +153,7 @@ export function cropState () {
             company: 'ООО "Приволжское-АгроИнвест"',
             id: 2004,
             region: 2,
+            layCompany: 1,
             layCrops: 6,
 
             crops: [
@@ -165,6 +172,7 @@ export function cropState () {
             company: 'ООО "Даниловка-АгроИнвест"',
             id: 2005,
             region: 2,
+            layCompany: 1,
             layCrops: 6,
 
             crops: [
@@ -174,7 +182,7 @@ export function cropState () {
             },
             {
                 name: "Подсолнечник",
-                sum: [0, 0, 0, 0, 0, 0, 0, 1],
+                sum: [0, 0, 800, 0, 0, 0, 0, 0],
             },
             ]
         },
@@ -184,6 +192,7 @@ export function cropState () {
             company: 'ООО "Данков-АгроИнвест"',
             id: 3001,
             region: 3,
+            layCompany: 1,
             layCrops: 5,
 
             crops: [
@@ -206,6 +215,7 @@ export function cropState () {
             company: 'ООО "Сосновка-АГРО-Инвест"',
             id: 3002,
             region: 3,
+            layCompany: 1,
             layCrops: 5,
             crops: [
             {
@@ -227,6 +237,7 @@ export function cropState () {
             company: 'ООО "Маршанск-АгроИнвест"',
             id: 3003,
             region: 3,
+            layCompany: 1,
             layCrops: 3,
             
             crops: [

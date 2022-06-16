@@ -4,6 +4,7 @@ import CardCompany from '../../components/CardCompany';
 
 import Propmpt from '../../components/Prompt';
 import { cropState } from '../../containers/cropState';
+
 import { cropStateOptions } from '../../containers/utils';
 import './Page3.css';
 
@@ -12,29 +13,9 @@ const Page3 = () => {
     const cropState0 = cropState();
     const cropsStateOptions0 = cropStateOptions();
 
-    const companys1 = []; // спиок фирм региона 1
-    const companys2 = []; 
-    const companys3 = []; 
-
-    let j = -1;
-    for(let i=0; i<=cropState0.length-1; i++) {
-        if  ( (companys1[j] !== cropState0[i].company) && 
-              (companys2[j] !== cropState0[i].company) &&
-              (companys3[j] !== cropState0[i].company) )
-              j=j+1;
-            switch(cropState0[i].region) {
-                case 1:
-                    companys1[j] = cropState0[i].company;
-                    break;
-                case 2:
-                    companys2[j] = cropState0[i].company;
-                    break;
-                case 3:
-                    companys3[j] = cropState0[i].company;
-                    break;
-                default:
-        }
-    }
+    const region1 = cropState0.filter(item => item.region === 1);
+    const region2 = cropState0.filter(item => item.region === 2);
+    const region3 = cropState0.filter(item => item.region === 3);
 
     const cropsCompany = (name) => {
         const data = [];
@@ -54,12 +35,14 @@ const Page3 = () => {
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
-                        {companys1.map((item, index) => 
+                        {region1.map((item, index) => 
+                            <div className={`reg${item.layCompany}`}>
                             <CardCompany
-                                name={item}
+                                name={item.company}
                                 region={1}
-                                cropsCompany={cropsCompany(item)}
+                                cropsCompany={cropsCompany(item.company)}
                             />
+                            </div>
                         )}        
                     </div>
                 </div>
@@ -69,12 +52,14 @@ const Page3 = () => {
                 <div className='region2'>
                     <h3>Южный регион</h3>
                     <div className='context-region2'>
-                        {companys2.map((item, index) => 
-                            <CardCompany 
-                                name={item}
+                        {region2.map((item, index) => 
+                            <div className={`reg${item.layCompany}`}>
+                            <CardCompany
+                                name={item.company}
                                 region={2}
-                                cropsCompany={cropsCompany(item)} 
+                                cropsCompany={cropsCompany(item.company)}
                             />
+                            </div>
                         )}                     
                     </div>
                 </div>
@@ -84,14 +69,15 @@ const Page3 = () => {
                 <div className='region3'>
                     <h3>Северный регион</h3>
                     <div className='context-region3'>
-                        {companys3.map((item, index) => 
-                            <div className='wrop-card-company'>
-                                <CardCompany 
-                                    name={item}
-                                    region={3}
-                                    cropsCompany={cropsCompany(item)} 
-                                />
+                        {region3.map((item, index) => 
+                            <div className={`reg${item.layCompany}`}>
+                            <CardCompany
+                                name={item.company}
+                                region={3}
+                                cropsCompany={cropsCompany(item.company)}
+                            />
                             </div>
+
                         )}        
                     </div>
                 </div>
