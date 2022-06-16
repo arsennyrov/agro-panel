@@ -22,11 +22,7 @@ const Page3 = () => {
                     <div className='context-region1'>
                         {region1.map((item, index) => 
                             <div className={`reg${item.layCompany}`}>
-                            <CardCompany
-                                // name={item.company}
-                                // region={1}
-                                cropsCompany={item}
-                            />
+                                <CardCompany cropsCompany={item} />
                             </div>
                         )}        
                     </div>
@@ -39,11 +35,7 @@ const Page3 = () => {
                     <div className='context-region2'>
                         {region2.map((item, index) => 
                             <div className={`reg${item.layCompany}`}>
-                            <CardCompany
-                                name={item.company}
-                                region={2}
-                                cropsCompany={item}
-                            />
+                                <CardCompany cropsCompany={item} />
                             </div>
                         )}                     
                     </div>
@@ -56,11 +48,7 @@ const Page3 = () => {
                     <div className='context-region3'>
                         {region3.map((item, index) => 
                             <div className={`reg${item.layCompany}`}>
-                            <CardCompany
-                                name={item.company}
-                                region={3}
-                                cropsCompany={item}
-                            />
+                                <CardCompany cropsCompany={item} />
                             </div>
 
                         )}        
