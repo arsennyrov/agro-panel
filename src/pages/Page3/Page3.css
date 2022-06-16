@@ -101,6 +101,6 @@ h3 {
 .reg21 {
     grid-column: 1 / 2;
 }
-.reg22 > div:nth-child(4) {
+.reg22 {
     grid-column: 2 / 3;
 }
