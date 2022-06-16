@@ -6,15 +6,15 @@ import PropTypes from 'prop-types';
 import CropContext from '../CropContext';
 import './CardCompany.css';
 
-const CardCompany = ({ name, region, cropsCompany }) => {
+const CardCompany = ({cropsCompany }) => {
 
     CardCompany.propTypes = {
-        name: PropTypes.string,
-        region: PropTypes.number,
-        cropsCompany: PropTypes.array
+        cropsCompany: PropTypes.object
     }
 
-    const crops0 = cropsCompany[0].crops;
+    const name =  cropsCompany.company;
+    const region = cropsCompany.region;
+    const crops0 = cropsCompany.crops;
 
     for(let i=0; i<crops0.length; i++) {
         switch (crops0[i].name) {
@@ -54,9 +54,8 @@ const CardCompany = ({ name, region, cropsCompany }) => {
             wcol[1] = (1+(sum1[1]/(sum1[0]+sum1[1]))).toFixed(1);
     }
 
-
     let styleContainer = {}
-        switch (cropsCompany[0].layCrops) {
+        switch (cropsCompany.layCrops) {
         case 1:
             styleContainer = {gridTemplateColumns: `${wcol[0]}fr ${wcol[1]}fr ${wcol[2]}fr`}; 
             if (flag > 1) styleContainer = {gridTemplateColumns: `1fr 1fr 1fr`};
@@ -84,10 +83,10 @@ const CardCompany = ({ name, region, cropsCompany }) => {
                 </span>
             </div>
 
-            <div className='card-company__container' style={styleContainer}>
+            <div className={`card-company__container card-company__container`} style={styleContainer}>
                 {crops1.map((item, index) => { 
                     return (
-                        <div className={`crop-div crop-div${cropsCompany[0].layCrops}${index}`}> 
+                        <div className={`crop-div crop-div${cropsCompany.layCrops}${index}`}> 
                             <CropContext itemName={item.name} itemSum={item.sum} wcol={wcol}/>
                         </div>
                 )})
