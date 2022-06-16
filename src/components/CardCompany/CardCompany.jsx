@@ -16,22 +16,6 @@ const CardCompany = ({cropsCompany }) => {
     const region = cropsCompany.region;
     const crops0 = cropsCompany.crops;
 
-    for(let i=0; i<crops0.length; i++) {
-        switch (crops0[i].name) {
-            case 'Пшеница':
-                crops0[i].id = 1;
-                break;
-            case 'Подсолнечник':
-                crops0[i].id = 2;
-                break;
-            case 'Рапс яровой':
-                crops0[i].id = 3;
-                break;
-            default:
-                crops0[i].id = 9;                              
-        }
-    }
-
     const crops1 = [].concat(crops0);
  
     const sum1 = [];
