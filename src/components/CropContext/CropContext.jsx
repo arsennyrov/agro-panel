@@ -16,7 +16,6 @@ const CropContext = ({ itemName, itemSum }) => {
     const cropsState0 = cropStateOptions();
     
     const itemSum0 = [];
-    let j = 0;
     for(let i=0; i<itemSum.length; i++) {
         if (itemSum[i] > 0) {
             let obj = {step: i,

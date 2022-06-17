@@ -52,15 +52,16 @@ const CardCompany = ({cropsCompany }) => {
             if (flag > 1) styleContainer = {gridTemplateColumns: `1fr 1fr`};
         }
 
-        let styleSpan = {};
-        if ((name === 'ООО "АГРОЛИПЕЦК"') || (name === 'ЗАО "Дмитриев-Агро-Инвест"')) {
-            styleSpan = {fontSize: '.8rem'};
-        } else {
-            styleSpan = {fontSize: '1rem'};
-        }           
+        
+    let styleSpan = {};
+    if (cropsCompany.layCompany > 1) {
+        styleSpan = {fontSize: '.8rem'};
+    } else {
+        styleSpan = {fontSize: '1rem'};
+    }           
     
-        return (
-            <div className={`card-company card-company${region}`}>
+    return (
+        <div className={`card-company card-company${region}`}>
             <div className={`card-company__name card-company__name${region}`}>
                 <span className='card-company__name-span' style={styleSpan}>
                     {name}
@@ -76,7 +77,6 @@ const CardCompany = ({cropsCompany }) => {
                 )})
                 }
             </div>     
-
         </div>
     );
 };
