@@ -107,17 +107,11 @@
   color: #090706;
 }
 
-/* .col3, .col4, .col5 {
-  position: relative;
-  left: 2vw;
+.col2 {
+  width: 18vw;
 }
-.col6 {
-  position: relative;
-  left: 1vw;
-}  */
 
 .row-wrop3 {
-  width: 20vw;
   background-color:  #EEEEEE;
 }
 
