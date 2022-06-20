@@ -7,7 +7,6 @@
 .grid {
   display: grid;
   height: 100%;
-  grid-template-columns: 1fr;
 }
 
 .head-wrop {
@@ -38,8 +37,8 @@
 }
 
 .row-wroper {
+  position: relative;
   display: grid;
-  /* height: 6%; */
   margin-top: .8vh;
   grid-template-columns: .5fr 3fr repeat(6, 2.5fr);
   border-radius: 12px;
@@ -108,6 +107,20 @@
   color: #090706;
 }
 
+
+.col3, .col4, .col5 {
+  position: relative;
+  left: 2vw;
+}
+.col6 {
+  position: relative;
+  left: 1vw;
+}
+
+.row-wrop3 {
+  background-color:  #EEEEEE;
+}
+
 .row-span {
   display: block;
 }
@@ -121,8 +134,4 @@
   text-align: center;
   color: #090706;
   background-color: #EEEEEE;
-}
-
-.rrr {
-  background-color: #f00;
 }
