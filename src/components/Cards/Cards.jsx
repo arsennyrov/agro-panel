@@ -11,35 +11,24 @@ const Cards = ({overall}) => {
     const checkedRadioLeft = useSelector(state => state.crops.selectedRadioLeft);  
     
     const areas = area();
+    console.log('areas', areas);
 
     return (
         <>
-            <div className='card1'>
-                <Card 
-                    width={areas[0].widthCard}
-                    title={areas[0].title}
-                    index={1} 
-                    region={(checkedRadioLeft===defaultLeft) ? overall[0] : overall[3]}
-                 /> 
-            </div>
-
-            <div className='card2'>
-                <Card 
-                    width={areas[1].widthCard}
-                    title={areas[1].title} 
-                    index={2} 
-                    region={(checkedRadioLeft===defaultLeft) ? overall[1] : overall[4]}                />
-            </div>
-
-            <div className='card3'>
-                <Card 
-                    width={areas[2].widthCard}
-                    title={areas[2].title} 
-                    index={3} 
-                    region={(checkedRadioLeft===defaultLeft) ? overall[2] : overall[5]}                />
-            </div>
+            {areas.map((item, index) => { 
+                return (
+                <div className={`card${index+1}`}>
+                    <Card 
+                        width={item.widthCard}
+                        title={item.title}
+                        index={item.number} 
+                        region={(checkedRadioLeft===defaultLeft) ? 
+                                overall[0+index] : overall[3+index]}
+                    /> 
+                </div>
+            )})}
         </>
-    );
+    )
 };
 
 export default Cards;
