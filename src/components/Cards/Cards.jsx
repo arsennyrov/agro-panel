@@ -16,26 +16,26 @@ const Cards = ({overall}) => {
         <>
             <div className='card1'>
                 <Card 
-                    color={areas[0].color}
                     width={areas[0].widthCard}
-                    title={areas[0].title} 
+                    title={areas[0].title}
+                    index={1} 
                     region={(checkedRadioLeft===defaultLeft) ? overall[0] : overall[3]}
                  /> 
             </div>
 
             <div className='card2'>
                 <Card 
-                    color={areas[1].color}
                     width={areas[1].widthCard}
                     title={areas[1].title} 
+                    index={2} 
                     region={(checkedRadioLeft===defaultLeft) ? overall[1] : overall[4]}                />
             </div>
 
             <div className='card3'>
                 <Card 
-                    color={areas[2].color}
                     width={areas[2].widthCard}
                     title={areas[2].title} 
+                    index={3} 
                     region={(checkedRadioLeft===defaultLeft) ? overall[2] : overall[5]}                />
             </div>
         </>

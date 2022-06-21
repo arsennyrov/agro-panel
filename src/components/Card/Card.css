@@ -28,6 +28,16 @@
     border-style: solid;
 }
 
+.card-wropper1 {
+    border-color: #C49EEA;
+}
+.card-wropper2 {
+    border-color: #9EB3FC;
+}
+.card-wropper3 {
+    border-color: #A5DED0;
+}
+
 .card-percent {
     position: absolute;
     box-sizing: border-box;
@@ -40,8 +50,18 @@
     border-width: 3px;
     border-style: solid;
 }
+.card-percent1 {
+    background-color: #C49EEA;
+}
+.card-percent2 {
+    background-color: #9EB3FC;
+}
+.card-percent3 {
+    background-color: #A5DED0;
+}
 
-.card-pad {
+.card-pad,
+.card-pad1 {
     position: relative;
     top: -76px;
     width: 100%;
@@ -49,6 +69,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.card-pad1 {
+    top: 0px;
+    left: 10vw;
 }
 
 .card-span-percent {
@@ -84,6 +108,15 @@
     white-space: nowrap;
     text-align: right;
     color: #000000;
+}
+.card-span-amount1 {
+    color: #C49EEA;
+}
+.card-span-amount2 {
+    color: #9EB3FC;
+}
+.card-span-amount3 {
+    color: #A5DED0;
 }
 
 .span-none {

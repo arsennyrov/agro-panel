@@ -4,14 +4,13 @@ import { useSelector } from 'react-redux';
 import { format } from '../../containers/utils';
 import './Card.css';
 
-const Card = ({color, width, title, region}) => {
+const Card = ({width, title, region, index}) => {
     const defaultLeft = useSelector(state => state.crops.leftRadioGroup[0].name);   
     const checkedRadioLeft = useSelector(state => state.crops.selectedRadioLeft);  
-    
+
     const stylePercent = {
         width: `${region.percent*width/100}vw`,
-        backgroundColor: color,
-      }
+    }
 
     return (
         <>
@@ -22,13 +21,13 @@ const Card = ({color, width, title, region}) => {
                 <span className='card-span-title-none'>{title}</span>
             </div>}
 
-            <div className='card-wropper' style={{borderColor: color}}>
+            <div className={`card-wropper card-wropper${index}`}>
 
                 {!region.info && <span className='span-none'>{'нет данных'}
                 </span>}
 
                 {(region.percent !== 0 && region.info) && <>
-                <div className='card-percent' style={stylePercent}>
+                <div className={`card-percent card-percent${index}`} style={stylePercent}>
                 </div>
                 <div className='card-pad'>
                     <span className='card-span-percent'>
@@ -41,8 +40,8 @@ const Card = ({color, width, title, region}) => {
                 </> }
 
                 {(region.percent === 0  && region.info) && <>
-                <div className='card-pad'  style={{top: "0px", left: "10vw"}}>
-                    <span className='card-span-amount' style={{color: color}}>
+                <div className='card-pad1'>
+                    <span className={`card-span-amount card-span-amount${index}`}>
                         {format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}
                     </span>
                 </div> 
