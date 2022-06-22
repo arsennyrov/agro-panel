@@ -52,18 +52,11 @@ const CardCompany = ({cropsCompany }) => {
             if (flag > 1) styleContainer = {gridTemplateColumns: `1fr 1fr`};
         }
 
-        
-    let styleSpan = {};
-    if (cropsCompany.layCompany > 1) {
-        styleSpan = {fontSize: '.8rem'};
-    } else {
-        styleSpan = {fontSize: '1rem'};
-    }           
-    
     return (
         <div className={`card-company card-company${region}`}>
             <div className={`card-company__name card-company__name${region}`}>
-                <span className='card-company__name-span' style={styleSpan}>
+                <span className={(cropsCompany.layCompany < 2) ? `card-company__name-span`
+                                  : `card-company__name-span1`}>
                     {name}
                 </span>
             </div>

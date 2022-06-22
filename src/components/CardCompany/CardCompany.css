@@ -145,5 +145,9 @@
 
 .card-company__name-span {
     display: block;
+    font-size: 1rem;
 }
-
+.card-company__name-span1 {
+    display: block;
+    font-size: .8rem;
+}
