@@ -1,38 +1,61 @@
+export function overall0() {
+    return [   
+        {
+            area: "Центр",
+            percent: 0,
+            amount: 0,
+            info: false
+        },
+        {
+            area: "Юг",
+            percent: 0,
+            amount: 0,
+            info: false
+        },
+        {
+            area: "Север",
+            percent: 0,
+            amount: 0,
+            info: false
+        },
+    ]
+}
+
 export function overall1() {
     return [   
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 100,
             amount: 50000,
             info: true
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 100,
             amount: 44000,
             info: true
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 100,
             amount: 42000,
             info: true
         },
         // ---------------------------------------
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 100,
             amount: 815,
             info: true
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 100,
             amount: 377,
             info: true
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 100,
             amount: 754,
             info: true
@@ -44,38 +67,38 @@ export function overall1() {
 export function overall2() {
     return [   
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 39,
             amount: 50000,
             info: true
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 45,
             amount: 44000,
             info: true
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 34,
             amount: 42000,
             info: true
         },
         // ---------------------------------------
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 39,
             amount: 815,
             info: true
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 45,
             amount: 377,
             info: true
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 34,
             amount: 752,
             info: true
@@ -87,19 +110,19 @@ export function overall2() {
 export function overall3() {
     return [   
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 12,
             amount: 50000,
             info: true
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 13,
             amount: 44000,
             info: false
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 8,
             amount: 42000,
             info: true
@@ -107,19 +130,19 @@ export function overall3() {
 
         
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 15,
             amount: 850,
             info: true
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 13,
             amount: 45500,
             info: true
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 2,
             amount: 234,
             info: true
@@ -130,38 +153,38 @@ export function overall3() {
 export function overall4() {
     return [   
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 9,
             amount: 50000,
             info: false
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 0,
             amount: 44000,
             info: false
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 0,
             amount: 42000,
             info: false
         },
         // ---------------------------------------
         {
-            area: "Центральный",
+            area: "Центр",
             percent: 0,
             amount: 850,
             info: true
         },
         {
-            area: "Южный",
+            area: "Юг",
             percent: 0,
             amount: 415,
             info: true
         },
         {
-            area: "Северный",
+            area: "Север",
             percent: 0,
             amount: 710,
             info: false
