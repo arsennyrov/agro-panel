@@ -8,7 +8,7 @@ const initialState = {
     unitRadioGroup: unitRadioGroup(),
 
     selectedRadioLeft: leftRadioGroup()[0].name,
-    selectedRadioRight: rightRadioGroup()[0].name,
+    selectedRadioRight: rightRadioGroup()[3].name,
     selectedRadioUnit: unitRadioGroup()[0].name,
 }
 

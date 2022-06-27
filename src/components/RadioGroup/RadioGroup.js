@@ -28,7 +28,12 @@ const RadioGroup = (props) => {
         console.log('swith-default');
     }        
   }
-   
+  
+  console.log('name', name);
+  let selected = (name === 'right') ? 3 : 0;
+  console.log('selected', selected);
+
+
   return (
     <>
     <div className='radio-group'>
@@ -40,7 +45,7 @@ const RadioGroup = (props) => {
               id={item.id}
               onChange={handleChange} 
               name={name} 
-              defaultChecked={(index===0)}
+              defaultChecked={(index === selected)}
             />
             <label htmlFor = {item.id}>
                 {item.name}

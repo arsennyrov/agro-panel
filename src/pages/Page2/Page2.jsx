@@ -156,8 +156,8 @@ const Page2 = (props) => {
                 {(page2Click === 4) && <Grid data={tabCrops43} page2Click={page2Click} /> }
             </div>
             <div className='page2-button'> 
-              <Button className='page2-butt1' name={'Сев'} onClick={onClick1} />
-              <Button className='page2-butt2' name={'Уборка1'} onClick={onClick2} />
+              {/* <Button className='page2-butt1' name={'Сев'} onClick={onClick1} /> */}
+              <Button className='page2-butt2' name={'1'} onClick={onClick2} />
               <Button className='page2-butt3' name={'2'} onClick={onClick3} />
               <Button className='page2-butt4' name={'3'} onClick={onClick4} />
             </div>
