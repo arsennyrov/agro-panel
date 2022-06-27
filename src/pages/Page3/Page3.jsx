@@ -5,7 +5,7 @@ import axios from 'axios';
 import CardCompany from '../../components/CardCompany';
 import Propmpt from '../../components/Prompt';
 import { cropState } from '../../containers/cropState';
-import { cropStateOptions, transformFull } from '../../containers/utils';
+import { cropStateOptions4, transformFull } from '../../containers/utils';
 import { saveFullData4 } from '../../stores/fullSlice';
 import './Page3.css';
 
@@ -135,13 +135,14 @@ const Page3 = () => {
 
         const region1 = regionFilter('Центр');
         console.log('regio1', region1);
+
         const region2 = regionFilter('Юг');
         const region3 = regionFilter('Север');
 
 
 
     const cropState0 = cropState();
-    const cropsStateOptions0 = cropStateOptions();
+    const cropsStateOptions0 = cropStateOptions4();
 
     // const region1 = cropState0.filter(item => item.region === 1);
     // const region2 = cropState0.filter(item => item.region === 2);
