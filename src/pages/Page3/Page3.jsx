@@ -49,7 +49,7 @@ const Page3 = () => {
                 factTodayOver: 0,
                 plan: obj.PLAN,
                 progress: obj.PROGRESS,
-                sum:[0, 0, 0, obj.PLAN.toFixed(2)-obj.FACT.toFixed(2), 0,obj.FACT.toFixed(2),0,0]
+                sum:[0, 0, 0, obj.PLAN.toFixed(0)-obj.FACT.toFixed(0), 0,obj.FACT.toFixed(0),0,0]
           }}
 
         const fullTrans = []; 
@@ -109,10 +109,10 @@ const Page3 = () => {
             // console.log('sumfullCrops', sumfullCrops);
 
             if ((fullSort[i]?.titleName !== titleName0) ) {
-                sumPlan = sumPlan.toFixed(2);
-                sumFact = sumFact.toFixed(2);
-                sumFactInTime = sumFactInTime.toFixed(2);
-                sumFactOverTime = sumFactOverTime.toFixed(2);
+                sumPlan = sumPlan.toFixed(0);
+                sumFact = sumFact.toFixed(0);
+                sumFactInTime = sumFactInTime.toFixed(0);
+                sumFactOverTime = sumFactOverTime.toFixed(0);
                 sumfullCrops.push({
                     titleName: titleName0,
                     title: fullSort[i-1]?.title,
@@ -125,7 +125,7 @@ const Page3 = () => {
                     factOverTime: sumFactOverTime,
                     factToday: sumFact/12,
                     factTodayOver: sumFactOverTime/12,
-                    progress: ((100*sumFact)/sumPlan).toFixed(2),
+                    progress: ((100*sumFact)/sumPlan).toFixed(0),
                     sum: fullSort[i-1]?.sum,
                     info: true,
                 });
@@ -146,10 +146,10 @@ const Page3 = () => {
             sumM = fullSort[i-1]?.sum;
         }
 //---------------------------------------------------------------------------------------
-        sumPlan = sumPlan.toFixed(2);
-        sumFact = sumFact.toFixed(2);
-        sumFactInTime = sumFactInTime.toFixed(2);
-        sumFactOverTime = sumFactOverTime.toFixed(2);
+        sumPlan = sumPlan.toFixed(0);
+        sumFact = sumFact.toFixed(0);
+        sumFactInTime = sumFactInTime.toFixed(0);
+        sumFactOverTime = sumFactOverTime.toFixed(0);
 
         // console.log('===========titleM', titleM);
 
@@ -165,7 +165,7 @@ const Page3 = () => {
             factOverTime: sumFactOverTime,
             factToday: sumFact/12,
             factTodayOver: sumFactOverTime/12,
-            progress: ((100*sumFact)/sumPlan).toFixed(2),
+            progress: ((100*sumFact)/sumPlan).toFixed(0),
             sum: sumM,
             info: true,
         });
