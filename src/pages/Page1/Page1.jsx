@@ -14,7 +14,7 @@ let overall = overall1();
 
 const Page1 = () => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     // const [appState, setAppState] = useState();
   

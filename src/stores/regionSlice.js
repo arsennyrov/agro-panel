@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// import { leftRadioGroup, rightRadioGroup, unitRadioGroup } from '../containers/radioGroups';
-
 const initialState = {
     regionsData1: [],
     regionsData2: [],
@@ -27,7 +25,6 @@ export const regionSlice = createSlice({
         },
     }
 })
-
 
 export const { changeRegionsData1, 
                changeRegionsData2, 

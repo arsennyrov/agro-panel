@@ -4,6 +4,22 @@ export const format = (num) => {
     maximumFractionDigits: 0
 }).format(num))}
 
+export const transformFull = (obj={}) => {
+  return {
+      region: obj.AO__REGION,
+      nameAo: obj.AO__FULLNAME,
+      subName: obj.FIELD_GROUP__NAME,
+      name: obj.CROPS__NAME,
+      fact: obj.FACT,
+      factInTime: obj.FACT_IN_TIME,
+      factOverTime: obj.FACT_OVERTIME,
+      factToday: 0,
+      factTodayOver: 0,
+      plan: obj.PLAN,
+      progress: obj.PROGRESS,
+      info: true,
+  }
+}
 
 // Переставляет элементы массива объектов,
 // разнося элементы с наименьшими значениями.
@@ -63,3 +79,5 @@ export const shiftArr = (arr) => {
          text: ['Не начато']}
       ]
       };
+
+
