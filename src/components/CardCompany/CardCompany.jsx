@@ -6,14 +6,30 @@ import PropTypes from 'prop-types';
 import CropContext from '../CropContext';
 import './CardCompany.css';
 
-const CardCompany = ({cropsCompany }) => {
+const CardCompany = ({ cropsCompany }) => {
 
     CardCompany.propTypes = {
         cropsCompany: PropTypes.object
     }
 
+    console.log('cropsCompany', cropsCompany);
+
+    let region = 0;
+    switch (cropsCompany.region) {
+        case 'Центр':
+            region = 1;
+            break;
+        case 'Юг':
+            region = 2;
+            break;
+        case 'Север':
+            region = 3;
+            break;
+        default:    
+            region = 0;
+    }
+
     const name =  cropsCompany.company;
-    const region = cropsCompany.region;
     const crops0 = cropsCompany.crops;
 
     const crops1 = [].concat(crops0);

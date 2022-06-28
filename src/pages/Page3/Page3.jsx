@@ -49,7 +49,7 @@ const Page3 = () => {
                 factTodayOver: 0,
                 plan: obj.PLAN,
                 progress: obj.PROGRESS,
-                sum:[0, 0, 0, obj.PLAN.toFixed(0)-obj.FACT.toFixed(0), 0,obj.FACT.toFixed(0),0,0]
+                sum:[0, 0, 0, 0, 0, obj.FACT,0, obj.PLAN-obj.FACT]
           }}
 
         const fullTrans = []; 
@@ -87,7 +87,7 @@ const Page3 = () => {
         //     progress: 0,
         //     sum:[0, 0, 0, 0, 0, 0, 0, 0]
         // })
-        console.log('fullSort', fullSort);
+        // console.log('fullSort', fullSort);
 
         const sumfullCrops = [];
         let titleName0 = fullSort[0]?.titleName;
@@ -206,9 +206,9 @@ const Page3 = () => {
         let sum0 = [];
         for (let i=0; i<fullTrans0?.length; i++) {
 
-            console.log('WWWWW fullTrans0[i]?.company', fullTrans0[i]?.company);
-            console.log('WWWWW company0', company0);
-            console.log('(fullTrans0[i]?.company !== company0', fullTrans0[i]?.company !== company0);
+            // console.log('WWWWW fullTrans0[i]?.company', fullTrans0[i]?.company);
+            // console.log('WWWWW company0', company0);
+            // console.log('(fullTrans0[i]?.company !== company0', fullTrans0[i]?.company !== company0);
             if (fullTrans0[i]?.company !== company0) {
 
                 // console.log('sum0[]', sum0);
@@ -291,8 +291,8 @@ const Page3 = () => {
         const region2 = regionFilter('Юг');
         const region3 = regionFilter('Север');
         console.log('===regio1', region1);
-        console.log('===regio2', region2);
-        console.log('===regio3', region3);
+        // console.log('===regio2', region2);
+        // console.log('===regio3', region3);
 
     const cropsStateOptions0 = cropStateOptions4();
 

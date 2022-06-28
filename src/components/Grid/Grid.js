@@ -34,6 +34,12 @@ const Grid = ({ data, page2Click }) => {
     setColorBorder(colorInit);
   }
 
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth();
+
+  console.log('data', day, month);
+
   return (
     <div className='grid-container'>
         <div className='grid'>
@@ -43,22 +49,22 @@ const Grid = ({ data, page2Click }) => {
               <Button name={'6'} onClick={onClick1} />
               <Button name={'-'} onClick={onClick2} />
             </div>
-            {(page2Click === 1) && <>
+            {(page2Click === 0) && <>
                 <div className='head'><span className='head-span'>Всего, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Засеяно, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Засеяно <br></br>не в срок, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Засеяно <br></br>сегодня, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Засеяно сегодня <br></br>не в срок, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Засеяно <br></br>всего, {checkedUnit}</span></div>
+                <div className='head'><span className='head-span'>Засеяно <br></br>всего, {'%'}</span></div>
               </>
             }
-            {(page2Click > 1) && <>
+            {(page2Click > 0) && <>
                 <div className='head'><span className='head-span'>Всего, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Убрано, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Убрано <br></br>не в срок, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Убрано <br></br>сегодня, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Убрано сегодня <br></br>не в срок, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Убрано <br></br>всего, {checkedUnit}</span></div>
+                <div className='head'><span className='head-span'>Убрано <br></br>{day-2}.{month+1}, {checkedUnit}</span></div>
+                <div className='head'><span className='head-span'>Убрано {day-2}.{month+1}<br></br>не в срок, {checkedUnit}</span></div>
+                <div className='head'><span className='head-span'>Убрано <br></br>всего, {'%'}</span></div>
               </>
             }
             </div>
