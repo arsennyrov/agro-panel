@@ -65,7 +65,7 @@ const CardCompany = ({ cropsCompany }) => {
             break;
         default:
             styleContainer = {gridTemplateColumns: `${wcol[0]}fr ${wcol[1]}fr`};
-            if (flag > 1) styleContainer = {gridTemplateColumns: `1fr 1fr`};
+            if (flag > 1) styleContainer = {gridTemplateColumns: `1fr 1fr`}; 
         }
 
     return (
