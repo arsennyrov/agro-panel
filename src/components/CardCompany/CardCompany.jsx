@@ -12,7 +12,7 @@ const CardCompany = ({ cropsCompany }) => {
         cropsCompany: PropTypes.object
     }
 
-    console.log('cropsCompany', cropsCompany);
+    // console.log('cropsCompany', cropsCompany);
 
     let region = 0;
     switch (cropsCompany.region) {

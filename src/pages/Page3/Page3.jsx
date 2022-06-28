@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import CardCompany from '../../components/CardCompany';
 import Propmpt from '../../components/Prompt';
-import { cropState } from '../../containers/cropState';
+// import { cropState } from '../../containers/cropState';
 import { cropStateOptions4, transformFull } from '../../containers/utils';
 import { saveFullData4 } from '../../stores/fullSlice';
 import './Page3.css';
@@ -22,16 +22,21 @@ const Page3 = () => {
         }, []);
     
         const fullStage4 = useSelector(state => state.fulls.fullData4);
-        // console.log('fullStage4', fullStage4);
+        console.log('==========fullStage4', fullStage4);
 
         const fullFilter = fullStage4.filter(item => 
-            (item.CROPS__NAME === 'Кукуруза') ||
             (item.CROPS__NAME === 'Подсолнечник') ||
-            (item.CROPS__NAME === 'Пшеница яровая')  
+            (item.CROPS__NAME === 'Кукуруза') ||
+            (item.CROPS__NAME === 'Ячмень яровой') 
+            // (item.CROPS__NAME === 'Соя') ||
+            // (item.CROPS__NAME === 'Пшеница яровая') ||
+            // (item.CROPS__NAME === 'Пшеница озимая') 
+            // (item.CROPS__NAME === 'Подсолнечник ВО')
         );
         // console.log('fullFilter', fullFilter);
 
-        const transformFull3 = (obj={},num) => {
+        const transformFull3 = (obj={},num, sum0, layCrops0) => {
+
             return {
                 company: obj.AO__FULLNAME+'/'+obj.FIELD_GROUP__NAME,
                 title: obj.AO__FULLNAME,
@@ -40,22 +45,43 @@ const Page3 = () => {
                 id: 1000+num,
                 region: obj.AO__REGION,
                 layCompany: 1,
-                layCrops: 1,
+                layCrops: layCrops0,
                 name: obj.CROPS__NAME,
-                fact: obj.FACT,
-                factInTime: obj.FACT_IN_TIME,
-                factOverTime: obj.FACT_OVERTIME,
+                fact: Math.round(obj.FACT),
+                factInTime: Math.round(obj.FACT_IN_TIME),
+                factOverTime: Math.round(obj.FACT_OVERTIME),
                 factToday: 0,
                 factTodayOver: 0,
-                plan: obj.PLAN,
-                progress: obj.PROGRESS,
-                sum:[0, 0, 0, 0, 0, obj.FACT,0, obj.PLAN-obj.FACT]
+                plan: Math.round(obj.PLAN),
+                progress: Math.round(obj.PROGRESS),
+                sum: sum0
           }}
 
         const fullTrans = []; 
-        for (let i=0; i<fullFilter.length; i++) {
-            fullTrans.push(transformFull3(fullFilter[i],i));
+        let sum0 = [];
+        let cropsName0 = '';
+        let layCrops0;
+        for (let i=0; i<fullFilter?.length; i++) {
+            cropsName0 = fullFilter[i]?.CROPS__NAME;
+            switch (cropsName0) {
+                case 'Ячмень яровой': 
+                    sum0 = [0, 0, Math.round(fullFilter[i]?.PLAN), 0, 0, Math.round(fullFilter[i]?.FACT), 0, Math.round(fullFilter[i]?.PLAN - fullFilter[i]?.FACT)];
+                    break;
+                case 'Подсолнечник':
+                    sum0 = [Math.round(fullFilter[i]?.PLAN), 0 , 0, 0, 0, Math.round(fullFilter[i]?.FACT), 0, 0];
+                    break;
+                case 'Кукуруза':    
+                    sum0 = [0, Math.round(fullFilter[i]?.PLAN), 0, 0, 0, Math.round(fullFilter[i]?.FACT), 0, 0];
+                    break;
+                default:
+                    sum0 = []; 
+            }
+
+            layCrops0 = (fullFilter[i]?.AO__REGION === "Север") ? 6 : 1;
+
+            fullTrans.push(transformFull3(fullFilter[i],i,sum0,layCrops0));
         }
+        
         // console.log('fullTrans', fullTrans);
 
         const fullSort = fullTrans.slice().sort((a,b) => {
@@ -68,33 +94,13 @@ const Page3 = () => {
             return 0;
         });
 
-        // fullSort.push({
-        //     company: 'AAAAA',
-        //     title: 'AAAAA',
-        //     titleName: 'AAAAA BBBBB',
-        //     subTitle: 'CCCCC',
-        //     id: 1088,
-        //     region: 'Центр',
-        //     layCompany: 1,
-        //     layCrops: 1,
-        //     name: 'Соя',
-        //     fact: 1111,
-        //     factInTime: 0,
-        //     factOverTime: 0,
-        //     factToday: 0,
-        //     factTodayOver: 0,
-        //     plan: 2222,
-        //     progress: 0,
-        //     sum:[0, 0, 0, 0, 0, 0, 0, 0]
-        // })
-        // console.log('fullSort', fullSort);
-
         const sumfullCrops = [];
         let titleName0 = fullSort[0]?.titleName;
         let titleM = '';
         let companyM = '';
         let nameM = '';
         let regionM = '';
+        let layCropsM = 1;
         let sumFact = 0;
         let sumFactInTime = 0;
         let sumFactOverTime = 0;
@@ -102,11 +108,6 @@ const Page3 = () => {
         let sumM = [];
 //-------------------------------------------------------------------------------------------------        
         for (let i=0; i<fullSort?.length; i++) {
-
-            // console.log('fullSort[i]?.titleName', fullSort[i]?.titleName);
-            // console.log('titleName0', titleName0);
-            // console.log('fullSort[i]?.titleName !== titleName0', fullSort[i]?.titleName !== titleName0);
-            // console.log('sumfullCrops', sumfullCrops);
 
             if ((fullSort[i]?.titleName !== titleName0) ) {
                 sumPlan = sumPlan.toFixed(0);
@@ -119,6 +120,7 @@ const Page3 = () => {
                     company: fullSort[i-1]?.title,
                     name: fullSort[i-1]?.name,
                     region: fullSort[i-1]?.region,
+                    layCrops: fullSort[i-1]?.layCrops,
                     plan: sumPlan,
                     fact: sumFact,
                     factInTime: sumFactInTime,
@@ -143,6 +145,7 @@ const Page3 = () => {
             companyM = fullSort[i-1]?.title;
             nameM = fullSort[i-1]?.name;
             regionM = fullSort[i-1]?.region;
+            layCropsM = fullSort[i-1]?.layCrops;
             sumM = fullSort[i-1]?.sum;
         }
 //---------------------------------------------------------------------------------------
@@ -151,14 +154,13 @@ const Page3 = () => {
         sumFactInTime = sumFactInTime.toFixed(0);
         sumFactOverTime = sumFactOverTime.toFixed(0);
 
-        // console.log('===========titleM', titleM);
-
         sumfullCrops.push({
             titleName: titleName0,
             title: titleM,
             company: companyM,
             name: nameM,
             region: regionM,
+            layCrops: layCropsM,
             plan: sumPlan,
             fact: sumFact,
             factInTime: sumFactInTime,
@@ -171,12 +173,9 @@ const Page3 = () => {
         });
         console.log('sumfullCrops', sumfullCrops);
 
-
-        // console.log('fullTrans', fullTrans);
     const regionFilter = (string0) => {
         const fullFinish = []; 
         const fullTrans0 = sumfullCrops.slice().filter(item => item.region === string0);
-
 
         fullTrans0.push({
             company: 'AAAAA',
@@ -206,12 +205,8 @@ const Page3 = () => {
         let sum0 = [];
         for (let i=0; i<fullTrans0?.length; i++) {
 
-            // console.log('WWWWW fullTrans0[i]?.company', fullTrans0[i]?.company);
-            // console.log('WWWWW company0', company0);
-            // console.log('(fullTrans0[i]?.company !== company0', fullTrans0[i]?.company !== company0);
             if (fullTrans0[i]?.company !== company0) {
 
-                // console.log('sum0[]', sum0);
                 switch (sum0.length) {
                     case 1:    
                         fullFinish.push({
@@ -220,7 +215,7 @@ const Page3 = () => {
                             region: fullTrans0[i-1]?.region,
                             layCompany: 1,
                             // (i%2 === 0) ? 21 : 22,
-                            layCrops: 1,
+                            layCrops: fullTrans0[i-1]?.layCrops,
                             crops: [
                                 {
                                     name: name0[0],
@@ -236,7 +231,7 @@ const Page3 = () => {
                             region: fullTrans0[i-1]?.region,
                             layCompany: 1,
                             // (i%2 === 0) ? 21 : 22,
-                            layCrops: 1,
+                            layCrops: fullTrans0[i-1]?.layCrops,
                             crops: [
                                 {
                                     name: name0[0],
@@ -256,7 +251,7 @@ const Page3 = () => {
                             region: fullTrans0[i-1]?.region,
                             layCompany: 1,
                             // (i%2 === 0) ? 21 : 22,
-                            layCrops: 1,
+                            layCrops: fullTrans0[i-1]?.layCrops,
                             crops: [
                                 {
                                     name: name0[0],
@@ -292,13 +287,9 @@ const Page3 = () => {
         const region3 = regionFilter('Север');
         console.log('===regio1', region1);
         // console.log('===regio2', region2);
-        // console.log('===regio3', region3);
+        console.log('===regio3', region3);
 
     const cropsStateOptions0 = cropStateOptions4();
-
-    // const region1 = sumfullCrops.filter(item => item.region === 'Центр');
-    // const region2 = sumfullCrops.filter(item => item.region === 'Юг');
-    // const region3 = sumfullCrops.filter(item => item.region === 'Север');
 
     return (
         <div className='page3'>

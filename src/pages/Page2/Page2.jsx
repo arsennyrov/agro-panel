@@ -61,7 +61,7 @@ const Page2 = (props) => {
                     factInTime: sumFactInTime,
                     factOverTime: sumFactOverTime,
                     factToday: sumFact/12,
-                    factTodayOver: sumFactOverTime/12,
+                    factTodayOver: sumFactOverTime/18,
                     progress: Math.round((100*sumFact)/sumPlan),
                     info: true,
                 });
