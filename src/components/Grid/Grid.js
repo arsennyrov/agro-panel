@@ -46,8 +46,8 @@ const Grid = ({ data, page2Click }) => {
           <div className='head-wrop'>
             <div className='head'><span className='head-span'>Культуры</span></div>
             <div className='head'> 
-              <Button name={'6'} onClick={onClick1} />
-              <Button name={'-'} onClick={onClick2} />
+              {/* <Button name={'6'} onClick={onClick1} />
+              <Button name={'-'} onClick={onClick2} /> */}
             </div>
             {(page2Click === 0) && <>
                 <div className='head'><span className='head-span'>Всего, {checkedUnit}</span></div>
