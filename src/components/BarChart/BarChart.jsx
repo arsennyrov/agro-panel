@@ -25,8 +25,8 @@ function BarChart() {
     <div className="bar-chart__container">
       <span className="bar-chart__span">График проблем и нареканий</span>
           <div className='btn2'>
-            <Button name={'6'} onClick={onClick1} />
-            <Button name={'-'} onClick={onClick2} />
+            {/* <Button name={'6'} onClick={onClick1} />
+            <Button name={'-'} onClick={onClick2} /> */}
           </div>   
       <div className="bars-container">
         {data0.map(item => {
