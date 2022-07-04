@@ -11,7 +11,6 @@ const Cards = ({overall}) => {
     const checkedRadioLeft = useSelector(state => state.crops.selectedRadioLeft);  
     
     const areas = area();
-    console.log('areas', areas);
 
     return (
         <>

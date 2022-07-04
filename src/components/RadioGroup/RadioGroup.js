@@ -29,10 +29,7 @@ const RadioGroup = (props) => {
     }        
   }
   
-  console.log('name', name);
   let selected = (name === 'right') ? 3 : 0;
-  console.log('selected', selected);
-
 
   return (
     <>

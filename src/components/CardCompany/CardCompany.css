@@ -25,99 +25,15 @@
 
 .crop-div {
     border: 1px solid #DDDDDD;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(109, 194, 250);
 }
 
-.crop-div10 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-.crop-div11 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-.crop-div12 {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-}
-
-.crop-div20 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-}
-.crop-div21 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-.crop-div22 {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-
-.crop-div30 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-}
-.crop-div31 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
-.crop-div32 {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-
-.crop-div40 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-.crop-div41 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-.crop-div42 {
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-}
-
-.crop-div50 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-.crop-div51 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
-.crop-div52 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-}
-
-.crop-div60 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-.crop-div61 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-
-.crop-div70 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-.crop-div71 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
-
-.crop-div80 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
 
 .card-company__name {
     display: block;
-    height: 20%;
+    height: 3.6vh;
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 500;

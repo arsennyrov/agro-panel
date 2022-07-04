@@ -1,0 +1,11 @@
+.page4 {
+    margin: 100px;
+    border-bottom: 2px solid rgb(73, 144, 87);
+    border-right: 2px solid rgb(73, 144, 87);
+}
+
+.page4__item {
+    border-top: 2px solid rgb(73, 144, 87);
+    border-left: 2px solid rgb(73, 144, 87);
+    box-sizing: border-box;
+}

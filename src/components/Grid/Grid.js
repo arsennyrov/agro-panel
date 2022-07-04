@@ -38,8 +38,6 @@ const Grid = ({ data, page2Click }) => {
   const day = date.getDate();
   const month = date.getMonth();
 
-  console.log('data', day, month);
-
   return (
     <div className='grid-container'>
         <div className='grid'>

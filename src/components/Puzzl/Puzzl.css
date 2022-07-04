@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+.puzzl__container {
+    position: relative;
+    display: grid;
+    /* max-width: 30vw;
+    max-height: 15vh; */
+    margin: '50px';
+    /* border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-width: 1px;
+    border-style: solid; */
+    background-color: #FFFFFF;
+}
+.puzzl0,
+.puzzl1,
+.puzzl2,
+.puzzl3,
+.puzzl4,
+.puzzl5 {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CCCCCC;
+    padding-left: .2vw;
+    text-align: left;
+    font-size: .7vw;
+}
+.puzzl0 {
+    border-bottom-left-radius: 8px;
+}
+.puzzl5 {
+    border-bottom-right-radius: 8px;
+}
+
+.puzzl-span0,
+.puzzl-span1 {
+    display: block;
+}
+.puzzl-span2 {
+    color: rgb(220, 128, 72);
+}
