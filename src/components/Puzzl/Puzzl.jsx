@@ -84,6 +84,7 @@ const Puzzl = ({ x, w, h, text }) => {
     const styleContainer = {
         width: `${wContainer}vw`,
         height: `${hContainer}vh`,
+        // backgroundColor: 'red'
     }
 
     for(let i=0; i <styleRect.length; i++) {

@@ -175,7 +175,20 @@ const Page3 = () => {
     const regionFilter = (string0) => {
         const fullFinish = []; 
         const fullTrans0 = cropsTop6.slice().filter(item => item.region === string0);
-
+        let numReg = 1;
+        switch (string0) {
+            case 'Центр':
+                numReg = 1;
+                break
+            case 'Юг':
+                numReg = 2;                
+                break
+            case 'Север':
+                numReg = 3;
+                break
+            default:
+                numReg = 0;                
+        }
         fullTrans0.push({
             company: 'AAAAA',
             title: 'AAAAA',
@@ -195,25 +208,27 @@ const Page3 = () => {
             progress: 0,
             sum:[0, 0, 0, 0, 0, 0, 0, 0]
         })
-
         let company0 = fullTrans0[0]?.company;
         let j = 0;
         let crops0 = [];
-
+        let sumAll0 = 0;
         for (let i=0; i<fullTrans0?.length; i++) {
             if (fullTrans0[i]?.company !== company0) {
                 fullFinish.push({
                     company: fullTrans0[i-1]?.company,
-                    id: fullTrans0[i-1]?.id,
+                    id: 1000*numReg+i,
                     region: fullTrans0[i-1]?.region,
                     layCompany: 1,
                     layCrops: fullTrans0[i-1]?.layCrops,
                     crops: crops0,
+                    sumAll: sumAll0,
                 })
                 company0 = fullTrans0[i]?.company;
                 j = 0;
+                sumAll0 = 0;
                 crops0 = [];
             }
+            sumAll0 += fullTrans0[i]?.sum[0];
             crops0.push({
                 name: fullTrans0[i]?.name,
                 sum: fullTrans0[i]?.sum
@@ -221,12 +236,26 @@ const Page3 = () => {
             j += 1;
         } 
 
-        return fullFinish;
+        const fullFinish1 = fullFinish.slice().sort((a,b) => {
+            if (a.sumAll < b.sumAll) {
+                return 1;
+            }
+            if (a.sumAll > b.sumAll) {
+                return -1;
+            }
+            return 0;
+        });
+
+        console.log('fullFinish1', string0, fullFinish1);
+
+        return fullFinish1;
     }
 
         const region1 = regionFilter('Центр');
         const region2 = regionFilter('Юг');
         const region3 = regionFilter('Север');
+
+        console.log('region2', region2);
 
     const cropsStateOptions0 = cropStateOptions4();
 

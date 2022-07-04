@@ -33,6 +33,7 @@
 
 .card-company__name {
     display: block;
+    width: 100%;
     height: 3.6vh;
     font-family: 'TT Norms';
     font-style: normal;

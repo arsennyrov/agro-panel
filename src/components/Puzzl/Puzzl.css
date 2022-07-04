@@ -5,14 +5,9 @@
 .puzzl__container {
     position: relative;
     display: grid;
-    /* max-width: 30vw;
-    max-height: 15vh; */
-    margin: '50px';
-    /* border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-width: 1px;
-    border-style: solid; */
-    background-color: #FFFFFF;
+    width: 100%;
+    /* margin: '50px'; */
+    background-color: #47fa80;
 }
 .puzzl0,
 .puzzl1,
