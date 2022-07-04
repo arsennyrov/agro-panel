@@ -95,7 +95,7 @@ const CardCompany = ({ cropsCompany }) => {
                 </span>
             </div>
 
-            <div className='card-company__container' style={styleContainer}>
+            <div className={`card-company__container`} style={styleContainer}>
             <Puzzl x={ x0 } 
                    w={ w0 } 
                    h={ h0} 

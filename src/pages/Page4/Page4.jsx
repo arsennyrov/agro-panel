@@ -60,7 +60,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
             <div style={{width: width, height: height, flexShrink: 0, color: `${data[index].color}`, backgroundColor: `${data[index].bgcolor}`}} className="page4__item">
               {data[index].text}
             </div>
-            <div className={`div-pb-${index}`} style={{display: `${residualHeight < residualWidth ? 'flex' : 'block'}`, flexShrink: 0}}>
+            <div style={{display: `${residualHeight < residualWidth ? 'flex' : 'block'}`, flexShrink: 0}}>
                 <PlacementBlocks
                     index={index + 1}
                     currentWidth={currentHeight < currentWidth ? currentWidth - width : width}
