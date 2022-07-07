@@ -69,7 +69,7 @@ export const shiftArr = (arr) => {
          text: ['Убрано']},
         {color: 'rgb(192,192,200)',
          text: ['Убрано','не в срок']},
-        {color: 'rgb(255,255,255)',
+         {color: 'rgb(255,255,255)', 
          text: ['Не начато']}
       ]
       };

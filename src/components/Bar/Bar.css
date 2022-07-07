@@ -1,0 +1,65 @@
+  .bar-chart__wrapper {
+    width: 200px;
+    margin: 0px 33px 10px 0;
+  }
+ 
+  .bar-chart__bar, .bar-chart__bar1 {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 81px;
+    border-radius: 5px;
+  }
+
+  /* .bar-chart__bar1 {
+    position: relative;
+    top: -8px;
+  } */
+  
+  .bar-chart__value {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #090706;
+  }
+  
+  .bar-chart__percent {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;  
+    color: gray;
+  }
+  
+  .bar-chart__percent1 {
+    display: block;  
+    position: relative;
+    top: 12px;
+    width: 100%;
+    height: 85px;
+    line-height: 28px;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: "lowercase";
+    color: "#000000";
+  }
+  
+  .div-plus {
+    width: 100%;
+    height: 26px;
+  }

@@ -1,0 +1,67 @@
+.page4__item {
+    border-top: 2px solid rgb(73, 144, 87);
+    border-left: 2px solid rgb(73, 144, 87);
+}
+
+.page4 > .page4__item {
+    border-left: 0;
+}
+
+.page4__item {
+    box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.mosaic-header {
+    display: block;
+    width: 100%;
+    height: 3.6vh;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.03em;
+    background-color: rgb(241,225,252);
+}
+
+.mosaic-container{
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    overflow: hidden;  
+}
+
+.mosaic-container1
+.mosaic-container2
+.mosaic-container3 {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 8px;
+}
+.mosaic-container1 {
+    border-color: #C49EEA;
+}
+.mosaic-container2 {
+    border-color: #9EB3FC;
+}
+.mosaic-container3 {
+    border-color: #A5DED0;
+}
+
+.mosaic__cart {
+    position: absolute;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 10px 0 0 5px;
+}

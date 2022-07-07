@@ -1,43 +1,102 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Tooltip } from "antd";
 
 import "./Page4.css";
 
-const container = {
-  w: 500,
-  h: 200,
-};
+// const container = {
+//   w: 1000,
+//   h: 500,
+// };
+const Page4 = () => {
 
-const containerSquare = container.w * container.h
+const [containerWidth, setContainerWidth] = useState(0)
+const [containerHeight, setContainerHeight] = useState(500)
+console.log('containerWidth', containerWidth)
+console.log('containerHeight', containerHeight)
+const ref = useRef()
+console.log('ref',ref);
+
+const onResize = () => {
+    setContainerWidth(ref.current.clientWidth)
+    setContainerHeight(ref.current.clientHeight)
+}
+    
+useLayoutEffect(() => {
+  window.addEventListener('resize', onResize)
+  onResize()
+  return () => window.removeEventListener('resize', onResize)
+}, []);
+
+const containerSquare = containerWidth * containerHeight
 const data = [
     { value: 600,
-      color: 'white',
-      bgcolor: 'green',
-      text: 'text1',
+      blocks: [
+          { percent: '20%',
+            color: 'rgb(192, 192, 200)'
+          }, 
+          { percent: '30%',
+            color: 'rgb(239, 239, 239)'
+          }, 
+          { percent: '50%',
+            color: 'rgb(255, 255, 255)'
+          }
+        ],
     },
     { value: 300,
-      color: 'white',
-      bgcolor: 'tomato',
-      text: 'text2',
+      blocks: [
+          { percent: '60%',
+            color: 'rgb(170, 210, 147)'
+          }, 
+          { percent: '20%',
+            color: 'rgb(204, 239, 183)'
+          }, 
+          { percent: '20%',
+            color: 'rgb(255, 255, 255)'
+          }
+        ],
     },
     { value: 200,
-      color: 'black',
-      bgcolor: 'gold',
-      text: 'text3',
+      blocks: [
+          { percent: '70%',
+            color: 'rgb(217, 171, 156)'
+          }, 
+          { percent: '30%',
+            color: 'rgb(255, 199, 176)'
+          }, 
+        ],
     },
     { value: 100,
-      color: 'black',
-      bgcolor: 'aqua',
-      text: 'text4',
+      blocks: [
+          { percent: '50%',
+            color: 'rgb(192, 192, 200)'
+          }, 
+          { percent: '40%',
+            color: 'rgb(239, 239, 239)'
+          }, 
+          { percent: '10%',
+            color: 'rgb(255, 255, 255)'
+          }
+        ],
     },
     { value: 50,
-      color: 'white',
-      bgcolor: 'magenta',
-      text: 'text5',
+      blocks: [
+          { percent: '100%',
+            color: 'rgb(170, 210, 147)'
+        }, 
+        ],
     },
-    { value: 20,
-      color: 'white',
-      bgcolor: 'olive',
-      text: 'text6',
+    { value: 10,
+      blocks: [
+          { percent: '20%',
+            color: 'rgb(217, 171, 156)'
+          }, 
+          { percent: '70%',
+            color: 'rgb(255, 199, 176)'
+          }, 
+          { percent: '10%',
+            color: 'rgb(255, 255, 255)'
+          }
+        ],
     }
 ];
 const dataSum = data.map(item => item.value).reduce((partialSum, a) => partialSum + a, 0);
@@ -57,8 +116,20 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     const residualHeight = currentWidth < currentHeight ? currentHeight - height : currentHeight
     return (
         <>
-            <div style={{width: width, height: height, flexShrink: 0, color: `${data[index].color}`, backgroundColor: `${data[index].bgcolor}`}} className="page4__item">
-              {data[index].text}
+            <div style={{width: width, height: height}} className="page4__item">
+                {data[index].blocks?.map((item) => {
+                    console.log('item', item)
+                    return (
+                        <>
+                        {(width * parseInt(item.percent) / 100) < 30 ?
+                            <Tooltip placement="bottom" title={item.percent}>
+                                <div style={{width: `${item.percent}`, backgroundColor: `${item.color}`}} className="page4__item-block"></div>
+                            </Tooltip> : 
+                            <div style={{width: `${item.percent}`, backgroundColor: `${item.color}`}} className="page4__item-block">{item.percent}</div>
+                            }
+                        </>
+                    )
+                })}
             </div>
             <div style={{display: `${residualHeight < residualWidth ? 'flex' : 'block'}`, flexShrink: 0}}>
                 <PlacementBlocks
@@ -71,10 +142,9 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     )
 }
 
-const Page4 = () => {
   return (
-    <div style={{width: container.w, height: container.h, display: `${container.h < container.w ? 'flex' : 'block'}`}} className="page4">
-        <PlacementBlocks currentWidth={container.w} currentHeight={container.h} index={0} />
+    <div ref={ref} style={{width: '100%', height: '120vh', display: `${containerHeight < containerWidth ? 'flex' : 'block'}`}} className="page4">
+        <PlacementBlocks currentWidth={containerWidth} currentHeight={containerHeight} index={0} />
      </div>
   );
 };

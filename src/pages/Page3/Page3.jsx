@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
-import CardCompany from '../../components/CardCompany';
 import Propmpt from '../../components/Prompt';
-import Puzzl from '../../components/Puzzl';
 import { cropStateOptions4 } from '../../containers/utils';
 import { saveFullData4 } from '../../stores/fullSlice';
+import Mosaic from '../../components/Mosaic';
 import './Page3.css';
 
 const Page3 = () => {
@@ -25,6 +24,7 @@ const Page3 = () => {
 
         const transformFull3 = (obj={},num) => {
             let plan0 = (obj.PLAN >= obj.FACT ) ? Math.round(obj.PLAN) : Math.round(obj.FACT);
+            let sum5 =  Math.round(obj?.PLAN - obj?.FACT - Math.round((plan0-Math.round(obj.FACT))*Math.round(obj.PROGRESS)/100 ))
             return {
                 company: obj.AO__FULLNAME+'/'+obj.FIELD_GROUP__NAME,
                 title: obj.AO__FULLNAME,
@@ -32,8 +32,8 @@ const Page3 = () => {
                 subTitle: obj.FIELD_GROUP__NAME,
                 id: 1000+num,
                 region: obj.AO__REGION,
-                layCompany: 1,
-                layCrops: layCrops0,
+                // layCompany: 1,
+                // layCrops: layCrops0,
                 name: obj.CROPS__NAME,
                 fact: Math.round(obj.FACT),
                 factInTime: Math.round(obj.FACT_IN_TIME),
@@ -42,15 +42,21 @@ const Page3 = () => {
                 factTodayOver: 0,
                 plan: plan0,
                 progress: Math.round(obj.PROGRESS),
-                sum: [plan0, 0, 0, Math.round(obj?.FACT), 0, Math.round(obj?.PLAN - obj?.FACT)]
+                sum: [plan0, 
+                      Math.round((plan0-Math.round(obj.FACT))*Math.round(obj.PROGRESS)/100 ), 
+                      0, 
+                      Math.round(obj?.FACT), 
+                      0, 
+                      (sum5 > 0) ? sum5 : 0
+                    ]
           }}
 
         const fullTrans = []; 
         let sum0 = [];
-        let layCrops0;
+        // let layCrops0;
         for (let i=0; i<fullStage4?.length; i++) {
             sum0 = [Math.round(fullStage4[i]?.PLAN), 0, 0, Math.round(fullStage4[i]?.FACT), 0, Math.round(fullStage4[i]?.PLAN - fullStage4[i]?.FACT)];
-            layCrops0 = (fullStage4[i]?.AO__REGION === "Север") ? 6 : 1;
+            // layCrops0 = (fullStage4[i]?.AO__REGION === "Север") ? 6 : 1;
             fullTrans.push(transformFull3(fullStage4[i],i,sum0));
         }
 
@@ -70,7 +76,7 @@ const Page3 = () => {
         let companyM = '';
         let nameM = '';
         let regionM = '';
-        let layCropsM = 1;
+        // let layCropsM = 1;
         let sumFact = 0;
         let sumFactInTime = 0;
         let sumFactOverTime = 0;
@@ -90,7 +96,7 @@ const Page3 = () => {
                     company: fullSort[i-1]?.title,
                     name: fullSort[i-1]?.name,
                     region: fullSort[i-1]?.region,
-                    layCrops: fullSort[i-1]?.layCrops,
+                    // layCrops: fullSort[i-1]?.layCrops,
                     plan: sumPlan,
                     fact: sumFact,
                     factInTime: sumFactInTime,
@@ -115,7 +121,7 @@ const Page3 = () => {
             companyM = fullSort[i-1]?.title;
             nameM = fullSort[i-1]?.name;
             regionM = fullSort[i-1]?.region;
-            layCropsM = fullSort[i-1]?.layCrops;
+            // layCropsM = fullSort[i-1]?.layCrops;
             sumM = fullSort[i-1]?.sum;
         }
 //---------------------------------------------------------------------------------------
@@ -130,7 +136,7 @@ const Page3 = () => {
             company: companyM,
             name: nameM,
             region: regionM,
-            layCrops: layCropsM,
+            // layCrops: layCropsM,
             plan: sumPlan,
             fact: sumFact,
             factInTime: sumFactInTime,
@@ -196,8 +202,8 @@ const Page3 = () => {
             subTitle: 'CCCCC',
             id: 1088,
             region: 'Центр',
-            layCompany: 1,
-            layCrops: 1,
+            // layCompany: 1,
+            // layCrops: 1,
             name: 'Соя',
             fact: 1111,
             factInTime: 0,
@@ -218,8 +224,8 @@ const Page3 = () => {
                     company: fullTrans0[i-1]?.company,
                     id: 1000*numReg+i,
                     region: fullTrans0[i-1]?.region,
-                    layCompany: 1,
-                    layCrops: fullTrans0[i-1]?.layCrops,
+                    // layCompany: 1,
+                    // layCrops: fullTrans0[i-1]?.layCrops,
                     crops: crops0,
                     sumAll: sumAll0,
                 })
@@ -255,19 +261,21 @@ const Page3 = () => {
         const region2 = regionFilter('Юг');
         const region3 = regionFilter('Север');
 
-        console.log('region2', region2);
+        console.log('region1', region1);
 
-    const cropsStateOptions0 = cropStateOptions4();
+    const cropsColor = cropStateOptions4();
 
-    return (
+    // const data = dataMosaic()
+    
+    return ( 
         <div className='page3'>
             <div className='page3__container'>
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
                         {region1.map((item) => 
-                            <div className={`reg${item.layCompany}`}>
-                                <CardCompany cropsCompany={item} />
+                            <div className='reg'>
+                                <Mosaic w={31.5} h={16} cropsComp={{item}} />
                             </div>
                         )}        
                     </div>
@@ -279,9 +287,8 @@ const Page3 = () => {
                     <h3>Южный регион</h3>
                     <div className='context-region2'>
                         {region2.map((item, index) => 
-                            <div className={`reg${item.layCompany}`}>
-                                <CardCompany cropsCompany={item} />
-                            </div>
+                            <div className='reg'>
+                                <Mosaic w={30} h={11.9} cropsComp={{item}} />                            </div>
                         )}                     
                     </div>
                 </div>
@@ -292,17 +299,15 @@ const Page3 = () => {
                     <h3>Северный регион</h3>
                     <div className='context-region3'>
                         {region3.map((item, index) => 
-                            <div className={`reg${item.layCompany}`}>
-                                <CardCompany cropsCompany={item} />
-                            </div>
-
+                            <div className='reg'>
+                                <Mosaic w={28.8} h={22.9} cropsComp={{item}} />                            </div>
                         )}        
                     </div>
                 </div>
             </div>
 
             <div className='page3__footer'>
-                {cropsStateOptions0.map(item => { 
+                {cropsColor.map(item => { 
                     return (
                         <div className='prompt-wrap'>
                             <Propmpt color={item.color} text={item.text} />

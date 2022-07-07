@@ -1,4 +1,4 @@
-export const puzzl61 = (x, w, h, text) => {
+export const puzzl61 = (x, w, h) => {
 
     const y = [15,15,15,15,15,15]
 

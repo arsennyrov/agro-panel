@@ -8,10 +8,31 @@ import { puzzl42 } from './puzzl42'
 import { puzzl31 } from './puzzl31'
 import { puzzl32 } from './puzzl32'
 import { puzzl2 } from './puzzl2'
-
+import { cropStateOptions4 } from '../../containers/utils';
 import './Puzzl.css';
 
-const Puzzl = ({ x, w, h, text }) => {
+const Puzzl = ({ w, h, crops }) => {
+
+    console.log('======================crops', crops);
+    
+    const text = []
+    const x2 = []
+    for(let i=0; i<crops.length; i++) {
+        text.push({
+            name: crops[i].name,
+            text1: crops[i].sum[1],
+            text2: crops[i].sum[2],
+            text3: crops[i].sum[3],
+            text4: crops[i].sum[4],
+            text5: crops[i].sum[5],
+        })
+        x2.push(crops[i].sum[0]);
+    }
+
+    const x = x2.slice();
+
+    // console.log('x', x);
+    // console.log('text', text);
 
     const wContainer = w;
     const hContainer = h;
@@ -86,42 +107,56 @@ const Puzzl = ({ x, w, h, text }) => {
         height: `${hContainer}vh`,
     }
 
-    for(let i=0; i <styleRect.length; i++) {
-        // styleRect[i].backgroundColor = 'rgb(204,239,183)';
-        if (i%2 === 0) {
-            styleRect[i].backgroundColor = 'rgb(204,239,183)';
-        } 
-        else {
-            styleRect[i].backgroundColor = 'rgb(254,226,212)';
-        }
-        if (i%3 === 2) {
-            styleRect[i].backgroundColor = '#FFFFFF';
-        } 
-    }    
+    const cropsColor = cropStateOptions4();
+    console.log('cropsColor', cropsColor);
+    console.log('cropsColor[1]', cropsColor[1]);
 
-   
     return (
 
         <div className="puzzl__container" style={styleContainer}>
-            {text.map ((item, index) => { 
+            {crops.map ((item, index) => { 
+
+                console.log('=====item', item);
+                let sum5 = []
+                    for(let i=1; i<6; i++) {
+                        sum5.push(i);
+                    }
+
                 return (
                     <div className={`puzzl${index}`} style={styleRect[index]}>
+{/* 
+                        {sum5.map((item5, index5) => {
 
-                        {(x0[index] > 8) && 
-                        <>
-                        <span className='puzzl-span0'>{item.name}</span>
-                        <span className='puzzl-span1'>
-                            { item.text0 }
-                            <span className='puzzl-span2'>({item.text5})</span>
-                        </span>
-                        </>
-                        }
-                        
+                        return (     */}
+
+                            <div className={`puzzl-${index}`}>
+                                <div className='puzzl-1' style = {{width: '45%', height: '100%', backgroundColor: cropsColor[0].color}}>
+                                    
+
+                                { (item.sum[index] > 0) &&
+
+                                    <>
+                                        <span className='puzzl-span0' style = {{position: 'relative', zIndex: '5'}}>
+                                            {item.name}
+                                        </span>
+                                        <span className='puzzl-span1'>
+                                            1111
+                                            <span className='puzzl-span2'>
+                                                2222
+                                            </span>
+                                        </span>
+
+                                    </>
+                                } 
+
+                                </div>   
+                            </div>
+
                     </div>
             )})}
         </div>
-    );
+    )
 
-};
+}
 
 export default Puzzl;

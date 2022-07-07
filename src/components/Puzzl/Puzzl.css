@@ -6,9 +6,9 @@
     position: relative;
     display: grid;
     width: 100%;
+    /* margin: '50px'; */
     background-color: #FFFFFF;
 }
-
 .puzzl0,
 .puzzl1,
 .puzzl2,
@@ -18,7 +18,6 @@
     border-width: 1px;
     border-style: solid;
     border-color: #CCCCCC;
-    padding-left: .2vw;
     text-align: left;
     font-size: .7vw;
 }
@@ -35,4 +34,16 @@
 }
 .puzzl-span2 {
     color: rgb(220, 128, 72);
+}
+
+.puzzl-0 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+.puzzl-1,
+.puzzl-2 {
+    height: 100%;
 }
