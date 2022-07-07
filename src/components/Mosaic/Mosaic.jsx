@@ -6,7 +6,7 @@ import "./Mosaic.css";
 
 const Mosaic = ( {w, h, cropsComp } ) => {
 
-    console.log('WWWWW cropsComp', cropsComp);
+    // console.log('WWWWW cropsComp', cropsComp);
 
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(`${h}vh`)
@@ -30,10 +30,9 @@ const containerSquare = containerWidth * containerHeight
 
 // -------------------------------------------------------------------
 const region = cropsComp.item.region
-console.log('-----region', region);
 const title = cropsComp.item.company
 const data = createData(cropsComp);
-console.log('======data', data);
+// console.log('======data', data);
 let regNum = 0
 switch (region) {
     case 'Центр':
@@ -48,7 +47,6 @@ switch (region) {
     default:    
         regNum = null
 }
-
 
 // --------------------------------------------------------------------
 
@@ -75,12 +73,12 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                 <Tooltip
                     placement="bottom"
                     title={
-                        <p>
-                            {data[index].name}<br/>
-                            {data[index].text1}<br/>
-                            {data[index].text2}<br/>
-                            {data[index].text3}
-                        </p>
+                        <>
+                            <p className="p-mosaic">{data[index].name}</p>
+                            { (data[index].text1 > 0) && <p className="p-mosaic">{data[index].text1}</p>}
+                            { (data[index].text2 > 0) && <p className="p-mosaic">{data[index].text2}</p>}
+                            { (data[index].text3 > 0) && <p className="p-mosaic">{data[index].text3}</p>}
+                        </>
                     }
                 >
                     <div style={{width: width, height: height, fontSize: '.7vw'}} className="page4__item">
@@ -92,13 +90,13 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                 <>
                     <div className="mosaic__cart" style={{width: width, height: height}}>
                         <span>{data[index].name}</span>
-                        <span>{data[index].text1}</span>
-                        <span>{data[index].text2}</span>
-                        <span>{data[index].text3}</span>
+                        { (data[index].text1 > 0) && <span>{data[index].text1}</span>}
+                        { (data[index].text2 > 0) && <span>{data[index].text2}</span>}
+                        { (data[index].text3 > 0) && <span>{data[index].text3}</span>}
                     </div>
                     <div style={{ width: width, height: height, fontSize: '.7vw' }} className="page4__item">
                         {data[index]?.blocks?.map((item) => {
-                            console.log('item', item);
+                            // console.log('item', item);
                             return (
                                 <div style={{ width: `${item.percent}`, fontSize: '.7vw', backgroundColor: `${item.color}` }} className="page4__item-block" />
                             );

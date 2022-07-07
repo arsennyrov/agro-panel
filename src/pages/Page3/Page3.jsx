@@ -198,7 +198,7 @@ const Page3 = () => {
         fullTrans0.push({
             company: 'AAAAA',
             title: 'AAAAA',
-            titleName: 'AAAAA BBBBB',
+            titleName: 'BBBBB',
             subTitle: 'CCCCC',
             id: 1088,
             region: 'Центр',
@@ -252,8 +252,6 @@ const Page3 = () => {
             return 0;
         });
 
-        console.log('fullFinish1', string0, fullFinish1);
-
         return fullFinish1;
     }
 
@@ -261,19 +259,15 @@ const Page3 = () => {
         const region2 = regionFilter('Юг');
         const region3 = regionFilter('Север');
 
-        console.log('region1', region1);
-
     const cropsColor = cropStateOptions4();
 
-    // const data = dataMosaic()
-    
     return ( 
         <div className='page3'>
             <div className='page3__container'>
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
-                        {region1.map((item) => 
+                        {region1.map((item, index) => 
                             <div className='reg'>
                                 <Mosaic w={31.5} h={16} cropsComp={{item}} />
                             </div>
@@ -286,7 +280,7 @@ const Page3 = () => {
                 <div className='region2'>
                     <h3>Южный регион</h3>
                     <div className='context-region2'>
-                        {region2.map((item, index) => 
+                        {region2.map((item) => 
                             <div className='reg'>
                                 <Mosaic w={30} h={11.9} cropsComp={{item}} />                            </div>
                         )}                     
@@ -298,7 +292,7 @@ const Page3 = () => {
                 <div className='region3'>
                     <h3>Северный регион</h3>
                     <div className='context-region3'>
-                        {region3.map((item, index) => 
+                        {region3.map((item) => 
                             <div className='reg'>
                                 <Mosaic w={28.8} h={22.9} cropsComp={{item}} />                            </div>
                         )}        
