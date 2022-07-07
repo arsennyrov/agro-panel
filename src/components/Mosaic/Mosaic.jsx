@@ -78,12 +78,12 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                             { (data[index].text1 > 0) && 
                             <p className="p-mosaic">
                                 {data[index].text1}
-                                { (data[index].text2 > 0) && <span className="span-overtime"> ({data[index].text2})</span>}                        
+                                { (data[index].text2 > 0) && <span className="span-overtime-tooltip"> ({data[index].text2})</span>}                        
                             </p>}
                             { (data[index].text3 > 0) && 
                             <p className="p-mosaic">
                                 {data[index].text3}
-                                { (data[index].text4 > 0) && <span className="span-overtime"> ({data[index].text4})</span>}     
+                                { (data[index].text4 > 0) && <span className="span-overtime-tooltip"> ({data[index].text4})</span>}     
                             </p>}
                             { (data[index].text5 > 0) && <p className="p-mosaic">{data[index].text5}</p>}
                         </>
@@ -108,7 +108,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                             {data[index].text3}
                             { (data[index].text4 > 0) && <span className="span-overtime"> ({data[index].text4})</span>}     
                         </span>}
-                        { (data[index].text5 > 0) && <span>{data[index].text3}</span>}
+                        { (data[index].text5 > 0) && <span>{data[index].text5}</span>}
                     </div>
                     <div style={{ width: width, height: height, fontSize: '.7vw' }} className="page4__item">
                         {data[index]?.blocks?.map((item) => {
