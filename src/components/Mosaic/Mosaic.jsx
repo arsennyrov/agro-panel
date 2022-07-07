@@ -69,7 +69,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     const residualHeight = currentWidth < currentHeight ? currentHeight - height : currentHeight
     return (
         <>
-            {(width < 100 || height < 100) ?
+            {(width * height < 5000) ?
                 <Tooltip
                     placement="bottom"
                     title={
