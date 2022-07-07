@@ -12,7 +12,7 @@ const transfCrop = (crop) => {
     for (let i=1; i < crop.sum.length; i++ ) {
         const block = {}
         // let sumAll = crop.sum[1]+crop.sum[3]+crop.sum[5];
-        if (crop.sum[i] > 0) {
+        if (crop.sum[i] > 0 && i%2===1) {
             block.percent = Math.round(100*crop.sum[i]/sumAll) + '%';
             block.color = cropsColor[i-1].color;
             blocks0.push(block);

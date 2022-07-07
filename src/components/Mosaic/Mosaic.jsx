@@ -69,7 +69,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     const residualHeight = currentWidth < currentHeight ? currentHeight - height : currentHeight
     return (
         <>
-            {(width * height < 5000) ?
+            {(width * height < 8000) ?
                 <Tooltip
                     placement="bottom"
                     title={
@@ -133,7 +133,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 
   return (
     <div className={`mosaic-container mosaic-container${regNum} mosaic-container-region`}>
-      <div className="mosaic-header">{title}</div>
+      <div className={`mosaic-header${regNum}`}>{title}</div>
       <div ref={ref} style={{height: `${h}vh`, display: `${containerHeight < containerWidth ? 'flex' : 'block'}`}} className="page4">
           <PlacementBlocks currentWidth={containerWidth} currentHeight={containerHeight} index={0} />
       </div>
