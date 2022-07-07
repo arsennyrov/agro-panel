@@ -46,7 +46,7 @@ const Page3 = () => {
                       Math.round((plan0-Math.round(obj.FACT))*Math.round(obj.PROGRESS)/100 ), 
                       0, 
                       Math.round(obj?.FACT), 
-                      0, 
+                      Math.round(obj.FACT_OVERTIME),
                       (sum5 > 0) ? sum5 : 0
                     ]
           }}

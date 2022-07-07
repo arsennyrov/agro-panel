@@ -24,8 +24,10 @@ const transfCrop = (crop) => {
                 blocks: blocks0,
                 name: crop.name,
                 text1: crop.sum[1],
-                text2: crop.sum[3],
-                text3: crop.sum[5],
+                text2: crop.sum[2],
+                text3: crop.sum[3],
+                text4: crop.sum[4],
+                text5: crop.sum[5],
             }
     )
 }

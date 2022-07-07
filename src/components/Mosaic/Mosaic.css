@@ -73,3 +73,7 @@
     font-size: 0.8rem;
     line-height: 0.8rem;
 }
+
+.span-overtime {
+    color: rgb(220, 128, 72);
+}
