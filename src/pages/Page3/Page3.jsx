@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
@@ -7,16 +7,30 @@ import { cropStateOptions4 } from '../../containers/utils';
 import { saveFullData4 } from '../../stores/fullSlice';
 import Mosaic from '../../components/Mosaic';
 import './Page3.css';
+import Spinner from '../../components/Spinner';
 
 const Page3 = () => {
 
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
+
+    const nameAddWbr = (str) => {
+        switch (str) {
+            case 'Подсолнечник':
+                return 'Подсолнеч&shyник';
+            case 'Подсолнечник ВО':
+                return 'Подсолнеч&shyник ВО';
+            default:
+                return str    
+        }
+    }
 
     useEffect(() => {
           const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
           axios.get(apiUrl).then((resp) => {
             const full = resp.data;
-            dispatch(saveFullData4(full.value)); 
+            dispatch(saveFullData4(full.value));
+            setLoading(false); 
           });
         }, []);
     
@@ -94,7 +108,12 @@ const Page3 = () => {
                     titleName: titleName0,
                     title: fullSort[i-1]?.title,
                     company: fullSort[i-1]?.title,
-                    name: fullSort[i-1]?.name,
+                 
+                 
+                 
+                 
+                 
+                    name:  fullSort[i-1]?.name,
                     region: fullSort[i-1]?.region,
                     // layCrops: fullSort[i-1]?.layCrops,
                     plan: sumPlan,
@@ -134,7 +153,7 @@ const Page3 = () => {
             titleName: titleName0,
             title: titleM,
             company: companyM,
-            name: nameM,
+            name:  nameM,
             region: regionM,
             // layCrops: layCropsM,
             plan: sumPlan,
@@ -252,17 +271,32 @@ const Page3 = () => {
             return 0;
         });
 
+        for (let i=0; i < fullFinish1.length; i++) {
+            if ((fullFinish1[i].crops[5]) && (fullFinish1[i].crops[3].sum[0]/fullFinish1[i].crops[5].sum[0] > 3 )) {
+                fullFinish1[i].crops.pop();
+            }
+            if ((fullFinish1[i].crops[4]) && (fullFinish1[i].crops[3].sum[0]/fullFinish1[i].crops[4].sum[0] > 2 )) {
+                fullFinish1[i].crops.pop();
+            }
+        }   
+
         return fullFinish1;
     }
 
-        const region1 = regionFilter('Центр');
-        const region2 = regionFilter('Юг');
-        const region3 = regionFilter('Север');
+    const region1 = regionFilter('Центр');
+    const region2 = regionFilter('Юг');
+    const region3 = regionFilter('Север');
+
+    console.log('region1', region1);
 
     const cropsColor = cropStateOptions4();
 
     return ( 
         <div className='page3'>
+            {loading && 
+            <div className='page3'>
+                <Spinner />
+            </div>}
             <div className='page3__container'>
                 <div className='region1'>
                     <h3>Центральный регион</h3>

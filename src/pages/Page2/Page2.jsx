@@ -9,17 +9,20 @@ import Grid from '../../components/Grid';
 import { saveFullData4 } from '../../stores/fullSlice';
 import Button from '../../components/Button/Button';
 import { transformFull } from '../../containers/utils';
+import Spinner from '../../components/Spinner';
 
 const Page2 = (props) => {
 
     const [page2Click, setPage2Click] = useState(0);  
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
           const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
           axios.get(apiUrl).then((resp) => {
             const full = resp.data;
             dispatch(saveFullData4(full.value)); 
+            setLoading(false);
             setPage2Click(1);
         });
         }, []);
@@ -127,6 +130,11 @@ const Page2 = (props) => {
     }
 
     return (
+        <>
+        {loading && 
+        <div className='page3'>
+            <Spinner />
+        </div>}
         <div className='page2'>
             <div className='container-tab'>
                 {(page2Click === 1) && <Grid data={tabCrops41} page2Click={page2Click} /> }
@@ -144,6 +152,7 @@ const Page2 = (props) => {
                 <PieChart /> 
             </div>
         </div>
+        </>
     );
 };
 

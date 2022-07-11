@@ -4,7 +4,7 @@ import './Button.css';
 const Button = ({name, onClick}) => {
     return (
         <div> 
-            <button className='btn' onClick={onClick}>{name}</button>
+            <button className='btn-pag' onClick={onClick}>{name}</button>
         </div>
     );
 };

@@ -21,7 +21,7 @@
     margin: 0 auto;
     margin-top: 4vh;
     width: 90vw;
-    height: 65vh;;
+    height: 65vh;
 }
 
 .container-cards {
@@ -31,4 +31,10 @@
     margin-top: 4vh;
     display: flex;
     justify-content: space-between;
+}
+
+.page1-loading {
+    position: absolute;
+    top: 45vh;
+    left:45vw;
 }

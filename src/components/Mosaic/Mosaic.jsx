@@ -97,7 +97,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                 </Tooltip> :
                 <>
                     <div className="mosaic__cart" style={{width: width, height: height}}>
-                        <span>{data[index].name}</span>
+                        <span style={{wordBreak: 'break-all'}}>{data[index].name}</span>
                         { (data[index].text1 > 0) && 
                         <span>
                             {data[index].text1}

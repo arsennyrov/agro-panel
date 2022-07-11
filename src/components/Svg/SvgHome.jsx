@@ -1,7 +1,7 @@
 import React from 'react';
 import './SvgHome.css'; 
 
-const SvgHome = ({ svgFill }) => {
+const SvgHome = ({ svgFill={} }) => {
 
     return (
         <svg width="912" height="545" viewBox="0 0 1125 673" fill="none" xmlns="http://www.w3.org/2000/svg">

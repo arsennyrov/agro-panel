@@ -9,12 +9,14 @@ import { overall0, overall1, overall2, overall3, overall4 } from '../../containe
 import SvgHome from '../../components/Svg';
 import { changeRegionsData4 } from '../../stores/regionSlice';
 import { area } from '../../containers/regions';
+import Spinner from '../../components/Spinner';
 
 let overall = overall1();
 
 const Page1 = () => {
 
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
 
     // const [appState, setAppState] = useState();
   
@@ -24,6 +26,7 @@ const Page1 = () => {
       axios.get(apiUrl).then((resp) => {
         const regions = resp.data;
         dispatch(changeRegionsData4(regions.value));
+        setLoading(false);
       });
     }, []);
 
@@ -71,8 +74,11 @@ const Page1 = () => {
             overall = overall1();
     }
 
+
+    // return <Spinner />
+
     return (
-        <div className='page1'>
+        <div className='page1'> 
             <div className='header'>
                 <Header />
             </div>    
@@ -80,6 +86,10 @@ const Page1 = () => {
             <div className='chart' style={{ fill: "#0f0", }}>
                     <SvgHome svgFill={[overall[0].info, overall[1].info, overall[2].info]} />
             </div>
+            {loading && 
+                    <div className='page3'>
+                        <Spinner />
+                    </div>}
 
             <div className='container-cards'>
                 <Cards overall={overall} />

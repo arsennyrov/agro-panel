@@ -1,11 +1,14 @@
-.btn {
-    /* width: 4vw; */
-    height: 3vh;
-    margin-left: 10px;
+.btn-pag {
+    position: relative;
+    top: -1vh;
+    display: block;
+    width: 3vw;
+    height: 4vh;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 400;
     font-size: 1vw;
-    font-weight: 700;
     color: #000;
     border: 1px solid #AAAAAA;
-    background-color: #eeeeee;
-    border-radius: 10px;
-}
+    background-color: #FFFFFF;
+ }
