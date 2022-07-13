@@ -31,10 +31,10 @@ const Card = ({width, title, region, index}) => {
                 </div>
                 <div className='card-pad'>
                     <span className='card-span-percent'>
-                        {region.percent}% 
+                        {region.percent.toFixed(2)}% 
                     </span>                        
                     <span className='card-span-amount'>
-                        {format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}
+                        {format(region.amount.toFixed(2))} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}
                     </span>
                 </div> 
                 </> }
@@ -42,7 +42,7 @@ const Card = ({width, title, region, index}) => {
                 {(region.percent === 0  && region.info) && <>
                 <div className='card-pad1'>
                     <span className={`card-span-amount card-span-amount${index}`}>
-                        {format(region.amount)} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}
+                        {format(region.amount.toFixed(2))} {(checkedRadioLeft===defaultLeft) ? 'Га' : 'Шт'}
                     </span>
                 </div> 
                 </> } 

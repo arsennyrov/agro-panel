@@ -24,6 +24,7 @@
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.2rem;
+    overflow: hidden;
     display: flex;
     justify-content: center ;
     align-items: center;
@@ -78,6 +79,7 @@
     flex-direction: column;
     align-items: start;
     padding: 10px 0 0 5px;
+    overflow: hidden;
 }
 
 .p-mosaic {
@@ -86,6 +88,7 @@
     font-weight: 500;
     font-size: 0.8rem;
     line-height: 0.8rem;
+    overflow: hidden;
 }
 
 .span-overtime {

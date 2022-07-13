@@ -13,9 +13,10 @@ import Spinner from '../../components/Spinner';
 
 const Page2 = (props) => {
 
+    const [selected, setSelected] = useState('1');
     const [page2Click, setPage2Click] = useState(0);  
-    const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
 
     useEffect(() => {
           const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
@@ -121,12 +122,24 @@ const Page2 = (props) => {
 
     const onClick2 = () => {
         setPage2Click(1);
+        setSelected(1);
     }
     const onClick3 = () => {
         setPage2Click(2);
+        setSelected(2);
     }
     const onClick4 = () => {
         setPage2Click(3);
+        setSelected(3);
+    }
+
+    const styleBtn = {
+        // borderTopLeftRadius: (name==='1') ? '8px' : 0,
+        // borderBottomLeftRadius: (name==='1') ? '8px' : 0,
+        // borderTopRightRadius: (name==='3') ? '8px' : 0,
+        // borderBottomRightRadius: (name==='3') ? '8px' : 0,
+        // fontWeight: (selected===name) ? '700' : '400', 
+        // color: (selected===name) ? 'red' : 'black'
     }
 
     return (
@@ -141,11 +154,12 @@ const Page2 = (props) => {
                 {(page2Click === 2) && <Grid data={tabCrops42} page2Click={page2Click} /> }
                 {(page2Click === 3) && <Grid data={tabCrops43} page2Click={page2Click} /> }
             </div>
+
+
             <div className='page2-button'> 
-              {/* <Button className='page2-butt1' name={'Сев'} onClick={onClick1} /> */}
-              <Button className='page2-butt2' name={'1'} onClick={onClick2} />
-              <Button className='page2-butt3' name={'2'} onClick={onClick3} />
-              <Button className='page2-butt4' name={'3'} onClick={onClick4} />
+              <Button className='page2-btn1' name={'1'} onClick={onClick2} />
+              <Button className='page2-btn2' name={'2'} onClick={onClick3} />
+              <Button className='page2-btn3' name={'3'} onClick={onClick4} />
             </div>
             <div className='container-chart'>
                 <BarChart />
