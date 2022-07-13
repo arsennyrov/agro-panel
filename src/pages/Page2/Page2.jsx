@@ -179,7 +179,7 @@ const Page2 = (props) => {
             </div>
 
 
-            <div className='page2-button'> 
+            <div className='page2-buttons'> 
               <Button className='page2-btn-1' name={'1'} onClick={onClick2} bgcolor={bgColor1} />
               <Button className='page2-btn-2' name={'2'} onClick={onClick3} bgcolor={bgColor2} />
               <Button className='page2-btn-3' name={'3'} onClick={onClick4} bgcolor={bgColor3} />

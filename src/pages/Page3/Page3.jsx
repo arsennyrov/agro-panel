@@ -340,7 +340,7 @@ const Page3 = () => {
                         <div className='prompt-wrap'>
                             <Propmpt color={item.color} text={item.text} />
                         </div>
-                    )})}    
+                )})}    
             </div>
         </div>
     );

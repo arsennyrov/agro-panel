@@ -29,8 +29,8 @@
     flex: 4 0 0;
 }              
 
-.page2-button {
-    /* width: 120px; */
+.page2-buttons {
+    /* width: 100px; */
     height: 30px;
     margin-top: 10px;
     display: flex;
