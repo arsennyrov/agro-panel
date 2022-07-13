@@ -14,22 +14,17 @@
     row-gap: 20px;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(187, 209, 242); */
 }
 
 .container-tab {
-    /* position: relative;
-    top: -8vh; */
     width: 100%;
     flex: 6 0 0;
-    /* background-color: rgb(245, 202, 202); */
 }
 
 .container-chart {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    /* gap: 50px; */
     gap: 20px;
     flex: 4 0 0;
 }              
@@ -40,11 +35,5 @@
     margin-top: 10px;
     display: flex;
     justify-content:space-around;
-    /* background-color: rgb(161, 247, 168); */
 }
 
-
-/* .page2-butt1, .page2-butt2 {
-    display: block;
-    margin: 0, 10px;
-} */

@@ -116,8 +116,12 @@ const Page2 = (props) => {
         tabCrops42.push(sumFullSort[i]);
     }     
     const tabCrops43 = [];
-    for (let i=12; i < sumFullSort.length; i++) {
+    for (let i=12; i < 18; i++) {
         tabCrops43.push(sumFullSort[i]);
+    }   
+    const tabCrops44 = [];
+    for (let i=18; i < sumFullSort.length; i++) {
+        tabCrops44.push(sumFullSort[i]);
     }     
 
     const onClick2 = () => {
@@ -132,14 +136,9 @@ const Page2 = (props) => {
         setPage2Click(3);
         setSelected(3);
     }
-
-    const styleBtn = {
-        // borderTopLeftRadius: (name==='1') ? '8px' : 0,
-        // borderBottomLeftRadius: (name==='1') ? '8px' : 0,
-        // borderTopRightRadius: (name==='3') ? '8px' : 0,
-        // borderBottomRightRadius: (name==='3') ? '8px' : 0,
-        // fontWeight: (selected===name) ? '700' : '400', 
-        // color: (selected===name) ? 'red' : 'black'
+    const onClick5 = () => {
+        setPage2Click(4);
+        setSelected(4);
     }
 
     return (
@@ -153,6 +152,7 @@ const Page2 = (props) => {
                 {(page2Click === 1) && <Grid data={tabCrops41} page2Click={page2Click} /> }
                 {(page2Click === 2) && <Grid data={tabCrops42} page2Click={page2Click} /> }
                 {(page2Click === 3) && <Grid data={tabCrops43} page2Click={page2Click} /> }
+                {(page2Click === 4) && <Grid data={tabCrops44} page2Click={page2Click} /> }
             </div>
 
 
@@ -160,6 +160,7 @@ const Page2 = (props) => {
               <Button className='page2-btn1' name={'1'} onClick={onClick2} />
               <Button className='page2-btn2' name={'2'} onClick={onClick3} />
               <Button className='page2-btn3' name={'3'} onClick={onClick4} />
+              <Button className='page2-btn4' name={'4'} onClick={onClick5} />
             </div>
             <div className='container-chart'>
                 <BarChart />
