@@ -101,11 +101,21 @@ const Page2 = (props) => {
             info: true,
         });
 
-        const sumFullSort = sumfullCrops.slice().sort((a,b) => {
+        const sumFullSort0 = sumfullCrops.slice().sort((a,b) => {
             if (a.plan < b.plan) {
                 return 1;
             }
             if (a.plan > b.plan) {
+                return -1;
+            }
+            return 0;
+        });
+
+        const sumFullSort = sumFullSort0.slice().sort((a,b) => {
+            if (a.fact < b.fact) {
+                return 1;
+            }
+            if (a.fact > b.fact) {
                 return -1;
             }
             return 0;
