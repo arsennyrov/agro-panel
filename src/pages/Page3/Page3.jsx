@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import Propmpt from '../../components/Prompt';
-import { cropStateOptions4 } from '../../containers/utils';
+import { cropStateOptions4, cropStateOptions41 } from '../../containers/utils';
 import { saveFullData4 } from '../../stores/fullSlice';
 import Mosaic from '../../components/Mosaic';
 import './Page3.css';
@@ -290,6 +290,7 @@ const Page3 = () => {
     console.log('region1', region1);
 
     const cropsColor = cropStateOptions4();
+    const cropsColor1 = cropStateOptions41();
 
     return ( 
         <div className='page3'>
@@ -335,7 +336,7 @@ const Page3 = () => {
             </div>
 
             <div className='page3__footer'>
-                {cropsColor.map(item => { 
+                {cropsColor1.map(item => { 
                     return (
                         <div className='prompt-wrap'>
                             <Propmpt color={item.color} text={item.text} />

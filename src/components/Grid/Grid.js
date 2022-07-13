@@ -60,8 +60,8 @@ const Grid = ({ data, page2Click }) => {
                 <div className='head'><span className='head-span'>Всего, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Убрано, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Убрано <br></br>не в срок, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Убрано <br></br>{day-2}.{month+1}, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Убрано {day-2}.{month+1}<br></br>не в срок, {checkedUnit}</span></div>
+                <div className='head'><span className='head-span'>Убрано <br></br>за сегодня, {checkedUnit}</span></div>
+                <div className='head'><span className='head-span'>Убрано за сегод-<br></br>ня не в срок, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Убрано <br></br>всего, {'%'}</span></div>
               </>
             }
