@@ -30,10 +30,17 @@
 }              
 
 .page2-button {
-    width: 100px;
+    /* width: 120px; */
     height: 30px;
     margin-top: 10px;
     display: flex;
     justify-content:space-around;
 }
 
+.page2-btn {
+    color: red;
+    background-color: #FFFFFF;
+}
+.page2-btn-1 {
+    background-color: gold;
+}

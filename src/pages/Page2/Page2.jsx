@@ -16,6 +16,10 @@ const Page2 = (props) => {
     const [selected, setSelected] = useState('1');
     const [page2Click, setPage2Click] = useState(0);  
     const [loading, setLoading] = useState(true);
+    const [bgColor1, setBgColor1] = useState('#FFFFFF');
+    const [bgColor2, setBgColor2] = useState('#F6F6F6');
+    const [bgColor3, setBgColor3] = useState('#F6F6F6');
+    const [bgColor4, setBgColor4] = useState('#F6F6F6');
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -127,18 +131,37 @@ const Page2 = (props) => {
     const onClick2 = () => {
         setPage2Click(1);
         setSelected(1);
+        setBgColor1('#FFFFFF')
+        setBgColor2('#F6F6F6')
+        setBgColor3('#F6F6F6')        
+        setBgColor4('#F6F6F6')
     }
     const onClick3 = () => {
         setPage2Click(2);
         setSelected(2);
+        setBgColor1('#F6F6F6')
+        setBgColor2('#FFFFFF')
+        setBgColor3('#F6F6F6')      
+        setBgColor4('#F6F6F6')
+
     }
     const onClick4 = () => {
         setPage2Click(3);
         setSelected(3);
+        setBgColor1('#F6F6F6')
+        setBgColor2('#F6F6F6')
+        setBgColor3('#FFFFFF')        
+        setBgColor4('#F6F6F6')
+
     }
     const onClick5 = () => {
         setPage2Click(4);
         setSelected(4);
+        setBgColor1('#F6F6F6')
+        setBgColor2('#F6F6F6')
+        setBgColor3('#F6F6F6')
+        setBgColor4('#FFFFFF')
+
     }
 
     return (
@@ -157,17 +180,17 @@ const Page2 = (props) => {
 
 
             <div className='page2-button'> 
-              <Button className='page2-btn1' name={'1'} onClick={onClick2} />
-              <Button className='page2-btn2' name={'2'} onClick={onClick3} />
-              <Button className='page2-btn3' name={'3'} onClick={onClick4} />
-              <Button className='page2-btn4' name={'4'} onClick={onClick5} />
+              <Button className='page2-btn-1' name={'1'} onClick={onClick2} bgcolor={bgColor1} />
+              <Button className='page2-btn-2' name={'2'} onClick={onClick3} bgcolor={bgColor2} />
+              <Button className='page2-btn-3' name={'3'} onClick={onClick4} bgcolor={bgColor3} />
+              <Button className='page2-btn-4' name={'4'} onClick={onClick5} bgcolor={bgColor4} />
             </div>
             <div className='container-chart'>
                 <BarChart />
                 <PieChart /> 
             </div>
         </div>
-        </>
+        </> 
     );
 };
 

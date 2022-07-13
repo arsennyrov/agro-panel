@@ -2,13 +2,13 @@
     position: relative;
     top: -1vh;
     display: block;
-    width: 3vw;
+    width: 4vw;
     height: 4vh;
     font-family: 'TT Norms';
     font-style: normal;
     font-weight: 400;
-    font-size: 1vw;
+    font-size: 1.1vw;
     color: #000;
     border: 1px solid #AAAAAA;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
  }
