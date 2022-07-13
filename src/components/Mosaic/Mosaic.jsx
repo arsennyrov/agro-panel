@@ -1,10 +1,11 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import { Tooltip } from "antd";
+import { Tooltip, Typography } from "antd";
 
 import { createData } from "./createData";
 import "./Mosaic.css";
 
 const Mosaic = ( {w, h, cropsComp } ) => {
+const { Paragraph, Text } = Typography;
 
     // console.log('WWWWW cropsComp', cropsComp);
 
@@ -69,7 +70,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     const residualHeight = currentWidth < currentHeight ? currentHeight - height : currentHeight
     return (
         <>
-            {(width * height < 8000) ?
                 <Tooltip
                     placement="bottom"
                     title={
@@ -89,15 +89,8 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                         </>
                     }
                 >
-                    <div style={{width: width, height: height, fontSize: '.7vw'}} className="page4__item">
-                        {data[index]?.blocks?.map((item) => (
-                            <div style={{width: `${item.percent}`, fontSize: '.7vw', backgroundColor: `${item.color}`}} className="page4__item-block" />
-                        ))}
-                    </div>
-                </Tooltip> :
-                <>
                     <div className="mosaic__cart" style={{width: width, height: height}}>
-                        <span style={{wordBreak: 'break-all'}}>{data[index].name}</span>
+                        <Text ellipsis={true}>{data[index].name}</Text>
                         { (data[index].text1 > 0) && 
                         <span>
                             {data[index].text1}
@@ -115,11 +108,10 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                             // console.log('item', item);
                             return (
                                 <div style={{ width: `${item.percent}`, fontSize: '.7vw', backgroundColor: `${item.color}` }} className="page4__item-block" />
-                            );
-                        })}
+                                );
+                            })}
                     </div>
-                </>
-            }
+                </Tooltip>
             <div style={{display: `${residualHeight < residualWidth ? 'flex' : 'block'}`, flexShrink: 0}}>
                 <PlacementBlocks
                     index={index + 1}

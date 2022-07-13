@@ -303,7 +303,7 @@ const Page3 = () => {
                     <div className='context-region1'>
                         {region1.map((item, index) => 
                             <div className='reg'>
-                                <Mosaic w={31.5} h={16} cropsComp={{item}} />
+                                <Mosaic h={11.9} cropsComp={{item}} />
                             </div>
                         )}        
                     </div>
@@ -316,7 +316,7 @@ const Page3 = () => {
                     <div className='context-region2'>
                         {region2.map((item) => 
                             <div className='reg'>
-                                <Mosaic w={30} h={11.9} cropsComp={{item}} />                            </div>
+                                <Mosaic h={9.15} cropsComp={{item}} />                            </div>
                         )}                     
                     </div>
                 </div>
@@ -328,7 +328,7 @@ const Page3 = () => {
                     <div className='context-region3'>
                         {region3.map((item) => 
                             <div className='reg'>
-                                <Mosaic w={28.8} h={22.9} cropsComp={{item}} />                            </div>
+                                <Mosaic h={16} cropsComp={{item}} />                            </div>
                         )}        
                     </div>
                 </div>
