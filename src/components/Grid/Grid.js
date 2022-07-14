@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 
 const Grid = ({ data, page2Click }) => {
 
+  console.log('data', data);
   const checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
 
   const [data0, setData0] = useState(data);  
@@ -85,7 +86,7 @@ const Grid = ({ data, page2Click }) => {
                   <div className='colh col col5'><span className='row-span'>{format(item.factOverTime)}</span></div>
                   <div className='colh col col6'><span className='row-span'>{format(item.factToday)}</span></div>
                   <div className='colh col col7'><span className='row-span'>{format(item.factTodayOver)}</span></div>
-                  <div className='colh col col8'><span className='row-span'>{format(item.progress)}</span></div>
+                  <div className='colh col col8'><span className='row-span'>{item.progress.toFixed(1)}</span></div>
                 </>
                 }
                 { !item.info && <>

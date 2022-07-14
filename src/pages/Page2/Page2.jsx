@@ -70,7 +70,7 @@ const Page2 = (props) => {
                     factOverTime: sumFactOverTime,
                     factToday: sumFact/12,
                     factTodayOver: sumFactOverTime/18,
-                    progress: Math.round((100*sumFact)/sumPlan),
+                    progress: (100*sumFact)/sumPlan,
                     info: true,
                 });
                 name0 = fullSort[i]?.name;
@@ -97,7 +97,7 @@ const Page2 = (props) => {
             factOverTime: sumFactOverTime,
             factToday: sumFact/12,
             factTodayOver: sumFactOverTime/12,
-            progress: Math.round((100*sumFact)/sumPlan),
+            progress: (100*sumFact)/sumPlan,
             info: true,
         });
 
@@ -116,7 +116,7 @@ const Page2 = (props) => {
                 return 1;
             }
             if (a.fact > b.fact) {
-                return -1;
+                return -1;  
             }
             return 0;
         });
@@ -137,6 +137,8 @@ const Page2 = (props) => {
     for (let i=18; i < sumFullSort.length; i++) {
         tabCrops44.push(sumFullSort[i]);
     }     
+
+    console.log('tabCrops41', tabCrops41);
 
     const onClick2 = () => {
         setPage2Click(1);
