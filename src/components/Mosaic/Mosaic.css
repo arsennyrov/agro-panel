@@ -1,7 +1,11 @@
+.page4 {
+    flex-grow: 1;
+}
+
 .page4__item {
     border-top: 1px solid #CCCCCC;
     border-left: 2px solid #CCCCCC;
-}
+ }
 
 .page4 > .page4__item {
     border-left: 0;
@@ -45,10 +49,13 @@
 }
 
 .mosaic-container{
+    height: 100%;
     border-width: 2px;
     border-style: solid;
     border-radius: 8px;
-    overflow: hidden;  
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .mosaic-container1
