@@ -8,6 +8,8 @@ import { format } from "../../containers/utils";
 const Mosaic = ({ w, h, cropsComp }) => {
   const { Text } = Typography;
 
+  console.log('WWWWW cropsComp', cropsComp);
+
   const [containerWidth, setContainerWidth] = useState(0);
   const [containerHeight, setContainerHeight] = useState(`${h}vh`);
   // console.log('containerWidth', containerWidth)
@@ -31,7 +33,7 @@ const Mosaic = ({ w, h, cropsComp }) => {
   const region = cropsComp.item.region;
   const title = cropsComp.item.company;
   const data = createData(cropsComp);
-  
+  console.log('======data', data);
   let regNum = 0;
   switch (region) {
     case "Центр":
@@ -77,6 +79,7 @@ const Mosaic = ({ w, h, cropsComp }) => {
     const residualHeight =
       currentWidth < currentHeight ? currentHeight - height : currentHeight;
     return (
+
       <>
         <Tooltip
           placement="bottom"
@@ -119,7 +122,14 @@ const Mosaic = ({ w, h, cropsComp }) => {
             style={{ width: width, height: height }}
           >
             <Text ellipsis={true}>{data[index].name}</Text>
-            <Text ellipsis={true}>{format(data[index].text3)} из {format(data[index].value)} Га</Text>
+            {(data[index].text3 > 0) && 
+              <Text ellipsis={true}>{format(data[index].text3)} из {format(data[index].value)} Га</Text>
+            }
+            {(data[index].text3 === 0) && 
+              <Text ellipsis={true}>{format(data[index].value)} Га</Text>
+            }
+
+
 
 
           </div>
@@ -142,7 +152,6 @@ const Mosaic = ({ w, h, cropsComp }) => {
             })}
           </div>
         </Tooltip>
-
         <div
           style={{
             display: `${residualHeight < residualWidth ? "flex" : "block"}`,

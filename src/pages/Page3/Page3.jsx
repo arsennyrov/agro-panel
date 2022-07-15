@@ -14,6 +14,17 @@ const Page3 = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
 
+    const nameAddWbr = (str) => {
+        switch (str) {
+            case 'Подсолнечник':
+                return 'Подсолнеч&shyник';
+            case 'Подсолнечник ВО':
+                return 'Подсолнеч&shyник ВО';
+            default:
+                return str    
+        }
+    }
+
     useEffect(() => {
           const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
           axios.get(apiUrl).then((resp) => {
@@ -97,6 +108,11 @@ const Page3 = () => {
                     titleName: titleName0,
                     title: fullSort[i-1]?.title,
                     company: fullSort[i-1]?.title,
+                 
+                 
+                 
+                 
+                 
                     name:  fullSort[i-1]?.name,
                     region: fullSort[i-1]?.region,
                     // layCrops: fullSort[i-1]?.layCrops,
@@ -271,6 +287,9 @@ const Page3 = () => {
     const region2 = regionFilter('Юг');
     const region3 = regionFilter('Север');
 
+    console.log('region1', region1);
+
+    const cropsColor = cropStateOptions4();
     const cropsColor1 = cropStateOptions41();
 
     return ( 
@@ -284,7 +303,7 @@ const Page3 = () => {
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
                         {region1.map((item, index) => 
-                            <div className='reg1'>
+                            <div className='reg1' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
                                 <Mosaic h={10.9} cropsComp={{item}} />
                             </div>
                         )}        
@@ -297,7 +316,7 @@ const Page3 = () => {
                     <h3>Южный регион</h3>
                     <div className='context-region2'>
                         {region2.map((item) => 
-                            <div className='reg2'>
+                            <div className='reg2' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
                                 <Mosaic h={8.32} cropsComp={{item}} />
                             </div>
                         )}                     
@@ -310,7 +329,7 @@ const Page3 = () => {
                     <h3>Северный регион</h3>
                     <div className='context-region3'>
                         {region3.map((item) => 
-                            <div className='reg3'>
+                            <div className='reg3' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
                                 <Mosaic h={14.75} cropsComp={{item}} />
                             </div>
                         )}        
