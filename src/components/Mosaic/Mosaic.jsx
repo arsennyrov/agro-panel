@@ -5,11 +5,12 @@ import { createData } from "./createData";
 import "./Mosaic.css";
 import { format } from "../../containers/utils";
 
-const Mosaic = ({ w, h, cropsComp }) => {
+const Mosaic = ({ cropsComp }) => {
   const { Text } = Typography;
 
   // console.log('WWWWW cropsComp', cropsComp);
 
+  const h = 1;
   const [containerWidth, setContainerWidth] = useState(0);
   const [containerHeight, setContainerHeight] = useState(`${h}vh`);
   // console.log('containerWidth', containerWidth)
@@ -176,7 +177,9 @@ const Mosaic = ({ w, h, cropsComp }) => {
     <div
       className={`mosaic-container mosaic-container${regNum} mosaic-container-region`}
     >
-      <div className={`mosaic-header${regNum}`}>{title}</div>
+      <div className={`mosaic-header${regNum}`}>
+        <Text ellipsis={true}>{title}</Text>
+      </div>
       <div
         ref={ref}
         style={{

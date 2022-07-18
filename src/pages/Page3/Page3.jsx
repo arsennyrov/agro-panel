@@ -271,7 +271,9 @@ const Page3 = () => {
     const region2 = regionFilter('Юг');
     const region3 = regionFilter('Север');
 
-    const region1Sum = region1.map(item => item.sumAll).reduce((partialSum, a) => partialSum + a, 0);
+    const region1Sum = region1
+        .map(item => item.sumAll)
+        .reduce((partialSum, a) => partialSum + a, 0);
     let percentReg = [];
     for (let i=0; i < region1.length; i++) {
        percentReg[i] = 100*region1[i].sumAll/region1Sum;
@@ -287,8 +289,9 @@ const Page3 = () => {
 
     console.log('region1Sum', region1Sum);
     console.log('region1', region1);
-    const region11 = region1.slice(0, 3);
-    const region12 = region1.slice(3);
+    const region11 = region1.slice(0, 2);
+    const region12 = region1.slice(2, 3);
+    const region13 = region1.slice(3);
 
     const cropsColor1 = cropStateOptions41();
 
@@ -302,13 +305,24 @@ const Page3 = () => {
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
-                        {region11.map((item, index) => 
-                            <div className='reg1' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
-                                <Mosaic h={10.9} cropsComp={{item}} />
-                            </div>
-                        )}
-                        <div className='region1__item--wrapper' style={{flexGrow: `${region12[0]?.sumAll + region12[1]?.sumAll}`}}>
+                        <div className='region1__item--wrapper' style={{flexGrow: `${region11[0]?.sumAll + region11[1]?.sumAll}`}}>
+                            {region11.map((item, index) => 
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}>
+                                {/* <div> */}
+                                    <Mosaic h={10.9} cropsComp={{item}} />
+                                </div>
+                            )}                        
+                        </div>
+                        <div className='region1__item--wrapper' style={{flexGrow: `${region12[0]?.sumAll}`}}>
                             {region12.map((item, index) => 
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
+                                {/* <div> */}
+                                    <Mosaic h={10.9} cropsComp={{item}} />
+                                </div>
+                            )}                        
+                        </div>
+                        <div className='region1__item--wrapper' style={{flexGrow: `${region13[0]?.sumAll + region13[1]?.sumAll}`}}>
+                            {region13.map((item, index) => 
                                 <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
                                 {/* <div> */}
                                     <Mosaic h={10.9} cropsComp={{item}} />
