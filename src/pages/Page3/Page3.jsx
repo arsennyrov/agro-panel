@@ -14,17 +14,6 @@ const Page3 = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
 
-    const nameAddWbr = (str) => {
-        switch (str) {
-            case 'Подсолнечник':
-                return 'Подсолнеч&shyник';
-            case 'Подсолнечник ВО':
-                return 'Подсолнеч&shyник ВО';
-            default:
-                return str    
-        }
-    }
-
     useEffect(() => {
           const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
           axios.get(apiUrl).then((resp) => {
@@ -108,11 +97,6 @@ const Page3 = () => {
                     titleName: titleName0,
                     title: fullSort[i-1]?.title,
                     company: fullSort[i-1]?.title,
-                 
-                 
-                 
-                 
-                 
                     name:  fullSort[i-1]?.name,
                     region: fullSort[i-1]?.region,
                     // layCrops: fullSort[i-1]?.layCrops,
@@ -287,9 +271,25 @@ const Page3 = () => {
     const region2 = regionFilter('Юг');
     const region3 = regionFilter('Север');
 
-    console.log('region1', region1);
+    const region1Sum = region1.map(item => item.sumAll).reduce((partialSum, a) => partialSum + a, 0);
+    let percentReg = [];
+    for (let i=0; i < region1.length; i++) {
+       percentReg[i] = 100*region1[i].sumAll/region1Sum;
+       region1[i].percent = percentReg[i]
+    }   
 
-    const cropsColor = cropStateOptions4();
+    if (percentReg[region1.length-2] < 10) {
+        const percent0 = (percentReg[region1.length-2] + percentReg[region1.length-1])/2;
+        region1[region1.length-2].percent = percent0;
+        region1[region1.length-1].percent = percent0;
+    }
+
+
+    console.log('region1Sum', region1Sum);
+    console.log('region1', region1);
+    const region11 = region1.slice(0, 3);
+    const region12 = region1.slice(3);
+
     const cropsColor1 = cropStateOptions41();
 
     return ( 
@@ -302,11 +302,19 @@ const Page3 = () => {
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='context-region1'>
-                        {region1.map((item, index) => 
+                        {region11.map((item, index) => 
                             <div className='reg1' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
                                 <Mosaic h={10.9} cropsComp={{item}} />
                             </div>
-                        )}        
+                        )}
+                        <div className='region1__item--wrapper' style={{flexGrow: `${region12[0]?.sumAll + region12[1]?.sumAll}`}}>
+                            {region12.map((item, index) => 
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
+                                {/* <div> */}
+                                    <Mosaic h={10.9} cropsComp={{item}} />
+                                </div>
+                            )}                        
+                        </div>
                     </div>
                 </div>
 

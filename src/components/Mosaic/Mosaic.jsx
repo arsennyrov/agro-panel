@@ -8,14 +8,14 @@ import { format } from "../../containers/utils";
 const Mosaic = ({ w, h, cropsComp }) => {
   const { Text } = Typography;
 
-  console.log('WWWWW cropsComp', cropsComp);
+  // console.log('WWWWW cropsComp', cropsComp);
 
   const [containerWidth, setContainerWidth] = useState(0);
   const [containerHeight, setContainerHeight] = useState(`${h}vh`);
   // console.log('containerWidth', containerWidth)
   // console.log('containerHeight', containerHeight)
   const ref = useRef();
-  // console.log('ref',ref);
+  console.log('ref',ref);
 
   useLayoutEffect(() => {
     const onResize = () => {
@@ -33,7 +33,7 @@ const Mosaic = ({ w, h, cropsComp }) => {
   const region = cropsComp.item.region;
   const title = cropsComp.item.company;
   const data = createData(cropsComp);
-  console.log('======data', data);
+  // console.log('======data', data);
   let regNum = 0;
   switch (region) {
     case "Центр":
@@ -62,7 +62,7 @@ const Mosaic = ({ w, h, cropsComp }) => {
     dataS.push((data[i].value * containerSquare) / dataSum);
   }
 
-  // console.log('dataS', dataS);
+  console.log('dataS', dataS);
 
   const PlacementBlocks = ({ currentWidth, currentHeight, index }) => {
     if (index > dataS?.length - 1) return;

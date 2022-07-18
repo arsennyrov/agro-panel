@@ -115,21 +115,13 @@ h3 {
     border-bottom: 2px solid #DDDDDD;
 }
 
-/* .reg2 {
-    height: 100%;
-    background-color: rgb(191, 246, 179);
-} */
-
-/* .reg1 {
-    grid-column: 1 / 3;
-}
-.reg2 {
-    grid-column: 1 / 2;
-}
-.reg3 {
-    grid-column: 2 / 3;
-} */
 
 .reg1, .reg2, .reg3 {
     flex-grow: 1;
+}
+
+.region1__item--wrapper {
+    display: flex;
+    flex-basis: 110px;
+    column-gap: 5px;
 }
