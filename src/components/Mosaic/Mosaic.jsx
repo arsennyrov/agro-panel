@@ -25,7 +25,7 @@ const Mosaic = ({ cropsComp }) => {
     };
     window.addEventListener("resize", onResize);
     onResize();
-    return () => window.removeEventListener("resize", onResize);
+    // return () => window.removeEventListener("resize", onResize);
   }, []);
 
   const containerSquare = containerWidth * containerHeight;

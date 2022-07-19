@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import Propmpt from '../../components/Prompt';
-import { cropStateOptions4, cropStateOptions41 } from '../../containers/utils';
 import { saveFullData4 } from '../../stores/fullSlice';
 import Mosaic from '../../components/Mosaic';
 import './Page3.css';
 import Spinner from '../../components/Spinner';
+import { cropStateOptions41 } from '../../containers/utils';
 
 const Page3 = () => {
 
@@ -35,8 +35,6 @@ const Page3 = () => {
                 subTitle: obj.FIELD_GROUP__NAME,
                 id: 1000+num,
                 region: obj.AO__REGION,
-                // layCompany: 1,
-                // layCrops: layCrops0,
                 name: obj.CROPS__NAME,
                 fact: Math.round(obj.FACT),
                 factInTime: Math.round(obj.FACT_IN_TIME),
@@ -56,10 +54,8 @@ const Page3 = () => {
 
         const fullTrans = []; 
         let sum0 = [];
-        // let layCrops0;
         for (let i=0; i<fullStage4?.length; i++) {
             sum0 = [Math.round(fullStage4[i]?.PLAN), 0, 0, Math.round(fullStage4[i]?.FACT), 0, Math.round(fullStage4[i]?.PLAN - fullStage4[i]?.FACT)];
-            // layCrops0 = (fullStage4[i]?.AO__REGION === "Север") ? 6 : 1;
             fullTrans.push(transformFull3(fullStage4[i],i,sum0));
         }
 
@@ -124,7 +120,6 @@ const Page3 = () => {
             companyM = fullSort[i-1]?.title;
             nameM = fullSort[i-1]?.name;
             regionM = fullSort[i-1]?.region;
-            // layCropsM = fullSort[i-1]?.layCrops;
             sumM = fullSort[i-1]?.sum;
         }
 //---------------------------------------------------------------------------------------
@@ -139,7 +134,6 @@ const Page3 = () => {
             company: companyM,
             name:  nameM,
             region: regionM,
-            // layCrops: layCropsM,
             plan: sumPlan,
             fact: sumFact,
             factInTime: sumFactInTime,
@@ -205,8 +199,6 @@ const Page3 = () => {
             subTitle: 'CCCCC',
             id: 1088,
             region: 'Центр',
-            // layCompany: 1,
-            // layCrops: 1,
             name: 'Соя',
             fact: 1111,
             factInTime: 0,
@@ -271,27 +263,44 @@ const Page3 = () => {
     const region2 = regionFilter('Юг');
     const region3 = regionFilter('Север');
 
-    const region1Sum = region1
+    let regionSum = region1
         .map(item => item.sumAll)
         .reduce((partialSum, a) => partialSum + a, 0);
     let percentReg = [];
     for (let i=0; i < region1.length; i++) {
-       percentReg[i] = 100*region1[i].sumAll/region1Sum;
+       percentReg[i] = 100*region1[i].sumAll/regionSum;
        region1[i].percent = percentReg[i]
     }   
-
     if (percentReg[region1.length-2] < 10) {
         const percent0 = (percentReg[region1.length-2] + percentReg[region1.length-1])/2;
         region1[region1.length-2].percent = percent0;
         region1[region1.length-1].percent = percent0;
     }
-
-
-    console.log('region1Sum', region1Sum);
     console.log('region1', region1);
     const region11 = region1.slice(0, 2);
-    const region12 = region1.slice(2, 3);
-    const region13 = region1.slice(3);
+    const region12 = region1.slice(2, region1.length-2);
+    const region13 = region1.slice(region1.length-2);
+         
+
+    regionSum = region2
+        .map(item => item.sumAll)
+        .reduce((partialSum, a) => partialSum + a, 0);
+    percentReg = [];
+    for (let i=0; i < region2.length; i++) {
+       percentReg[i] = 100*region1[i].sumAll/regionSum;
+       region2[i].percent = percentReg[i]
+    }   
+    if (percentReg[region2.length-2] < 10) {
+        const percent0 = (percentReg[region2.length-2] + percentReg[region2.length-1])/2;
+        region2[region2.length-2].percent = percent0;
+        region2[region2.length-1].percent = percent0;
+    }
+    console.log('region2', region2);
+    const region21 = region2.slice(0, 2);
+    const region22 = region2.slice(2, region2.length-2);
+    const region23 = region2.slice(region2.length-2);
+
+
 
     const cropsColor1 = cropStateOptions41();
 
@@ -304,7 +313,7 @@ const Page3 = () => {
             <div className='page3__container'>
                 <div className='region1'>
                     <h3>Центральный регион</h3>
-                    <div className='context-region1'>
+                    <div className='content-region1'>
                         <div className='region1__item--wrapper' style={{flexGrow: `${region11[0]?.sumAll + region11[1]?.sumAll}`}}>
                             {region11.map((item, index) => 
                                 <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}>
@@ -331,25 +340,43 @@ const Page3 = () => {
                         </div>
                     </div>
                 </div>
-
+ 
                 <div className='page3__h-line'></div>
 
                 <div className='region2'>
                     <h3>Южный регион</h3>
-                    <div className='context-region2'>
-                        {region2.map((item) => 
-                            <div className='reg2' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
-                                <Mosaic h={8.32} cropsComp={{item}} />
-                            </div>
-                        )}                     
+                    <div className='content-region1'>
+                        <div className='region2__item--wrapper' style={{flexGrow: `${region21[0]?.sumAll + region21[1]?.sumAll}`}}>
+                            {region21.map((item, index) => 
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}>
+                                {/* <div> */}
+                                    <Mosaic h={10.9} cropsComp={{item}} />
+                                </div>
+                            )}                        
+                        </div>
+                        <div className='region2__item--wrapper' style={{flexGrow: `${region22[0]?.sumAll}`}}>
+                            {region22.map((item, index) => 
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
+                                {/* <div> */}
+                                    <Mosaic h={10.9} cropsComp={{item}} />
+                                </div>
+                            )}                        
+                        </div>
+                        <div className='region2__item--wrapper' style={{flexGrow: `${region23[0]?.sumAll + region23[1]?.sumAll}`}}>
+                            {region23.map((item, index) => 
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
+                                {/* <div> */}
+                                    <Mosaic h={10.9} cropsComp={{item}} />
+                                </div>
+                            )}                        
+                        </div>
                     </div>
                 </div>
-
                 <div className='page3__h-line'></div>
 
                 <div className='region3'>
                     <h3>Северный регион</h3>
-                    <div className='context-region3'>
+                    <div className='content-region3'>
                         {region3.map((item) => 
                             <div className='reg3' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
                                 <Mosaic h={14.75} cropsComp={{item}} />
