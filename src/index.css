@@ -8,9 +8,9 @@ body {
 }
 
 @font-face {
-  font-family: "TT Norms";
-  src: local("TTNorms-Black.otf"),
-   url("./fonts/TT Norms/TTNorms-Regular.otf") format("truetype");
+  font-family: "AvenirNextCyr";
+  src: local("AvenirNextCyr-Black.otf"),
+   url("./fonts/AvenirNextCyr/AvenirNextCyr-Regular.ttf") format("truetype");
   /* font-weight: bold; */
   }
   

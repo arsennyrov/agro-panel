@@ -19,7 +19,7 @@
   .bar-chart__value {
     margin-top: 10px;
     margin-bottom: 0;
-    font-family: 'TT Norms';
+    font-family: 'AvenirNextCyr';
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
@@ -32,7 +32,7 @@
   .bar-chart__percent {
     margin-top: 20px;
     margin-bottom: 0;
-    font-family: 'TT Norms';
+    font-family: 'AvenirNextCyr';
     font-style: normal;
     font-weight: 500;
     font-size: 30px;

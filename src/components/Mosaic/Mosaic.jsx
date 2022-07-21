@@ -16,7 +16,7 @@ const Mosaic = ({ cropsComp }) => {
   // console.log('containerWidth', containerWidth)
   // console.log('containerHeight', containerHeight)
   const ref = useRef();
-  console.log('ref',ref);
+  // console.log('ref',ref);
 
   useLayoutEffect(() => {
     const onResize = () => {
@@ -31,8 +31,8 @@ const Mosaic = ({ cropsComp }) => {
   const containerSquare = containerWidth * containerHeight;
 
   // -------------------------------------------------------------------
-  const region = cropsComp.item.region;
-  const title = cropsComp.item.company;
+  const region = cropsComp.item.region ? cropsComp.item.region : cropsComp.region;
+  const title = cropsComp.item.company ? cropsComp.item.company : cropsComp.company;
   const data = createData(cropsComp);
   // console.log('======data', data);
   let regNum = 0;
@@ -63,7 +63,7 @@ const Mosaic = ({ cropsComp }) => {
     dataS.push((data[i].value * containerSquare) / dataSum);
   }
 
-  console.log('dataS', dataS);
+  // console.log('dataS', dataS);
 
   const PlacementBlocks = ({ currentWidth, currentHeight, index }) => {
     if (index > dataS?.length - 1) return;
@@ -86,16 +86,16 @@ const Mosaic = ({ cropsComp }) => {
           placement="bottom"
           title={
             <>
-              <span className="p-mosaic">
+              <span className="p-mosaic-name">
                 {data[index].name}
               </span>
               <br></br>
-              <span className="p-mosaic">
+              <span className="p-mosaic-all">
                 Всего: &nbsp;{format(data[index].value)}
               </span>
               <br></br>
               {data[index].text3 > 0 && (
-              <span>
+              <span className="p-mosaic-all">
                 Убрано: &nbsp;{format(data[index].text3)}
                 {data[index].text4 > 0 && (
                   <span className="span-overtime"> ({format(data[index].text4)})</span>
@@ -106,7 +106,7 @@ const Mosaic = ({ cropsComp }) => {
             <br></br>
 
             {data[index].text1 > 0 && (
-              <span>
+              <span className="p-mosaic-all">
                 В работе: &nbsp;{format(data[index].text1)}
                 {data[index].text2 > 0 && (
                   <span className="span-overtime">({format(data[index].text2)})</span>
@@ -129,9 +129,6 @@ const Mosaic = ({ cropsComp }) => {
             {(data[index].text3 === 0) && 
               <Text ellipsis={true}>{format(data[index].value)} Га</Text>
             }
-
-
-
 
           </div>
           <div

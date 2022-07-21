@@ -7,6 +7,7 @@ const initialState = {
     fullData2: [],
     fullData3: [],
     fullData4: [],
+    loading: true,
 }
 
 export const fullSlice = createSlice({
@@ -25,9 +26,16 @@ export const fullSlice = createSlice({
         saveFullData4: (state, action) => {
             state.fullData4 = action.payload
         },
+        changeLoading: (state, action) => {
+            state.loading = action.payload
+        }
     }
 })
 
-export const { saveFullData1, saveFullData2, saveFullData3, saveFullData4 } = fullSlice.actions
+export const { saveFullData1,
+               saveFullData2,
+               saveFullData3,
+               saveFullData4,
+               changeLoading } = fullSlice.actions
 
 export default fullSlice.reducer

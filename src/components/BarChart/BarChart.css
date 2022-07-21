@@ -8,7 +8,7 @@
     display: block;
     width: 100%;
     text-align-last: left;
-    font-family: 'TT Norms';
+    font-family: 'AvenirNextCyr';
     font-style: normal;
     font-weight: 400;
     font-size: 1.8vw;
@@ -92,7 +92,7 @@
 .barTitle1 {
     display: block;
     margin-top: 15px;
-    font-family: 'TT Norms';
+    font-family: 'AvenirNextCyr';
     font-style: normal;
     font-weight: 500;
     font-size: 1.5vw;
@@ -106,7 +106,7 @@
 .barTitle2 {
     display: block;
     margin-top: 10px;
-    font-family: 'TT Norms';
+    font-family: 'AvenirNextCyr';
     font-style: normal;
     font-weight: 400;
     font-size: 1.3vw;

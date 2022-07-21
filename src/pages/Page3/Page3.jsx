@@ -1,30 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
 import Propmpt from '../../components/Prompt';
-import { saveFullData4 } from '../../stores/fullSlice';
+import { saveFullData4, changeLoading } from '../../stores/fullSlice';
 import Mosaic from '../../components/Mosaic';
 import './Page3.css';
 import Spinner from '../../components/Spinner';
 import { cropStateOptions41 } from '../../containers/utils';
+import Page31 from '../Page31';
 
 const Page3 = () => {
 
+    console.log('useParams3', useParams());
     const dispatch = useDispatch();
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
+    const [titleFirm, setTitleFirm] = useState('');
+    const [cropsComp0, setCropsComp0] = useState([]);
 
+    let loading = useSelector(state => state.fulls.loading);
+    // console.log('OOOOOOOOOOOOOO loading', loading);
     useEffect(() => {
           const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
-          axios.get(apiUrl).then((resp) => {
+          loading && axios.get(apiUrl).then((resp) => {
             const full = resp.data;
             dispatch(saveFullData4(full.value));
-            setLoading(false); 
+            dispatch(changeLoading(false));
+            // setLoading(false); 
           });
         }, []);
     
         const fullStage4 = useSelector(state => state.fulls.fullData4);
-
+        // console.log('==================state.loading', useSelector(state => state.fulls.loading));
+        loading = useSelector(state => state.fulls.loading);
         const transformFull3 = (obj={},num) => {
             let plan0 = (obj.PLAN >= obj.FACT ) ? Math.round(obj.PLAN) : Math.round(obj.FACT);
             let sum5 =  Math.round(obj?.PLAN - obj?.FACT - Math.round((plan0-Math.round(obj.FACT))*Math.round(obj.PROGRESS)/100 ))
@@ -192,6 +201,8 @@ const Page3 = () => {
             default:
                 numReg = 0;                
         }
+
+        
         fullTrans0.push({
             company: 'AAAAA',
             title: 'AAAAA',
@@ -259,52 +270,88 @@ const Page3 = () => {
         return fullFinish1;
     }
 
-    const region1 = regionFilter('Центр');
-    const region2 = regionFilter('Юг');
+    const transRegion = (reg) => {
+        let regionSum = reg.map(item => item.sumAll).reduce((partialSum, a) => partialSum + a, 0);
+        let percentReg = [];
+        for (let i=0; i < reg.length; i++) {
+        percentReg[i] = 100*reg[i].sumAll/regionSum;
+        reg[i].percent = percentReg[i]
+        }   
+        if (percentReg[reg.length-2] < 10) {
+            const percent0 = (percentReg[reg.length-2] + percentReg[reg.length-1])/2;
+            reg[reg.length-2].percent = percent0;
+            reg[reg.length-1].percent = percent0;
+        }
+        return (
+            reg
+        )
+    }
+    
+    const region01 = regionFilter('Центр');
+    const region02 = regionFilter('Юг');
     const region3 = regionFilter('Север');
 
-    let regionSum = region1
-        .map(item => item.sumAll)
-        .reduce((partialSum, a) => partialSum + a, 0);
-    let percentReg = [];
-    for (let i=0; i < region1.length; i++) {
-       percentReg[i] = 100*region1[i].sumAll/regionSum;
-       region1[i].percent = percentReg[i]
-    }   
-    if (percentReg[region1.length-2] < 10) {
-        const percent0 = (percentReg[region1.length-2] + percentReg[region1.length-1])/2;
-        region1[region1.length-2].percent = percent0;
-        region1[region1.length-1].percent = percent0;
-    }
-    console.log('region1', region1);
+    const region1 = transRegion(region01);
     const region11 = region1.slice(0, 2);
     const region12 = region1.slice(2, region1.length-2);
     const region13 = region1.slice(region1.length-2);
-         
 
-    regionSum = region2
-        .map(item => item.sumAll)
-        .reduce((partialSum, a) => partialSum + a, 0);
-    percentReg = [];
-    for (let i=0; i < region2.length; i++) {
-       percentReg[i] = 100*region1[i].sumAll/regionSum;
-       region2[i].percent = percentReg[i]
-    }   
-    if (percentReg[region2.length-2] < 10) {
-        const percent0 = (percentReg[region2.length-2] + percentReg[region2.length-1])/2;
-        region2[region2.length-2].percent = percent0;
-        region2[region2.length-1].percent = percent0;
-    }
-    console.log('region2', region2);
+    console.log('region11', region11);
+    
+    const region2 = transRegion(region02);
     const region21 = region2.slice(0, 2);
-    const region22 = region2.slice(2, region2.length-2);
-    const region23 = region2.slice(region2.length-2);
-
-
+    const region22 = region2.slice(2, region1.length-2);
+    const region23 = region2.slice(region1.length-2);
 
     const cropsColor1 = cropStateOptions41();
 
+    const handleClick = (index) => (event) => {
+        console.log('eeeeeeeeeeeeeee', +index.substr(0,2), index.substr(2)  );
+        const numReg = index.substr(0,2);
+        let titleFirm = '';
+        let cropsComp0 = []
+        switch (numReg) {
+            case '11':
+                titleFirm = region11[+index.substr(2)].company;
+                setCropsComp0(region11[+index.substr(2)]);
+                break;
+            case '12':
+                titleFirm = region12[+index.substr(2)].company;
+                setCropsComp0(region12[+index.substr(2)]);
+                break;
+            case '13':
+                titleFirm = region13[+index.substr(2)].company;
+                setCropsComp0(region13[+index.substr(2)]);
+                break;
+            case '21':
+                titleFirm = region21[+index.substr(2)].company;
+                setCropsComp0(region21[+index.substr(2)]);
+                break;
+            case '22':
+                titleFirm = region22[+index.substr(2)].company;
+                setCropsComp0(region22[+index.substr(2)]);
+                break;
+            case '23':
+                titleFirm = region23[+index.substr(2)].company;
+                setCropsComp0(region23[+index.substr(2)]);
+                break;
+            case '03':
+                titleFirm = region3[+index.substr(2)].company;
+                setCropsComp0(region3[+index.substr(2)]);
+                break;
+
+            default:
+                titleFirm = '';
+        }
+        setTitleFirm(titleFirm);
+        console.log('titleFirm-0', titleFirm);
+    }
+
     return ( 
+        <>
+        {console.log('titleFirm-1', titleFirm)}
+        {(titleFirm) ? <Page31 titleFirm={titleFirm} cropsComp0={cropsComp0} /> :
+
         <div className='page3'>
             {loading && 
             <div className='page3-spinner'>
@@ -314,26 +361,27 @@ const Page3 = () => {
                 <div className='region1'>
                     <h3>Центральный регион</h3>
                     <div className='content-region1'>
-                        <div className='region1__item--wrapper' style={{flexGrow: `${region11[0]?.sumAll + region11[1]?.sumAll}`}}>
+                        <div className='region1__item--wrapper' 
+                            style={{flexGrow: `${region11[0]?.sumAll + region11[1]?.sumAll}`}}>
                             {region11.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}>
-                                {/* <div> */}
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}
+                                    onClick={handleClick('11'+index)}>
                                     <Mosaic h={10.9} cropsComp={{item}} />
                                 </div>
                             )}                        
                         </div>
                         <div className='region1__item--wrapper' style={{flexGrow: `${region12[0]?.sumAll}`}}>
                             {region12.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
-                                {/* <div> */}
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
+                                    onClick={handleClick('12'+index)}>
                                     <Mosaic h={10.9} cropsComp={{item}} />
                                 </div>
                             )}                        
                         </div>
                         <div className='region1__item--wrapper' style={{flexGrow: `${region13[0]?.sumAll + region13[1]?.sumAll}`}}>
                             {region13.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
-                                {/* <div> */}
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
+                                    onClick={handleClick('13'+index)}>
                                     <Mosaic h={10.9} cropsComp={{item}} />
                                 </div>
                             )}                        
@@ -348,24 +396,24 @@ const Page3 = () => {
                     <div className='content-region1'>
                         <div className='region2__item--wrapper' style={{flexGrow: `${region21[0]?.sumAll + region21[1]?.sumAll}`}}>
                             {region21.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}>
-                                {/* <div> */}
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}
+                                    onClick={handleClick('21'+index)}>
                                     <Mosaic h={10.9} cropsComp={{item}} />
                                 </div>
                             )}                        
                         </div>
                         <div className='region2__item--wrapper' style={{flexGrow: `${region22[0]?.sumAll}`}}>
                             {region22.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
-                                {/* <div> */}
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
+                                    onClick={handleClick('22'+index)}>
                                     <Mosaic h={10.9} cropsComp={{item}} />
                                 </div>
                             )}                        
                         </div>
                         <div className='region2__item--wrapper' style={{flexGrow: `${region23[0]?.sumAll + region23[1]?.sumAll}`}}>
                             {region23.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}>
-                                {/* <div> */}
+                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
+                                onClick={handleClick('23'+index)}>
                                     <Mosaic h={10.9} cropsComp={{item}} />
                                 </div>
                             )}                        
@@ -377,8 +425,9 @@ const Page3 = () => {
                 <div className='region3'>
                     <h3>Северный регион</h3>
                     <div className='content-region3'>
-                        {region3.map((item) => 
-                            <div className='reg3' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}>
+                        {region3.map((item, index) => 
+                            <div className='reg3' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}
+                                onClick={handleClick('03'+index)}>
                                 <Mosaic h={14.75} cropsComp={{item}} />
                             </div>
                         )}        
@@ -394,7 +443,9 @@ const Page3 = () => {
                         </div>
                 )})}    
             </div>
-        </div>
+        </div> 
+        }
+        </>
     );
 };
 
