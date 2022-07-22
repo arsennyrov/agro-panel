@@ -1,10 +1,14 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Tooltip, Typography } from "antd";
 
 import "./MosaicCompany.css";
 import { createData } from "./createData";
 import { format } from "../../containers/utils";
 
+// const container = {
+//   w: 1000,
+//   h: 500,
+// };
 const MosaicCompany = ({ cropsComp, bcolor }) => {
   const { Text } = Typography;
 
@@ -83,6 +87,8 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                 )}
               </span>
             )}
+
+
             </>
           }
         >
@@ -100,12 +106,15 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
             }
 
           </div>
-          <div className="page4__item page4__item-41">
+          <div
+            style={{ width: '100%', height: '100%', fontSize: ".7vw", border: '3px, solid, black', borderRadius: '8px' }}
+            className="page4__item page4__item-41"
+          >
             {data[index]?.blocks?.map((item) => {
               // console.log('item', item);
               return (
-                <div style={{ width: `${item.percent}`, backgroundColor: `${item.color}`, }} 
-                     className="page41_item-block"/>
+                <div style={{ width: `${item.percent}`, fontSize: ".7vw", backgroundColor: `${item.color}`, }} 
+                     className="page4__item-block-41"/>
               );
             })}
           </div>
@@ -128,6 +137,10 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
           />
         </div>
       </>
+
+
+
+
     )
 }
 
@@ -135,6 +148,10 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     width: '100%', 
     height: '86.5vh', 
     display: `${containerHeight < containerWidth ? 'flex' : 'block'}`,
+    // borderWidth: '2px',
+    // borderStyle: 'solid',
+    // borderRadius: '12px',
+    // borderColor: bcolor.bgcolor,
   }
 
   return (
@@ -145,3 +162,4 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 };
 
 export default MosaicCompany;
+
