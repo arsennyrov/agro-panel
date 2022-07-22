@@ -20,6 +20,7 @@ const Page2 = (props) => {
     const [bgColor2, setBgColor2] = useState('#F6F6F6');
     const [bgColor3, setBgColor3] = useState('#F6F6F6');
     const [bgColor4, setBgColor4] = useState('#F6F6F6');
+    const [bgColor5, setBgColor5] = useState('#F6F6F6');
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -134,10 +135,13 @@ const Page2 = (props) => {
         tabCrops43.push(sumFullSort[i]);
     }   
     const tabCrops44 = [];
-    for (let i=18; i < sumFullSort.length; i++) {
+    for (let i=18; i < 24; i++) {
         tabCrops44.push(sumFullSort[i]);
     }     
-
+    const tabCrops45 = [];
+    for (let i=24; i < sumFullSort.length; i++) {
+        tabCrops45.push(sumFullSort[i]);
+    }    
     console.log('tabCrops41', tabCrops41);
 
     const onClick2 = () => {
@@ -147,6 +151,7 @@ const Page2 = (props) => {
         setBgColor2('#F6F6F6')
         setBgColor3('#F6F6F6')        
         setBgColor4('#F6F6F6')
+        setBgColor5('#F6F6F6')
     }
     const onClick3 = () => {
         setPage2Click(2);
@@ -155,7 +160,7 @@ const Page2 = (props) => {
         setBgColor2('#FFFFFF')
         setBgColor3('#F6F6F6')      
         setBgColor4('#F6F6F6')
-
+        setBgColor5('#F6F6F6')
     }
     const onClick4 = () => {
         setPage2Click(3);
@@ -164,7 +169,7 @@ const Page2 = (props) => {
         setBgColor2('#F6F6F6')
         setBgColor3('#FFFFFF')        
         setBgColor4('#F6F6F6')
-
+        setBgColor5('#F6F6F6')
     }
     const onClick5 = () => {
         setPage2Click(4);
@@ -173,8 +178,18 @@ const Page2 = (props) => {
         setBgColor2('#F6F6F6')
         setBgColor3('#F6F6F6')
         setBgColor4('#FFFFFF')
-
+        setBgColor5('#F6F6F6')
     }
+    const onClick6 = () => {
+        setPage2Click(5);
+        setSelected(5);
+        setBgColor1('#F6F6F6')
+        setBgColor2('#F6F6F6')
+        setBgColor3('#F6F6F6')
+        setBgColor4('#F6F6F6')
+        setBgColor5('#FFFFFF')
+    }
+
 
     return (
         <>
@@ -188,6 +203,7 @@ const Page2 = (props) => {
                 {(page2Click === 2) && <Grid data={tabCrops42} page2Click={page2Click} /> }
                 {(page2Click === 3) && <Grid data={tabCrops43} page2Click={page2Click} /> }
                 {(page2Click === 4) && <Grid data={tabCrops44} page2Click={page2Click} /> }
+                {(page2Click === 5) && <Grid data={tabCrops45} page2Click={page2Click} /> }
             </div>
 
 
@@ -196,6 +212,7 @@ const Page2 = (props) => {
               <Button className='page2-btn-2' name={'2'} onClick={onClick3} bgcolor={bgColor2} />
               <Button className='page2-btn-3' name={'3'} onClick={onClick4} bgcolor={bgColor3} />
               <Button className='page2-btn-4' name={'4'} onClick={onClick5} bgcolor={bgColor4} />
+              <Button className='page2-btn-5' name={'5'} onClick={onClick6} bgcolor={bgColor5} />
             </div>
             <div className='container-chart'>
                 <BarChart />
