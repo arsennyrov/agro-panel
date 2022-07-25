@@ -136,7 +136,7 @@ const Mosaic = ({ cropsComp }) => {
             className="page4__item"
           >
             {data[index]?.blocks?.map((item) => {
-              // console.log('item', item);
+              console.log('item============', item);
               return (
                 <div
                   style={{
@@ -175,7 +175,7 @@ const Mosaic = ({ cropsComp }) => {
       className={`mosaic-container mosaic-container${regNum} mosaic-container-region`}
     >
       <div className={`mosaic-header${regNum}`}>
-        <Text ellipsis={true}>{title}</Text>
+        <Text ellipsis={true}><h5>{title}</h5></Text>
       </div>
       <div
         ref={ref}

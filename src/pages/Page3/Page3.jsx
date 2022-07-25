@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
 import Propmpt from '../../components/Prompt';
-import { saveFullData4, changeLoading } from '../../stores/fullSlice';
+import { saveFullData4, changeLoading, saveFullFields } from '../../stores/fullSlice';
 import Mosaic from '../../components/Mosaic';
 import './Page3.css';
 import Spinner from '../../components/Spinner';
@@ -13,7 +13,6 @@ import Page31 from '../Page31';
 
 const Page3 = () => {
 
-    console.log('useParams3', useParams());
     const dispatch = useDispatch();
     // const [loading, setLoading] = useState(true);
     const [titleFirm, setTitleFirm] = useState('');
@@ -22,7 +21,7 @@ const Page3 = () => {
     let loading = useSelector(state => state.fulls.loading);
     // console.log('OOOOOOOOOOOOOO loading', loading);
     useEffect(() => {
-          const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
+          const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_REG_DO_GROUP_CROP';
           loading && axios.get(apiUrl).then((resp) => {
             const full = resp.data;
             dispatch(saveFullData4(full.value));
@@ -32,16 +31,15 @@ const Page3 = () => {
         }, []);
     
         const fullStage4 = useSelector(state => state.fulls.fullData4);
-        // console.log('==================state.loading', useSelector(state => state.fulls.loading));
         loading = useSelector(state => state.fulls.loading);
-        const transformFull3 = (obj={},num) => {
+        const transformFull = (obj={},num) => {
             let plan0 = (obj.PLAN >= obj.FACT ) ? Math.round(obj.PLAN) : Math.round(obj.FACT);
             let sum5 =  Math.round(obj?.PLAN - obj?.FACT - Math.round((plan0-Math.round(obj.FACT))*Math.round(obj.PROGRESS)/100 ))
             return {
                 company: obj.AO__FULLNAME+'/'+obj.FIELD_GROUP__NAME,
                 title: obj.AO__FULLNAME,
                 titleName: obj.AO__FULLNAME+' '+obj.CROPS__NAME,
-                subTitle: obj.FIELD_GROUP__NAME,
+                fieldGroup: obj.FIELD_GROUP__NAME,
                 id: 1000+num,
                 region: obj.AO__REGION,
                 name: obj.CROPS__NAME,
@@ -52,6 +50,9 @@ const Page3 = () => {
                 factTodayOver: 0,
                 plan: plan0,
                 progress: Math.round(obj.PROGRESS),
+                fieldsCount: obj.FIELDS_COUNT,
+                fieldsComplite: obj.FIELD_COMPLITE,
+                fields: [],
                 sum: [plan0, 
                       Math.round((plan0-Math.round(obj.FACT))*Math.round(obj.PROGRESS)/100 ), 
                       0, 
@@ -62,10 +63,9 @@ const Page3 = () => {
           }}
 
         const fullTrans = []; 
-        let sum0 = [];
         for (let i=0; i<fullStage4?.length; i++) {
-            sum0 = [Math.round(fullStage4[i]?.PLAN), 0, 0, Math.round(fullStage4[i]?.FACT), 0, Math.round(fullStage4[i]?.PLAN - fullStage4[i]?.FACT)];
-            fullTrans.push(transformFull3(fullStage4[i],i,sum0));
+
+            fullTrans.push(transformFull(fullStage4[i],i));
         }
 
         const fullSort = fullTrans.slice().sort((a,b) => {
@@ -78,33 +78,86 @@ const Page3 = () => {
             return 0;
         });
 
-        const sumfullCrops = [];
+        // console.log('fullSort', fullSort);
+
+        const sumfullFields = [];
         let titleName0 = fullSort[0]?.titleName;
+        let title00 = '';
+        let cropName0 = '';
+        let region0 = '';
+        let fieldGroup0 = '';
+        let cropFields0 = [];
+
+        let sumPlan = 0;
+        let sumFact = 0;
+        let sumCount = 0;
+        let sumComplite = 0;
+//--------------------------------------------------------------------------------------        
+        for (let i=0; i<fullSort?.length; i++) {
+
+            if ((fullSort[i]?.titleName !== titleName0) ) {
+                sumfullFields.push({
+                    title: fullSort[i-1]?.title,
+                    cropName: fullSort[i-1]?.name,
+                    region: fullSort[i-1]?.region,
+                    fields: cropFields0,
+                    value: sumPlan,
+                });
+                cropFields0 = [];
+                titleName0 = fullSort[i]?.titleName;
+                sumPlan = 0;
+                sumFact = 0;
+                sumCount = 0;
+                sumComplite = 0;            
+            }
+            title00 = fullSort[i-1]?.title;
+            cropName0 = fullSort[i-1]?.name;
+            region0 = fullSort[i-1]?.region;
+            fieldGroup0 = fullSort[i]?.fieldGroup;
+            sumCount += fullSort[i]?.fieldsCount;
+            sumComplite += fullSort[i]?.fieldsComplite;
+            sumPlan += fullSort[i]?.plan;
+            sumFact += fullSort[i]?.fact;
+
+            cropFields0.push({fieldGroup0, sumCount, sumComplite, sumPlan, sumFact});
+        }
+//---------------------------------------------------------------------------
+        sumfullFields.push({
+            titleName: titleName0,
+            title: title00,
+            cropName: cropName0,   
+            region: region0,
+            fieldGroup: fieldGroup0,
+            fieldsCount: sumCount,
+            fieldsComplite: sumComplite,
+        });
+
+
+        dispatch(saveFullFields(sumfullFields));
+        // console.log('=============sumfullFields', sumfullFields);
+
+//------------------------------------------------------------------------------------------------
+      
+        const sumfullCrops = [];
+        titleName0 = fullSort[0]?.titleName;
         let titleM = '';
         let companyM = '';
         let nameM = '';
         let regionM = '';
         // let layCropsM = 1;
-        let sumFact = 0;
+            sumFact = 0;
         let sumFactInTime = 0;
         let sumFactOverTime = 0;
-        let sumPlan = 0;
+            sumPlan = 0;
         let sumM = [];
 //-------------------------------------------------------------------------------------------------        
         for (let i=0; i<fullSort?.length; i++) {
-
             if ((fullSort[i]?.titleName !== titleName0) ) {
-                sumPlan = sumPlan.toFixed(0);
-                sumFact = sumFact.toFixed(0);
-                sumFactInTime = sumFactInTime.toFixed(0);
-                sumFactOverTime = sumFactOverTime.toFixed(0);
                 sumfullCrops.push({
-                    titleName: titleName0,
                     title: fullSort[i-1]?.title,
                     company: fullSort[i-1]?.title,
                     name:  fullSort[i-1]?.name,
                     region: fullSort[i-1]?.region,
-                    // layCrops: fullSort[i-1]?.layCrops,
                     plan: sumPlan,
                     fact: sumFact,
                     factInTime: sumFactInTime,
@@ -132,11 +185,6 @@ const Page3 = () => {
             sumM = fullSort[i-1]?.sum;
         }
 //---------------------------------------------------------------------------------------
-        sumPlan = sumPlan.toFixed(0);
-        sumFact = sumFact.toFixed(0);
-        sumFactInTime = sumFactInTime.toFixed(0);
-        sumFactOverTime = sumFactOverTime.toFixed(0);
-
         sumfullCrops.push({
             titleName: titleName0,
             title: titleM,
@@ -153,6 +201,18 @@ const Page3 = () => {
             sum: sumM,
             info: true,
         });
+
+
+
+        for (let i=0; i < sumfullCrops.length; i++) {
+            sumfullCrops[i].sum[0] = sumfullCrops[i].plan;
+            sumfullCrops[i].sum[3] = sumfullCrops[i].fact;
+            // console.log(i, sumfullCrops[i].title, sumfullCrops[i].name)
+        }
+
+        console.log('---------------sumfullCrops', sumfullCrops);        
+
+
 
         const sumFullSort = sumfullCrops.slice().sort((a,b) => {
             if (a.title < b.title) {
@@ -184,11 +244,19 @@ const Page3 = () => {
             } 
         }
 
-    const regionFilter = (string0) => {
+        
+    const regionFilter = (pRegion='', pFirm='') => {
         const fullFinish = []; 
-        const fullTrans0 = cropsTop6.slice().filter(item => item.region === string0);
+
+        let fullTrans0 =[];
+        if (pFirm) {
+            fullTrans0 = sumFullSort.slice().filter(item => item.company === pFirm);
+        } else {
+            fullTrans0 = sumFullSort.slice().filter(item => item.region === pRegion);
+        }
+
         let numReg = 1;
-        switch (string0) {
+        switch (pRegion) {
             case 'Центр':
                 numReg = 1;
                 break
@@ -201,8 +269,6 @@ const Page3 = () => {
             default:
                 numReg = 0;                
         }
-
-        
         fullTrans0.push({
             company: 'AAAAA',
             title: 'AAAAA',
@@ -235,6 +301,11 @@ const Page3 = () => {
                     crops: crops0,
                     sumAll: sumAll0,
                 })
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+
                 company0 = fullTrans0[i]?.company;
                 j = 0;
                 sumAll0 = 0;
@@ -247,7 +318,6 @@ const Page3 = () => {
             })
             j += 1;
         } 
-
         const fullFinish1 = fullFinish.slice().sort((a,b) => {
             if (a.sumAll < b.sumAll) {
                 return 1;
@@ -257,16 +327,16 @@ const Page3 = () => {
             }
             return 0;
         });
-
+      
+        if (pFirm) {
+            return fullFinish1;            
+        } 
+        // Отсекаем культуры с площадью < 300 Га если количество культур > 5
         for (let i=0; i < fullFinish1.length; i++) {
-            if ((fullFinish1[i].crops[5]) && (fullFinish1[i].crops[3].sum[0]/fullFinish1[i].crops[5].sum[0] > 3 )) {
-                fullFinish1[i].crops.pop();
-            }
-            if ((fullFinish1[i].crops[4]) && (fullFinish1[i].crops[3].sum[0]/fullFinish1[i].crops[4].sum[0] > 2 )) {
+            while (fullFinish1[i].crops.length>5 && fullFinish1[i].crops[fullFinish1[i].crops.length-1].sum[0] < 300 ) {
                 fullFinish1[i].crops.pop();
             }
         }   
-
         return fullFinish1;
     }
 
@@ -296,20 +366,25 @@ const Page3 = () => {
     const region12 = region1.slice(2, region1.length-2);
     const region13 = region1.slice(region1.length-2);
 
-    console.log('region11', region11);
+
+    // const fff = regionFilter('', 'ООО "АГРОЛИПЕЦК"');
+
     
     const region2 = transRegion(region02);
     const region21 = region2.slice(0, 2);
     const region22 = region2.slice(2, region1.length-2);
+
+    console.log('-------region22', region22);
+
     const region23 = region2.slice(region1.length-2);
 
     const cropsColor1 = cropStateOptions41();
 
     const handleClick = (index) => (event) => {
-        console.log('eeeeeeeeeeeeeee', +index.substr(0,2), index.substr(2)  );
+        // console.log('eeeeeeeeeeeeeee', +index.substr(0,2), index.substr(2)  );
         const numReg = index.substr(0,2);
         let titleFirm = '';
-        let cropsComp0 = []
+
         switch (numReg) {
             case '11':
                 titleFirm = region11[+index.substr(2)].company;
@@ -339,18 +414,19 @@ const Page3 = () => {
                 titleFirm = region3[+index.substr(2)].company;
                 setCropsComp0(region3[+index.substr(2)]);
                 break;
-
+ 
             default:
                 titleFirm = '';
         }
         setTitleFirm(titleFirm);
-        console.log('titleFirm-0', titleFirm);
+        // console.log('titleFirm-0', titleFirm);
     }
+
+    // const cropsComp1 = regionFilter('', cropsComp0.company);
 
     return ( 
         <>
-        {console.log('titleFirm-1', titleFirm)}
-        {(titleFirm) ? <Page31 titleFirm={titleFirm} cropsComp0={cropsComp0} /> :
+        {(titleFirm) ? <Page31 cropsComp0={ cropsComp0 } /> :
 
         <div className='page3'>
             {loading && 

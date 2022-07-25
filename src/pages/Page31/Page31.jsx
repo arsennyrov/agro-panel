@@ -8,28 +8,24 @@ import Spinner from '../../components/Spinner';
 import { cropStateOptions41 } from '../../containers/utils';
 import { SvgSelector } from '../../containers/SvgSelector';
 
-const Page31 = ({ titleFirm, cropsComp0 }) => {
+const Page31 = ({ cropsComp0 }) => {
 
     // const { id } = useParams();
-    console.log('====cropsComp0', cropsComp0);
-    console.log('====titleFirm',  titleFirm);
+    console.log('====!!!----cropsComp0', cropsComp0);
     const cropsColor1 = cropStateOptions41();
     const titleRegion = cropsComp0.region;
+    const titleFirm = cropsComp0.company;
 
     const colorRegion = (string0) => {
     switch (string0) {
         case 'Центр':
-            return ({ color: '#C49EEA',
-                      bgcolor: 'rgb(241,225,252)' })
+            return ({ color: '#C49EEA', bgcolor: 'rgb(241,225,252)' })
         case 'Юг':
-            return ({ color: '#9EB3FC',
-                      bgcolor: 'rgb(226,232,254)'})
+            return ({ color: '#9EB3FC', bgcolor: 'rgb(226,232,254)'})
         case 'Север':
-            return ({ color: '#A5DED0',
-                      bgcolor: 'rgb(222,247,243)'})
+            return ({ color: '#A5DED0', bgcolor: 'rgb(222,247,243)'})
         default:
-            return ({ color: 'rgb(241,225,252)',
-                      bgcolor: 'rgb(241,225,252)' })
+            return ({ color: '#000000', bgcolor: 'rgb(241,225,252)' })
     }}
 
     return ( 
@@ -47,12 +43,6 @@ const Page31 = ({ titleFirm, cropsComp0 }) => {
                     <MosaicCompany cropsComp={cropsComp0} bcolor={colorRegion(titleRegion)} />
 
                 </div>
-
-
-                {/* {loading && 
-                <div className='page3-spinner'>
-                    <Spinner />
-                </div>} */}
 
             </div>
             <div className='page3__footer'>

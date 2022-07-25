@@ -1,25 +1,38 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useSelector } from 'react-redux';
 import { Tooltip, Typography } from "antd";
 
 import "./MosaicCompany.css";
 import { createData } from "./createData";
 import { format } from "../../containers/utils";
+import MosaicField from "../MosaicField";
 
-// const container = {
-//   w: 1000,
-//   h: 500,
-// };
 const MosaicCompany = ({ cropsComp, bcolor }) => {
   const { Text } = Typography;
+  
 
-  console.log('XXXXXX cropsComp', cropsComp);
+  const titleFirm = cropsComp.company;
+  const fullFields = useSelector(state => state.fulls.fullFields);
+
+  const cropData0 = fullFields.slice().filter(item => item.title === titleFirm);
+  const cropData = cropData0.slice().sort((a,b) => {
+    if (a.value < b.value) {
+        return 1;
+    }
+    if (a.value > b.value) {
+        return -1;
+    }
+    return 0;
+  });
+
+  console.log('cropData', cropData);
 
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(200)
-console.log('containerWidth', containerWidth)
-console.log('containerHeight', containerHeight)
+// console.log('containerWidth', containerWidth)
+// console.log('containerHeight', containerHeight)
 const ref = useRef()
-console.log('ref',ref);
+// console.log('ref',ref);
 
 const onResize = () => {
     setContainerWidth(ref.current.clientWidth)
@@ -36,16 +49,17 @@ const containerSquare = containerWidth * containerHeight
 
 const data = createData(cropsComp);
 
+
 const dataSum = data.map(item => item.value).reduce((partialSum, a) => partialSum + a, 0);
 
 let dataS = []
 
 for (let i = 0; i < data.length; i += 1) {
-    console.log('data[i].value', data[i].value);
+    // console.log('data[i].value', data[i].value);
     dataS.push((data[i].value * containerSquare) / dataSum)
 }
 
-console.log('!!!!! data', data);
+// console.log('!!!!! data', data);
 
 const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     if (index > dataS.length - 1) return
@@ -94,32 +108,39 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
         >
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
           <div className="mosaic__cart-41" style={{ borderColor: bcolor.color }} >
-            <span className="p-mosaic-name-41" style={{ backgroundColor: bcolor.bgcolor }}>
+            {/* <span className="p-mosaic-name-41" style={{ backgroundColor: bcolor.bgcolor }}>
               <Text ellips is={true}>{data[index].name}</Text>
-            </span>
-            <br/>
-            {(data[index].text3 > 0) && 
+            </span> */}
+            {/* <br/> */}
+            {/* {(data[index].text3 > 0) && 
               <Text ellipsis={true}>{format(data[index].text3)} из {format(data[index].value)} Га</Text>
             }
             {(data[index].text3 === 0) && 
               <Text ellipsis={true}>{format(data[index].value)} Га</Text>
-            }
+            } */}
+
+              <MosaicField cropData={cropData[index].fields.slice().sort((prev, next) => next.sumPlan - prev.sumPlan)} 
+                cropName={cropData[index].cropName} 
+                bcolor={bcolor} 
+              />
 
           </div>
           <div
             style={{ width: '100%', height: '100%', fontSize: ".7vw", border: '3px, solid, black', borderRadius: '8px' }}
             className="page4__item page4__item-41"
           >
-            {data[index]?.blocks?.map((item) => {
+            {/* {data[index]?.blocks?.map((item) => {
               // console.log('item', item);
               return (
                 <div style={{ width: `${item.percent}`, fontSize: ".7vw", backgroundColor: `${item.color}`, }} 
                      className="page4__item-block-41"/>
               );
-            })}
+            })} */}
+
           </div>
           </div>
         </Tooltip>
+
         <div
           style={{
             display: `${residualHeight < residualWidth ? "flex" : "block"}`,
@@ -137,10 +158,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
           />
         </div>
       </>
-
-
-
-
     )
 }
 
@@ -148,10 +165,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     width: '100%', 
     height: '86.5vh', 
     display: `${containerHeight < containerWidth ? 'flex' : 'block'}`,
-    // borderWidth: '2px',
-    // borderStyle: 'solid',
-    // borderRadius: '12px',
-    // borderColor: bcolor.bgcolor,
   }
 
   return (
