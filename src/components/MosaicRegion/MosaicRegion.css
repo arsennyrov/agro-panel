@@ -1,0 +1,67 @@
+.page41 {
+    flex-grow: 1;
+}
+
+/* .page41__item {
+    border-top: 1px solid #FFFFFF;
+    border-left: 2px solid #FFFFFF;
+ } */
+
+.page41 > .page41__item {
+    border-left: 0;
+}
+
+.page41__item {
+    box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.ant-typography {
+    margin-left: 15px;
+}
+
+.mosaic__cart-41 { 
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    /* margin: 15px; */
+    font-family: 'AvenirNextCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    /* padding: 0 5px 5px 5px; */
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 12px;
+}
+
+.p-mosaic-name-reg {
+    display: block;
+    width: 100%;
+    height: 3vh;
+    text-align: center;
+    font-family: 'AvenirNextCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.7rem;
+    overflow: hidden;
+    color: #000000;
+}
+
+.p-mosaic-41 {
+    font-family: 'AvenirNextCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    overflow: hidden;
+}

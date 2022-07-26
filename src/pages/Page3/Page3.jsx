@@ -6,6 +6,7 @@ import axios from 'axios';
 import Propmpt from '../../components/Prompt';
 import { saveFullData4, changeLoading, saveFullFields } from '../../stores/fullSlice';
 import Mosaic from '../../components/Mosaic';
+import MosaicRegion from '../../components/MosaicRegion';
 import './Page3.css';
 import Spinner from '../../components/Spinner';
 import { cropStateOptions41 } from '../../containers/utils';
@@ -210,7 +211,7 @@ const Page3 = () => {
             // console.log(i, sumfullCrops[i].title, sumfullCrops[i].name)
         }
 
-        console.log('---------------sumfullCrops', sumfullCrops);        
+        // console.log('---------------sumfullCrops', sumfullCrops);        
 
 
 
@@ -357,76 +358,72 @@ const Page3 = () => {
         )
     }
     
-    const region01 = regionFilter('Центр');
-    const region02 = regionFilter('Юг');
+    const createRegMain = (arr) => {
+        const arr1 = [];
+        for (let i=0; i < arr.length; i++) {
+            arr1.push({
+                company: arr[i].company,
+                value: arr[i].sumAll,
+            })
+        }
+        return (
+            arr1
+        )
+    }
+
+    const region1 = regionFilter('Центр');
+    const region2 = regionFilter('Юг');
     const region3 = regionFilter('Север');
 
-    const region1 = transRegion(region01);
-    const region11 = region1.slice(0, 2);
-    const region12 = region1.slice(2, region1.length-2);
-    const region13 = region1.slice(region1.length-2);
+    // console.log('region1', region1);
+    // console.log('region2', region2);
+    // console.log('region3', region3);
 
-
-    // const fff = regionFilter('', 'ООО "АГРОЛИПЕЦК"');
-
-    
-    const region2 = transRegion(region02);
-    const region21 = region2.slice(0, 2);
-    const region22 = region2.slice(2, region1.length-2);
-
-    console.log('-------region22', region22);
-
-    const region23 = region2.slice(region1.length-2);
+    const regionMain1 = createRegMain(region1).slice();
+    const regionMain2 = createRegMain(region2).slice();
+    const regionMain3 = createRegMain(region3).slice();
 
     const cropsColor1 = cropStateOptions41();
 
-    const handleClick = (index) => (event) => {
+
+
+
+    const headClick = (index) => (event) => {
         // console.log('eeeeeeeeeeeeeee', +index.substr(0,2), index.substr(2)  );
-        const numReg = index.substr(0,2);
+        const numReg = index.substr(0,1);
+        const numFirm = index.substr(1,2);
         let titleFirm = '';
 
         switch (numReg) {
-            case '11':
-                titleFirm = region11[+index.substr(2)].company;
-                setCropsComp0(region11[+index.substr(2)]);
+            case '1':
+                titleFirm = region1[numFirm].company;
+                setCropsComp0(region1[numFirm]);
                 break;
-            case '12':
-                titleFirm = region12[+index.substr(2)].company;
-                setCropsComp0(region12[+index.substr(2)]);
+            case '2':
+                titleFirm = region2[numFirm].company;
+                setCropsComp0(region2[numFirm]);
                 break;
-            case '13':
-                titleFirm = region13[+index.substr(2)].company;
-                setCropsComp0(region13[+index.substr(2)]);
+            case '3':
+                titleFirm = region3[numFirm].company;
+                setCropsComp0(region3[numFirm]);
                 break;
-            case '21':
-                titleFirm = region21[+index.substr(2)].company;
-                setCropsComp0(region21[+index.substr(2)]);
-                break;
-            case '22':
-                titleFirm = region22[+index.substr(2)].company;
-                setCropsComp0(region22[+index.substr(2)]);
-                break;
-            case '23':
-                titleFirm = region23[+index.substr(2)].company;
-                setCropsComp0(region23[+index.substr(2)]);
-                break;
-            case '03':
-                titleFirm = region3[+index.substr(2)].company;
-                setCropsComp0(region3[+index.substr(2)]);
-                break;
- 
             default:
                 titleFirm = '';
         }
         setTitleFirm(titleFirm);
         // console.log('titleFirm-0', titleFirm);
-    }
+         
+        return (
+           index
+        )
 
-    // const cropsComp1 = regionFilter('', cropsComp0.company);
+    }
+    
+
 
     return ( 
         <>
-        {(titleFirm) ? <Page31 cropsComp0={ cropsComp0 } /> :
+        {(titleFirm) ? <Page31 cropsComp0={ cropsComp0} aaa={555} /> :
 
         <div className='page3'>
             {loading && 
@@ -435,79 +432,43 @@ const Page3 = () => {
             </div>}
             <div className='page3__container'>
                 <div className='region1'>
-                    <h3>Центральный регион</h3>
-                    <div className='content-region1'>
-                        <div className='region1__item--wrapper' 
-                            style={{flexGrow: `${region11[0]?.sumAll + region11[1]?.sumAll}`}}>
-                            {region11.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}
-                                    onClick={handleClick('11'+index)}>
-                                    <Mosaic h={10.9} cropsComp={{item}} />
-                                </div>
-                            )}                        
-                        </div>
-                        <div className='region1__item--wrapper' style={{flexGrow: `${region12[0]?.sumAll}`}}>
-                            {region12.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
-                                    onClick={handleClick('12'+index)}>
-                                    <Mosaic h={10.9} cropsComp={{item}} />
-                                </div>
-                            )}                        
-                        </div>
-                        <div className='region1__item--wrapper' style={{flexGrow: `${region13[0]?.sumAll + region13[1]?.sumAll}`}}>
-                            {region13.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
-                                    onClick={handleClick('13'+index)}>
-                                    <Mosaic h={10.9} cropsComp={{item}} />
-                                </div>
-                            )}                        
-                        </div>
+                    <h3 className='page3-h3'>Центральный регион</h3>
+                    <div className='reg1' >
+                        <MosaicRegion 
+                            // regMain={regionMain1} 
+                            cropsComp={region1} 
+                            flag={'1'} 
+                            headClick={headClick}
+                        />
                     </div>
                 </div>
- 
-                <div className='page3__h-line'></div>
 
+                <div className='page3__h-line'></div>
+ 
                 <div className='region2'>
-                    <h3>Южный регион</h3>
-                    <div className='content-region1'>
-                        <div className='region2__item--wrapper' style={{flexGrow: `${region21[0]?.sumAll + region21[1]?.sumAll}`}}>
-                            {region21.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 200}}
-                                    onClick={handleClick('21'+index)}>
-                                    <Mosaic h={10.9} cropsComp={{item}} />
-                                </div>
-                            )}                        
-                        </div>
-                        <div className='region2__item--wrapper' style={{flexGrow: `${region22[0]?.sumAll}`}}>
-                            {region22.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
-                                    onClick={handleClick('22'+index)}>
-                                    <Mosaic h={10.9} cropsComp={{item}} />
-                                </div>
-                            )}                        
-                        </div>
-                        <div className='region2__item--wrapper' style={{flexGrow: `${region23[0]?.sumAll + region23[1]?.sumAll}`}}>
-                            {region23.map((item, index) => 
-                                <div style={{flexGrow: `${item.percent}`, flexBasis: 120}}
-                                onClick={handleClick('23'+index)}>
-                                    <Mosaic h={10.9} cropsComp={{item}} />
-                                </div>
-                            )}                        
-                        </div>
+                    <h3 className='page3-h3'>Южный регион</h3>
+                    <div className='reg2'>
+                        <MosaicRegion 
+                            // regMain={regionMain2} 
+                            cropsComp={region2} 
+                            flag={'2'} 
+                            headClick={headClick}
+                        />
                     </div>
                 </div>
+
                 <div className='page3__h-line'></div>
 
                 <div className='region3'>
-                    <h3>Северный регион</h3>
-                    <div className='content-region3'>
-                        {region3.map((item, index) => 
-                            <div className='reg3' style={{flexGrow: `${item.sumAll}`, flexBasis: 100}}
-                                onClick={handleClick('03'+index)}>
-                                <Mosaic h={14.75} cropsComp={{item}} />
-                            </div>
-                        )}        
-                    </div>
+                    <h3 className='page3-h3'>Северный регион</h3>
+                    <div className='reg3'>
+                        <MosaicRegion 
+                            // regMain={regionMain3} 
+                            cropsComp={region3} 
+                            flag={'3'} 
+                            headClick={headClick}
+                        />
+                    </div>                
                 </div>
             </div>
 

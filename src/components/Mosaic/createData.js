@@ -3,7 +3,7 @@ import { cropStateOptions4 } from "../../containers/utils";
 export const createData = (cropsComp) => {
     
 const cropsColor = cropStateOptions4();
-// console.log('cropsColor', cropsColor);
+// console.log('=====================================cropsComp', cropsComp);
 
 const transfCrop = (crop) => {
         // console.log('===crop', crop);
@@ -33,8 +33,8 @@ const transfCrop = (crop) => {
 }
 
 const data = []
-for (let i=0; i < cropsComp.item.crops.length; i++ ) {
-    data.push(transfCrop(cropsComp.item.crops[i]))
+for (let i=0; i < cropsComp.crops.length; i++ ) {
+    data.push(transfCrop(cropsComp.crops[i]))
 }
 
 return data

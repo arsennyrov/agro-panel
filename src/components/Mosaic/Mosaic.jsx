@@ -31,10 +31,12 @@ const Mosaic = ({ cropsComp }) => {
   const containerSquare = containerWidth * containerHeight;
 
   // -------------------------------------------------------------------
-  const region = cropsComp.item.region ? cropsComp.item.region : cropsComp.region;
-  const title = cropsComp.item.company ? cropsComp.item.company : cropsComp.company;
+  const region = cropsComp.region;
+  const title = cropsComp.company;
+
+  // console.log('===============cropsComp.crops', cropsComp.crops);
   const data = createData(cropsComp);
-  // console.log('======data', data);
+  // console.log('===============data', data);
   let regNum = 0;
   switch (region) {
     case "Центр":
@@ -136,7 +138,7 @@ const Mosaic = ({ cropsComp }) => {
             className="page4__item"
           >
             {data[index]?.blocks?.map((item) => {
-              console.log('item============', item);
+              // console.log('item============', item);
               return (
                 <div
                   style={{

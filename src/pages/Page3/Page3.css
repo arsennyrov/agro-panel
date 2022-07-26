@@ -3,15 +3,17 @@
 }
 
 .page3 {
-    width: 99vw;
-    height:92vh;
+    width: 100vw;
+    height:91vh;
     margin: 0 auto;
     /* padding: 15px 30px; */
     display: flex;
     flex-direction: column;
 }
 
-.page3__container     {
+.page3__container {
+    position: relative;
+    top: -1vh;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -20,15 +22,15 @@
     background-position: center top 0;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 2px solid #DDDDDD;
+    /* border: 2px solid #DDDDDD; */
     flex-grow: 1;
 }
 
 .page3__h-line {
     width: 1px;
     height: 100%;
-    margin: 0 .4vw;
-    border: 1px solid #DDDDDD;
+    margin: 0 .1vw;
+    /* border: 0px solid #DDDDDD; */
 }
 
 .page3-spinner {
@@ -66,26 +68,25 @@
     width: 32%;
 }
 
-h3 {
+.page3-h3 {
     position: relative;
-    top: -1vh;
+    top: .2vh;
     font-family: 'AvenirNextCyr';
     font-style: normal;
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 1.4rem;
-
     text-align: center;
     letter-spacing: 0.03em;
 }
 
-.region1 > h3 {
+.region1 > page3-h3 {
     color: #C49EEA;
 }
-.region2 > h3 {
+.region2 > page3-h3 {
     color: #9EB3FC;
 }
-.region3 > h3 {
+.region3 > page3-h3 {
     color: #A5DED0;
 }
 
@@ -109,19 +110,14 @@ h3 {
     padding-bottom: .7vh;
 }
 
-
 .page3__footer {
     display: flex;
     justify-content: space-between;
-    position: relative;
-    top: -.8vh;
     width: 100%;
-    height: 7.2%;
+    height: 2vh;
     margin: 0 auto;
     padding: 0 2.5%;
-    /* border-top: 2px solid #DDDDDD; */
 }
-
 
 .reg1, .reg2, .reg3 {
     flex-grow: 1;

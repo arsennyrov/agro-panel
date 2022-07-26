@@ -8,8 +8,9 @@ import Spinner from '../../components/Spinner';
 import { cropStateOptions41 } from '../../containers/utils';
 import { SvgSelector } from '../../containers/SvgSelector';
 
-const Page31 = ({ cropsComp0 }) => {
+const Page31 = ({ cropsComp0, aaa }) => {
 
+    console.log('aaaaaaaaaaaaaaaaaaaaa', aaa);
     // const { id } = useParams();
     console.log('====!!!----cropsComp0', cropsComp0);
     const cropsColor1 = cropStateOptions41();
@@ -45,7 +46,7 @@ const Page31 = ({ cropsComp0 }) => {
                 </div>
 
             </div>
-            <div className='page3__footer'>
+            <div className='page31__footer'>
                 {cropsColor1.map(item => { 
                     return (
                         <div className='prompt-wrap'>

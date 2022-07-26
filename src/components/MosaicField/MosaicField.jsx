@@ -9,9 +9,9 @@ import { format } from "../../containers/utils";
 const MosaicField = ({ cropData, cropName, bcolor }) => {
   const { Text } = Typography;
 
-    console.log('===!!!==cropData', cropData);
-    console.log('cropName', cropName);
-    console.log('bcolor', bcolor);
+    // console.log('===!!!==cropData', cropData);
+    // console.log('cropName', cropName);
+    // console.log('bcolor', bcolor);
 
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(500)
@@ -44,7 +44,7 @@ for (let i = 0; i < data.length; i += 1) {
     dataS.push((data[i].sumPlan * containerSquare) / dataSum)
 }
 
-console.log('===data', data)
+// console.log('===data', data)
 const field0 = data[0].fieldGroup0;
 
 const PlacementBlocks = ({currentWidth, currentHeight, index}) => {

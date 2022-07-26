@@ -1,44 +1,37 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useSelector } from 'react-redux';
 import { Tooltip, Typography } from "antd";
 
-import "./MosaicCompany.css";
-import { createData } from "./createData";
+import "./MosaicRegion.css";
 import { format } from "../../containers/utils";
-import MosaicField from "../MosaicField";
+import Mosaic from "../Mosaic/Mosaic";
 
-const MosaicCompany = ({ cropsComp, bcolor }) => {
+
+const MosaicRegion = ({ cropsComp, flag , headClick}) => {
   const { Text } = Typography;
-  
 
-  const titleFirm = cropsComp.company;
-  const fullFields = useSelector(state => state.fulls.fullFields);
-
-  const cropData0 = fullFields.slice().filter(item => item.title === titleFirm);
-  const cropData = cropData0.slice().sort((a,b) => {
-    if (a.value < b.value) {
-        return 1;
-    }
-    if (a.value > b.value) {
-        return -1;
-    }
-    return 0;
-  });
-
-  // console.log('cropData', cropData);
-
+const [numCompany, setNumCompany] = useState(0)
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(200)
-// console.log('containerWidth', containerWidth)
-// console.log('containerHeight', containerHeight)
 const ref = useRef()
-// console.log('ref',ref);
 
 const onResize = () => {
     setContainerWidth(ref.current.clientWidth)
     setContainerHeight(ref.current.clientHeight)
 }
     
+// const headClick = (index) => (event) => {
+//     console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', +index );
+//     // const numReg = index.substr(0,1);
+//     // setNumCompany(index.substr(1,2));
+//     // console.log('numReg', numReg);
+//     // console.log('numCompany', numCompany);
+//     // console.log('cropsComp[numCompany]', cropsComp[numCompany]);
+
+//     return (
+//       index
+//     )
+// }
+
 useLayoutEffect(() => {
   window.addEventListener('resize', onResize)
   onResize()
@@ -47,19 +40,15 @@ useLayoutEffect(() => {
 
 const containerSquare = containerWidth * containerHeight
 
-const data = createData(cropsComp);
+const data = cropsComp.slice();
 
-
-const dataSum = data.map(item => item.value).reduce((partialSum, a) => partialSum + a, 0);
+const dataSum = data.map(item => item.sumAll).reduce((partialSum, a) => partialSum + a, 0);
 
 let dataS = []
 
 for (let i = 0; i < data.length; i += 1) {
-    // console.log('data[i].value', data[i].value);
-    dataS.push((data[i].value * containerSquare) / dataSum)
+    dataS.push((data[i].sumAll * containerSquare) / dataSum)
 }
-
-// console.log('!!!!! data', data);
 
 const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     if (index > dataS.length - 1) return
@@ -74,11 +63,13 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
           placement="bottom"
           title={
             <>
+              {/* <Text ellips is={true}>{data[index].company}</Text> */}
               <span className="p-mosaic-name">
                 {data[index].name}
               </span>
               <br></br>
               <div className="p-mosaic-all">
+              {/* <Text ellips is={true}>www{data[index].company}</Text> */}
                 Всего: &nbsp;{format(data[index].value)}
               </div>
               <br></br>
@@ -107,27 +98,26 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
           }
         >
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
-          <div className="mosaic__cart-41" style={{ borderColor: bcolor.color }} >
-            {/* <span className="p-mosaic-name-41" style={{ backgroundColor: bcolor.bgcolor }}>
-              <Text ellips is={true}>{data[index].name}</Text>
-            </span> */}
-            {/* <br/> */}
-            {/* {(data[index].text3 > 0) && 
+          <div className="mosaic__cart-41" style={{ borderColor: 'gold' }} >
+
+            <span className="p-mosaic-name-reg" 
+                style={{ backgroundColor: 'rgb(241,225,252)' }}
+                onClick={headClick(flag+index)}
+                >
+              <Text ellips is={true}>{data[index].company}</Text>
+            </span>
+            <br/>
+            {(data[index].text3 > 0) && 
               <Text ellipsis={true}>{format(data[index].text3)} из {format(data[index].value)} Га</Text>
             }
             {(data[index].text3 === 0) && 
               <Text ellipsis={true}>{format(data[index].value)} Га</Text>
-            } */}
-
-              <MosaicField cropData={cropData[index].fields.slice().sort((prev, next) => next.sumPlan - prev.sumPlan)} 
-                cropName={cropData[index].cropName} 
-                bcolor={bcolor} 
-              />
-
+            }
+        {flag}
           </div>
           <div
-            style={{ width: '100%', height: '100%', fontSize: ".7vw", border: '3px, solid, black', borderRadius: '8px' }}
-            className="page4__item page4__item-41"
+            style={{ width: '100%', height: '100%', fontSize: ".7vw" }}
+            className="page4__item-41"
           >
             {/* {data[index]?.blocks?.map((item) => {
               // console.log('item', item);
@@ -137,10 +127,17 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
               );
             })} */}
 
+
+
+
+            <Mosaic cropsComp={cropsComp[index]} />
+
+
+
+
           </div>
           </div>
         </Tooltip>
-
         <div
           style={{
             display: `${residualHeight < residualWidth ? "flex" : "block"}`,
@@ -158,6 +155,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
           />
         </div>
       </>
+
     )
 }
 
@@ -165,6 +163,10 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     width: '100%', 
     height: '86.5vh', 
     display: `${containerHeight < containerWidth ? 'flex' : 'block'}`,
+    // borderWidth: '2px',
+    // borderStyle: 'solid',
+    // borderRadius: '12px',
+    // borderColor: bcolor.bgcolor,
   }
 
   return (
@@ -174,5 +176,4 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
   );
 };
 
-export default MosaicCompany;
-
+export default MosaicRegion;
