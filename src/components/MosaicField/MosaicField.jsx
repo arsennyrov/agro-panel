@@ -42,8 +42,20 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     const height = currentWidth > currentHeight ? currentHeight : dataS[index] / currentWidth
     const residualWidth = currentWidth > currentHeight ? currentWidth - width : currentWidth
     const residualHeight = currentWidth < currentHeight ? currentHeight - height : currentHeight
+    const factWidth = data[index].sumFact * 100 / data[index].sumPlan
     return (
         <>
+                <Tooltip title={
+                    <div className="mosaic-field-text1">
+                        <p>Поле {data[index].fieldGroup0}</p>
+                        { (data[index].sumFact) ? 
+                        <p>{format(data[index].sumFact)} из {format(data[index].sumPlan)} Га</p>
+                        :
+                        <p>{format(data[index].sumPlan)} Га</p>
+                        }
+                    </div>
+                }>
+        
             <div style={{width: width, height: height}} className="page4__item page4__field-item">
                 {data.map((item) => {
                     return (
@@ -58,19 +70,24 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                         </>
                     )
                 })}
-                <p className="mosaic-field-name" >Поле {data[index].fieldGroup0}</p>
-                {(data[index].text3 > 0) && 
-                    <Text ellipsis={true}>{format(data[index].sumFact)} из {format(data[index].SumPlan)} Га</Text>
-                }
 
-            {data[index]?.blocks?.map((item) => {
-              return (
-                <div style={{ width: `${item.sumFact}`, fontSize: ".7vw", backgroundColor: '#EEEEEE', }} 
-                     className="page4__item-block-41"/>
-              );
-            })}
-                
+
+
+                <div className="mosaic-field-text">
+                    <p className="mosaic-field-name" >Поле {data[index].fieldGroup0}</p>
+                    { (data[index].sumFact) ? 
+                      <Text className="mosaic-field-value" ellipsis={true}>{format(data[index].sumFact)} из {format(data[index].sumPlan)} Га</Text>
+                      :
+                      <Text className="mosaic-field-value" ellipsis={true}>{format(data[index].sumPlan)} Га</Text>
+                    }
+                </div>
+
+            {console.log('factWidth', factWidth)}
+                            <div style={{ width: `${factWidth}%`, height: '100%', fontSize: ".7vw", backgroundColor: '#EEEEEE', }} 
+                     className="page4__item-block-41" />
+
             </div>
+            </Tooltip>
             <div style={{display: `${residualHeight < residualWidth ? 'flex' : 'block'}`, flexShrink: 0}}>
                 <PlacementBlocks
                     index={index + 1}

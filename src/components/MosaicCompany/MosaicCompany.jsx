@@ -60,9 +60,12 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     return (
 
       <>
-        <Tooltip
-          placement="bottom"
+
+        {/* <Tooltip
+          color = "rgb(111, 111, 111, .5)"
+          placement="right"
           title={
+
             <>
               <span className="p-mosaic-name">
                 {data[index].name}
@@ -73,29 +76,27 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
               </div>
               <br></br>
               {data[index].text3 > 0 && (
-              <span className="p-mosaic-all">
-                Убрано: &nbsp;{format(data[index].text3)}
-                {data[index].text4 > 0 && (
-                  <span className="span-overtime"> ({format(data[index].text4)})</span>
-                )}
-              </span>
-            )}
+                <span className="p-mosaic-all">
+                  Убрано: &nbsp;{format(data[index].text3)}
+                  {data[index].text4 > 0 && (
+                    <span className="span-overtime"> ({format(data[index].text4)})</span>
+                  )}
+                </span>
+              )}
 
-            <br></br>
-
-            {data[index].text1 > 0 && (
-              <span className="p-mosaic-all">
-                В работе: &nbsp;{format(data[index].text1)}
-                {data[index].text2 > 0 && (
-                  <span className="span-overtime">({format(data[index].text2)})</span>
-                )}
-              </span>
-            )}
-
-
+              {data[index].text1 > 0 && (
+                <span className="p-mosaic-all">
+                  В работе: &nbsp;{format(data[index].text1)}
+                  {data[index].text2 > 0 && (
+                    <span className="span-overtime">({format(data[index].text2)})</span>
+                  )}
+                </span>
+              )}
             </>
-          }
-        >
+
+      }
+        > */}
+
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
           <div className="mosaic__cart-41" style={{ borderColor: bcolor.color }} >
             {/* <span className="p-mosaic-name-41" style={{ backgroundColor: bcolor.bgcolor }}>
@@ -121,7 +122,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 
           </div>
           </div>
-        </Tooltip>
+        {/* </Tooltip> */}
 
         <div
           style={{

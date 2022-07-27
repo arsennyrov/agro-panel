@@ -50,7 +50,7 @@
 
 .mosaic-container{
     height: 100%;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
     border-radius: 8px;
     overflow: hidden;
@@ -79,13 +79,13 @@
     position: absolute;
     font-family: 'AvenirNextCyr';
     font-style: normal;
-    font-weight: 500;
-    font-size: 0.8rem;
-    line-height: 0.8rem;
+    font-weight: 600;
+    font-size: .9rem;
+    line-height: 1rem;
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 10px 0 0 5px;
+    padding: 5px 0 0 5px;
     overflow: hidden;
 }
 

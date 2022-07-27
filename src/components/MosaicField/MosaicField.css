@@ -20,7 +20,21 @@
     font-size: 1rem;
     line-height: 1rem;
     overflow: hidden;
+    margin: 0;
 }
+
+.mosaic-field-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.mosaic-field-value {
+    margin: 0;
+    position: absolute;
+    left: 10px;
+}
+
 .mosaic-field-plan {
     display: block;
     padding: 10px;
@@ -47,4 +61,10 @@
     /* overflow: hidden; */
     /* margin: 0; */
     background-color: rgb(241,225,252);
+}
+
+.page4__field-item {
+    position: relative;
+    border-top: 1px solid rgb(241,225,252);
+    border-left: 1px solid rgb(241,225,252);
 }

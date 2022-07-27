@@ -57,7 +57,7 @@ export const shiftArr = (arr) => {
       {color: 'rgb(255,255,255)',
        text: ['Не начато']}
     ]
-    };
+    }
 
     export function cropStateOptions4() {
       return [   
@@ -72,7 +72,7 @@ export const shiftArr = (arr) => {
         {color: 'rgb(255,255,255)', 
          text: ['Не начато']}
       ]
-      };
+      }
 
       export function cropStateOptions41() {
         return [   
@@ -85,7 +85,7 @@ export const shiftArr = (arr) => {
           {color: 'rgb(255,255,255)', 
            text: ['Не начато']}
         ]
-        };
+        }
 
         export function bcolor() {
           return [   
@@ -93,4 +93,4 @@ export const shiftArr = (arr) => {
             { color: '#9EB3FC', bgcolor: 'rgb(226,232,254)' },
             { color: '#A5DED0', bgcolor: 'rgb(222,247,243)' },
             ]
-        };
+        }

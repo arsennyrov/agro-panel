@@ -64,7 +64,8 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 
       <>
         <Tooltip
-          placement="bottom">
+            color = "rgb(111, 111, 111, .5)"
+            placement="right">
 
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
           <div className="mosaic__cart-41" style={{ borderColor: `${borderColor}` }} >

@@ -72,8 +72,8 @@ const Mosaic = ({ cropsComp }) => {
 
       <>
 
-<Tooltip
-          color = "#AAAAAA"
+      <Tooltip
+          color = "rgb(111, 111, 111, .6)"
           placement="right"
           title={
             <>
