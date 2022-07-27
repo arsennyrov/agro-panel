@@ -25,7 +25,6 @@ const RadioGroup = (props) => {
         dispatch(changeRadioUnit(e.target.value));
         break;
       default:
-        console.log('swith-default');
     }        
   }
   

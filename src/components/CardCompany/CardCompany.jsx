@@ -73,8 +73,6 @@ const CardCompany = ({ cropsCompany }) => {
             if (flag > 1) styleContainer = {gridTemplateColumns: `1fr 1fr`}; 
         }
 
-        console.log('====000==================crops1', crops1);
-
         const data = [
             { value: 600,
               blocks: [

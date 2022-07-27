@@ -29,7 +29,6 @@ export const fullSlice = createSlice({
         },
         saveFullFields: (state, action) => {
             state.fullFields = action.payload
-            // console.log('=====================================state.fullFields', state.fullFields);
         },
         changeLoading: (state, action) => {
             state.loading = action.payload

@@ -142,7 +142,6 @@ const Page2 = (props) => {
     for (let i=24; i < sumFullSort.length; i++) {
         tabCrops45.push(sumFullSort[i]);
     }    
-    console.log('tabCrops41', tabCrops41);
 
     const onClick2 = () => {
         setPage2Click(1);

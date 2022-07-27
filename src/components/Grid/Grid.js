@@ -7,7 +7,6 @@ import Button from '../Button/Button';
 
 const Grid = ({ data, page2Click }) => {
 
-  console.log('data', data);
   const checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
 
   const [data0, setData0] = useState(data);  

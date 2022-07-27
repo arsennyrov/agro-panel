@@ -9,9 +9,7 @@ import MosaicField from "../MosaicField";
 
 const MosaicCompany = ({ cropsComp, bcolor }) => {
   const { Text } = Typography;
-  
-
-  const titleFirm = cropsComp.company;
+  const titleFirm = cropsComp?.company;
   const fullFields = useSelector(state => state.fulls.fullFields);
 
   const cropData0 = fullFields.slice().filter(item => item.title === titleFirm);
@@ -25,14 +23,9 @@ const MosaicCompany = ({ cropsComp, bcolor }) => {
     return 0;
   });
 
-  // console.log('cropData', cropData);
-
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(200)
-// console.log('containerWidth', containerWidth)
-// console.log('containerHeight', containerHeight)
 const ref = useRef()
-// console.log('ref',ref);
 
 const onResize = () => {
     setContainerWidth(ref.current.clientWidth)
@@ -55,11 +48,8 @@ const dataSum = data.map(item => item.value).reduce((partialSum, a) => partialSu
 let dataS = []
 
 for (let i = 0; i < data.length; i += 1) {
-    // console.log('data[i].value', data[i].value);
     dataS.push((data[i].value * containerSquare) / dataSum)
 }
-
-// console.log('!!!!! data', data);
 
 const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     if (index > dataS.length - 1) return
@@ -118,8 +108,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
             {(data[index].text3 === 0) && 
               <Text ellipsis={true}>{format(data[index].value)} Га</Text>
             } */}
-
-              <MosaicField cropData={cropData[index].fields.slice().sort((prev, next) => next.sumPlan - prev.sumPlan)} 
+              <MosaicField cropData={cropData[index]?.fields?.slice().sort((prev, next) => next.sumPlan - prev.sumPlan)} 
                 cropName={cropData[index].cropName} 
                 bcolor={bcolor} 
               />
@@ -129,13 +118,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
             style={{ width: '100%', height: '100%', fontSize: ".7vw", border: '3px, solid, black', borderRadius: '8px' }}
             className="page4__item page4__item-41"
           >
-            {/* {data[index]?.blocks?.map((item) => {
-              // console.log('item', item);
-              return (
-                <div style={{ width: `${item.percent}`, fontSize: ".7vw", backgroundColor: `${item.color}`, }} 
-                     className="page4__item-block-41"/>
-              );
-            })} */}
 
           </div>
           </div>

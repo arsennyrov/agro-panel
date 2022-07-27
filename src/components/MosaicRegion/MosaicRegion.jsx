@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { Tooltip, Typography } from "antd";
 
 import "./MosaicRegion.css";
@@ -6,12 +6,13 @@ import { format } from "../../containers/utils";
 import Mosaic from "../Mosaic/Mosaic";
 
 
-const MosaicRegion = ({ cropsComp, flag , headClick}) => {
+const MosaicRegion = ({ cropsComp, regNum , headClick}) => {
   const { Text } = Typography;
 
-const [numCompany, setNumCompany] = useState(0)
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(200)
+const [oldSumAll, setOldSumAll] = useState(0)
+
 const ref = useRef()
 
 const onResize = () => {
@@ -19,18 +20,6 @@ const onResize = () => {
     setContainerHeight(ref.current.clientHeight)
 }
     
-// const headClick = (index) => (event) => {
-//     console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', +index );
-//     // const numReg = index.substr(0,1);
-//     // setNumCompany(index.substr(1,2));
-//     // console.log('numReg', numReg);
-//     // console.log('numCompany', numCompany);
-//     // console.log('cropsComp[numCompany]', cropsComp[numCompany]);
-
-//     return (
-//       index
-//     )
-// }
 
 useLayoutEffect(() => {
   window.addEventListener('resize', onResize)
@@ -41,6 +30,21 @@ useLayoutEffect(() => {
 const containerSquare = containerWidth * containerHeight
 
 const data = cropsComp.slice();
+if ((regNum === '1') && (data.length > 0)) {
+  // setOldSumAll(data[data.length-1].sumAll);
+  data[data.length-1].sumAll = 1999;
+}
+
+let borderColor
+if (regNum == 1) {
+  borderColor = '#C49EEA'
+}
+if (regNum == 2) {
+  borderColor = '#9EB3FC'
+}
+if (regNum == 3) {
+  borderColor = '#A5DED0'
+}
 
 const dataSum = data.map(item => item.sumAll).reduce((partialSum, a) => partialSum + a, 0);
 
@@ -60,52 +64,20 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 
       <>
         <Tooltip
-          placement="bottom"
-          title={
-            <>
-              {/* <Text ellips is={true}>{data[index].company}</Text> */}
-              <span className="p-mosaic-name">
-                {data[index].name}
-              </span>
-              <br></br>
-              <div className="p-mosaic-all">
-              {/* <Text ellips is={true}>www{data[index].company}</Text> */}
-                Всего: &nbsp;{format(data[index].value)}
-              </div>
-              <br></br>
-              {data[index].text3 > 0 && (
-              <span className="p-mosaic-all">
-                Убрано: &nbsp;{format(data[index].text3)}
-                {data[index].text4 > 0 && (
-                  <span className="span-overtime"> ({format(data[index].text4)})</span>
-                )}
-              </span>
-            )}
+          placement="bottom">
 
-            <br></br>
-
-            {data[index].text1 > 0 && (
-              <span className="p-mosaic-all">
-                В работе: &nbsp;{format(data[index].text1)}
-                {data[index].text2 > 0 && (
-                  <span className="span-overtime">({format(data[index].text2)})</span>
-                )}
-              </span>
-            )}
-
-
-            </>
-          }
-        >
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
-          <div className="mosaic__cart-41" style={{ borderColor: 'gold' }} >
+          <div className="mosaic__cart-41" style={{ borderColor: `${borderColor}` }} >
 
-            <span className="p-mosaic-name-reg" 
+            <dyv className='mosaic-region-name'
                 style={{ backgroundColor: 'rgb(241,225,252)' }}
-                onClick={headClick(flag+index)}
+                onClick={headClick(regNum+index)}
                 >
-              <Text ellips is={true}>{data[index].company}</Text>
-            </span>
+              <span className={`mosaic-region-name-${regNum}`}>
+                <Text ellipsis={true}>{data[index].company}</Text>
+              </span>    
+            </dyv>
+
             <br/>
             {(data[index].text3 > 0) && 
               <Text ellipsis={true}>{format(data[index].text3)} из {format(data[index].value)} Га</Text>
@@ -113,26 +85,13 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
             {(data[index].text3 === 0) && 
               <Text ellipsis={true}>{format(data[index].value)} Га</Text>
             }
-        {flag}
           </div>
           <div
             style={{ width: '100%', height: '100%', fontSize: ".7vw" }}
             className="page4__item-41"
           >
-            {/* {data[index]?.blocks?.map((item) => {
-              // console.log('item', item);
-              return (
-                <div style={{ width: `${item.percent}`, fontSize: ".7vw", backgroundColor: `${item.color}`, }} 
-                     className="page4__item-block-41"/>
-              );
-            })} */}
-
-
-
 
             <Mosaic cropsComp={cropsComp[index]} />
-
-
 
 
           </div>
@@ -170,8 +129,10 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
   }
 
   return (
-    <div ref={ref} style={stylePage41} className="page41">
-        <PlacementBlocks currentWidth={containerWidth} currentHeight={containerHeight} index={0} />
+    <div className={`mosaic-region-container mosaic-region-container${regNum}`}>
+      <div ref={ref} style={stylePage41} className="page41">
+          <PlacementBlocks currentWidth={containerWidth} currentHeight={containerHeight} index={0} />
+      </div>
      </div>
   );
 };

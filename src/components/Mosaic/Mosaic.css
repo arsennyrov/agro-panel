@@ -4,7 +4,7 @@
 
 .page4__item {
     border-top: 1px solid #CCCCCC;
-    border-left: 2px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
  }
 
 .page4 > .page4__item {
@@ -50,7 +50,7 @@
 
 .mosaic-container{
     height: 100%;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 8px;
     overflow: hidden;
@@ -61,7 +61,7 @@
 .mosaic-container1
 .mosaic-container2
 .mosaic-container3 {
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 8px;
 }

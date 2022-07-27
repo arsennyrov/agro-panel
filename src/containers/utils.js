@@ -87,3 +87,10 @@ export const shiftArr = (arr) => {
         ]
         };
 
+        export function bcolor() {
+          return [   
+            { color: '#C49EEA', bgcolor: 'rgb(241,225,252)' },
+            { color: '#9EB3FC', bgcolor: 'rgb(226,232,254)' },
+            { color: '#A5DED0', bgcolor: 'rgb(222,247,243)' },
+            ]
+        };

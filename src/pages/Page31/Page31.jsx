@@ -8,14 +8,26 @@ import Spinner from '../../components/Spinner';
 import { cropStateOptions41 } from '../../containers/utils';
 import { SvgSelector } from '../../containers/SvgSelector';
 
-const Page31 = ({ cropsComp0, aaa }) => {
+const Page31 = ({ cropsComp0 }) => {
 
-    console.log('aaaaaaaaaaaaaaaaaaaaa', aaa);
-    // const { id } = useParams();
-    console.log('====!!!----cropsComp0', cropsComp0);
     const cropsColor1 = cropStateOptions41();
-    const titleRegion = cropsComp0.region;
-    const titleFirm = cropsComp0.company;
+    const titleRegion = cropsComp0?.region;
+    const titleFirm = cropsComp0?.company;
+    
+    let titleRegionFull = ''       
+    switch (titleRegion) {
+        case 'Центр':
+            titleRegionFull = 'Центральный регион'
+            break
+        case 'Юг':
+            titleRegionFull = 'Южный регион'       
+            break
+        case 'Север':
+            titleRegionFull = 'Северный регион'       
+            break
+        default:
+            titleRegionFull = ''       
+    }
 
     const colorRegion = (string0) => {
     switch (string0) {
@@ -35,7 +47,7 @@ const Page31 = ({ cropsComp0, aaa }) => {
                 <div className='span-wrop-31'>
                     <a href='/panels/3' className='a-31'>
                         <span className='arrow-left-31'><SvgSelector id={'Стрелка влево'} /></span>
-                        <span className='span-head-31'>{titleRegion}&nbsp;&nbsp;&nbsp;/ </span>
+                        <span className='span-head-31'>{titleRegionFull}&nbsp;&nbsp;&nbsp;/ </span>
                     </a>
                     <span className='span-title-31'>{titleFirm}</span>
                 </div>

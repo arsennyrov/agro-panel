@@ -9,16 +9,9 @@ import { format } from "../../containers/utils";
 const MosaicField = ({ cropData, cropName, bcolor }) => {
   const { Text } = Typography;
 
-    // console.log('===!!!==cropData', cropData);
-    // console.log('cropName', cropName);
-    // console.log('bcolor', bcolor);
-
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(500)
-// console.log('containerWidth', containerWidth)
-// console.log('containerHeight', containerHeight)
 const ref = useRef()
-// console.log('ref',ref);
 
 const onResize = () => {
     setContainerWidth(ref.current.clientWidth)
@@ -33,19 +26,15 @@ useLayoutEffect(() => {
 
 const containerSquare = containerWidth * containerHeight
 
-const data = cropData.slice();
+const data = cropData?.slice();
 
-const dataSum = data.map(item => item.sumPlan).reduce((partialSum, a) => partialSum + a, 0);
+const dataSum = data?.map(item => item.sumPlan).reduce((partialSum, a) => partialSum + a, 0);
 
 let dataS = []
 
-for (let i = 0; i < data.length; i += 1) {
-    // console.log('data[i].value', data[i].value);
+for (let i = 0; i < data?.length; i += 1) {
     dataS.push((data[i].sumPlan * containerSquare) / dataSum)
 }
-
-// console.log('===data', data)
-const field0 = data[0].fieldGroup0;
 
 const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     if (index > dataS.length - 1) return
@@ -70,17 +59,11 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                     )
                 })}
                 <p className="mosaic-field-name" >Поле {data[index].fieldGroup0}</p>
-                {/* <p className="mosaic-field-plan" >{data[index].sumPlan}</p> */}
                 {(data[index].text3 > 0) && 
                     <Text ellipsis={true}>{format(data[index].sumFact)} из {format(data[index].SumPlan)} Га</Text>
                 }
-{/* 
-                {!data[index].sumFact ? <p className="mosaic-field-plan" >{data[index].sumPlan}</p> :
-                                       <p className="mosaic-field-plan" >{data[index].sumFact} Га из {data[index].sumPlan}</p>
-                }                        */}
 
             {data[index]?.blocks?.map((item) => {
-              // console.log('item', item);
               return (
                 <div style={{ width: `${item.sumFact}`, fontSize: ".7vw", backgroundColor: '#EEEEEE', }} 
                      className="page4__item-block-41"/>

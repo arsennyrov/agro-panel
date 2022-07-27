@@ -13,8 +13,6 @@ import './Puzzl.css';
 
 const Puzzl = ({ w, h, crops }) => {
 
-    console.log('======================crops', crops);
-    
     const text = []
     const x2 = []
     for(let i=0; i<crops.length; i++) {
@@ -30,10 +28,6 @@ const Puzzl = ({ w, h, crops }) => {
     }
 
     const x = x2.slice();
-
-    // console.log('x', x);
-    // console.log('text', text);
-
     const wContainer = w;
     const hContainer = h;
 
@@ -108,15 +102,12 @@ const Puzzl = ({ w, h, crops }) => {
     }
 
     const cropsColor = cropStateOptions4();
-    console.log('cropsColor', cropsColor);
-    console.log('cropsColor[1]', cropsColor[1]);
 
     return (
 
         <div className="puzzl__container" style={styleContainer}>
             {crops.map ((item, index) => { 
 
-                console.log('=====item', item);
                 let sum5 = []
                     for(let i=1; i<6; i++) {
                         sum5.push(i);

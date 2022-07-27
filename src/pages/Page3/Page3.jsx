@@ -5,7 +5,6 @@ import axios from 'axios';
 
 import Propmpt from '../../components/Prompt';
 import { saveFullData4, changeLoading, saveFullFields } from '../../stores/fullSlice';
-import Mosaic from '../../components/Mosaic';
 import MosaicRegion from '../../components/MosaicRegion';
 import './Page3.css';
 import Spinner from '../../components/Spinner';
@@ -15,12 +14,11 @@ import Page31 from '../Page31';
 const Page3 = () => {
 
     const dispatch = useDispatch();
-    // const [loading, setLoading] = useState(true);
     const [titleFirm, setTitleFirm] = useState('');
     const [cropsComp0, setCropsComp0] = useState([]);
 
     let loading = useSelector(state => state.fulls.loading);
-    // console.log('OOOOOOOOOOOOOO loading', loading);
+
     useEffect(() => {
           const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_REG_DO_GROUP_CROP';
           loading && axios.get(apiUrl).then((resp) => {
@@ -79,8 +77,6 @@ const Page3 = () => {
             return 0;
         });
 
-        // console.log('fullSort', fullSort);
-
         const sumfullFields = [];
         let titleName0 = fullSort[0]?.titleName;
         let title00 = '';
@@ -132,13 +128,8 @@ const Page3 = () => {
             fieldsCount: sumCount,
             fieldsComplite: sumComplite,
         });
-
-
         dispatch(saveFullFields(sumfullFields));
-        // console.log('=============sumfullFields', sumfullFields);
-
 //------------------------------------------------------------------------------------------------
-      
         const sumfullCrops = [];
         titleName0 = fullSort[0]?.titleName;
         let titleM = '';
@@ -208,12 +199,7 @@ const Page3 = () => {
         for (let i=0; i < sumfullCrops.length; i++) {
             sumfullCrops[i].sum[0] = sumfullCrops[i].plan;
             sumfullCrops[i].sum[3] = sumfullCrops[i].fact;
-            // console.log(i, sumfullCrops[i].title, sumfullCrops[i].name)
         }
-
-        // console.log('---------------sumfullCrops', sumfullCrops);        
-
-
 
         const sumFullSort = sumfullCrops.slice().sort((a,b) => {
             if (a.title < b.title) {
@@ -375,10 +361,6 @@ const Page3 = () => {
     const region2 = regionFilter('Юг');
     const region3 = regionFilter('Север');
 
-    // console.log('region1', region1);
-    // console.log('region2', region2);
-    // console.log('region3', region3);
-
     const regionMain1 = createRegMain(region1).slice();
     const regionMain2 = createRegMain(region2).slice();
     const regionMain3 = createRegMain(region3).slice();
@@ -389,7 +371,6 @@ const Page3 = () => {
 
 
     const headClick = (index) => (event) => {
-        // console.log('eeeeeeeeeeeeeee', +index.substr(0,2), index.substr(2)  );
         const numReg = index.substr(0,1);
         const numFirm = index.substr(1,2);
         let titleFirm = '';
@@ -411,15 +392,12 @@ const Page3 = () => {
                 titleFirm = '';
         }
         setTitleFirm(titleFirm);
-        // console.log('titleFirm-0', titleFirm);
-         
+        
         return (
            index
         )
 
     }
-    
-
 
     return ( 
         <>
@@ -437,7 +415,7 @@ const Page3 = () => {
                         <MosaicRegion 
                             // regMain={regionMain1} 
                             cropsComp={region1} 
-                            flag={'1'} 
+                            regNum={'1'} 
                             headClick={headClick}
                         />
                     </div>
@@ -451,7 +429,7 @@ const Page3 = () => {
                         <MosaicRegion 
                             // regMain={regionMain2} 
                             cropsComp={region2} 
-                            flag={'2'} 
+                            regNum={'2'} 
                             headClick={headClick}
                         />
                     </div>
@@ -465,7 +443,7 @@ const Page3 = () => {
                         <MosaicRegion 
                             // regMain={regionMain3} 
                             cropsComp={region3} 
-                            flag={'3'} 
+                            regNum={'3'} 
                             headClick={headClick}
                         />
                     </div>                
