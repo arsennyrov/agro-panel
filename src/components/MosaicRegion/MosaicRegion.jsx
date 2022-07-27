@@ -70,14 +70,27 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
           <div className="mosaic__cart-41" style={{ borderColor: `${borderColor}` }} >
 
-            <dyv className='mosaic-region-name'
-                style={{ backgroundColor: 'rgb(241,225,252)' }}
-                onClick={headClick(regNum+index)}
-                >
-              <span className={`mosaic-region-name-${regNum}`}>
-                <Text ellipsis={true}>{data[index].company}</Text>
-              </span>    
-            </dyv>
+
+
+
+            <Tooltip 
+                      color = "rgb(0, 0, 0, .6)"
+                      placement="bottom"
+
+            title={ <span ellipsis={true}>{data[index].company}</span> }>
+              
+              <div className='mosaic-region-name'
+                  style={{ backgroundColor: 'rgb(241,225,252)' }}
+                  onClick={headClick(regNum+index)}
+              >
+                <span className={`mosaic-region-name-${regNum}`}>
+                  <Text ellipsis={true}>{data[index].company}</Text>
+                </span>    
+              </div>
+            </Tooltip>
+
+
+
 
             <br/>
             {(data[index].text3 > 0) && 
