@@ -70,9 +70,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
           <div className="mosaic__cart-41" style={{ borderColor: `${borderColor}` }} >
 
-
-
-
             <Tooltip 
                       color = "rgb(0, 0, 0, .6)"
                       placement="bottom"
@@ -88,9 +85,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                 </span>    
               </div>
             </Tooltip>
-
-
-
 
             <br/>
             {(data[index].text3 > 0) && 

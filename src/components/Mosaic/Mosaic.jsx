@@ -11,6 +11,7 @@ const Mosaic = ({ cropsComp }) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const [containerHeight, setContainerHeight] = useState(`${h}vh`);
   const ref = useRef();
+  const colors = ['#C49EEA','#9EB3FC','#A5DED0']
 
   useLayoutEffect(() => {
     const onResize = () => {
@@ -75,7 +76,7 @@ const Mosaic = ({ cropsComp }) => {
       <>
 
       <Tooltip
-          color = "rgb(111, 111, 111, .6)"
+          color = "rgb(111, 111, 111, .7)"
           placement="right"
           title={
             <>
@@ -124,7 +125,8 @@ const Mosaic = ({ cropsComp }) => {
 
           </div>
           <div
-            style={{ width: width, height: height, fontSize: ".7vw" }}
+            // style={{ width: width, height: height, fontSize: ".7vw", borderWidth: (index===0) ? 0:1, borderColor: colors[regNum-1] }}
+            style={{ width: width, height: height, fontSize: ".7vw", borderColor: colors[regNum-1] }}
             className="page4__item"
           >
             {data[index]?.blocks?.map((item) => {

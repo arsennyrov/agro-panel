@@ -13,17 +13,21 @@ const Page31 = ({ cropsComp0 }) => {
     const cropsColor1 = cropStateOptions41();
     const titleRegion = cropsComp0?.region;
     const titleFirm = cropsComp0?.company;
+    let regNum = 0;
     
     let titleRegionFull = ''       
     switch (titleRegion) {
         case 'Центр':
             titleRegionFull = 'Центральный регион'
+            regNum = 1;
             break
         case 'Юг':
             titleRegionFull = 'Южный регион'       
+            regNum = 2;
             break
         case 'Север':
-            titleRegionFull = 'Северный регион'       
+            titleRegionFull = 'Северный регион'
+            regNum = 3;
             break
         default:
             titleRegionFull = ''       
@@ -53,7 +57,7 @@ const Page31 = ({ cropsComp0 }) => {
                 </div>
                 <div className='content-31'>
                     
-                    <MosaicCompany cropsComp={cropsComp0} bcolor={colorRegion(titleRegion)} />
+                    <MosaicCompany cropsComp={cropsComp0} bcolor={colorRegion(titleRegion)} regNum={regNum} />
 
                 </div>
 

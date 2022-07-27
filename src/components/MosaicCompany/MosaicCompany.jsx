@@ -7,7 +7,7 @@ import { createData } from "./createData";
 import { format } from "../../containers/utils";
 import MosaicField from "../MosaicField";
 
-const MosaicCompany = ({ cropsComp, bcolor }) => {
+const MosaicCompany = ({ cropsComp, bcolor, regNum }) => {
   const { Text } = Typography;
   const titleFirm = cropsComp?.company;
   const fullFields = useSelector(state => state.fulls.fullFields);
@@ -112,6 +112,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
               <MosaicField cropData={cropData[index]?.fields?.slice().sort((prev, next) => next.sumPlan - prev.sumPlan)} 
                 cropName={cropData[index].cropName} 
                 bcolor={bcolor} 
+                regNum={regNum}
               />
 
           </div>

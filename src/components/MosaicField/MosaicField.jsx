@@ -6,12 +6,16 @@ import "./MosaicField.css";
 import { format } from "../../containers/utils";
 
 
-const MosaicField = ({ cropData, cropName, bcolor }) => {
+const MosaicField = ({ cropData, cropName, bcolor, regNum }) => {
   const { Text } = Typography;
+
+  console.log('cropData', cropData, bcolor);
 
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(500)
 const ref = useRef()
+const colors = ['#C49EEA','#9EB3FC','#A5DED0']
+
 
 const onResize = () => {
     setContainerWidth(ref.current.clientWidth)
@@ -56,7 +60,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                     </div>
                 }>
         
-            <div style={{width: width, height: height}} className="page4__item page4__field-item">
+            <div style={{width: width, height: height, borderColor: colors[regNum-1]}} className="page4__item page4__field-item">
                 {data.map((item) => {
                     return (
                         <>

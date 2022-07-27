@@ -1,5 +1,7 @@
 .page4 {
     flex-grow: 1;
+    margin-left: -1px;
+    width: calc(100% + 1px);
 }
 
 .page4__item {
@@ -87,6 +89,10 @@
     align-items: start;
     padding: 5px 0 0 5px;
     overflow: hidden;
+}
+
+.ant-typography {
+    margin: 0;
 }
 
 .p-mosaic-name {
