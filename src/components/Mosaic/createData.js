@@ -16,6 +16,20 @@ const transfCrop = (crop) => {
             blocks0.push(block);
         } 
     }
+
+    console.log('blocks0', blocks0);
+    if (blocks0.length === 3) {
+        let a0 = blocks0[0]
+        let a1 = blocks0[1]
+        let a2 = blocks0[2]
+        blocks0.pop()
+        blocks0.pop()
+        blocks0.pop()
+        blocks0.push(a1)
+        blocks0.push(a0)
+        blocks0.push(a2)
+    }
+
     return (
             {
                 value: crop.sum[0],

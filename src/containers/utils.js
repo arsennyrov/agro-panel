@@ -76,12 +76,12 @@ export const shiftArr = (arr) => {
 
       export function cropStateOptions41() {
         return [   
+          {color: 'rgb(239,239,239)',
+           text: ['Убрано']},
           {color: 'rgb(204,239,183)', 
            text: ['В процессе']},
           {color: 'rgb(254,226,212)',
            text: ['Не начато в срок']}, 
-          {color: 'rgb(239,239,239)',
-           text: ['Убрано']},
           {color: 'rgb(255,255,255)', 
            text: ['Не начато']}
         ]

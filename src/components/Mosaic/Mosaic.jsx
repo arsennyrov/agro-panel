@@ -27,6 +27,8 @@ const Mosaic = ({ cropsComp }) => {
   const region = cropsComp.region;
   const data = createData(cropsComp);
 
+  // console.log('data', data);
+
   let regNum = 0;
   switch (region) {
     case "Центр":
