@@ -96,9 +96,12 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                       <Text className="mosaic-field-value" ellipsis={true}>Полей: {format(data[index].sumCount)}</Text>
                       <br/>
                       
-                      {(data[index].sumComplite) && 
-                      <Text className="mosaic-field-value" ellipsis={true}>Убрано: {format(data[index].sumComplite)}</Text> }
+                      {(data[index].sumComplite >0) && 
+                      <>
+                      <Text className="mosaic-field-value" ellipsis={true}>Убрано: {format(data[index].sumComplite)}</Text> 
                       <br/>
+                      </>
+                      }
                       <Text className="mosaic-field-value" ellipsis={true}>В работе: {format(data[index].sumProgress)}</Text>
 
                     </>
