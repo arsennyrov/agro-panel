@@ -1,14 +1,11 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { useSelector } from 'react-redux';
-import { Tooltip, Typography } from "antd";
 
 import "./MosaicCompany.css";
 import { createData } from "./createData";
-import { format } from "../../containers/utils";
 import MosaicField from "../MosaicField";
 
 const MosaicCompany = ({ cropsComp, bcolor, regNum }) => {
-  const { Text } = Typography;
   const titleFirm = cropsComp?.company;
   const fullFields = useSelector(state => state.fulls.fullFields);
 
@@ -60,55 +57,8 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     return (
 
       <>
-
-        {/* <Tooltip
-          color = "rgb(111, 111, 111, .5)"
-          placement="right"
-          title={
-
-            <>
-              <span className="p-mosaic-name">
-                {data[index].name}
-              </span>
-              <br></br>
-              <div className="p-mosaic-all">
-                Всего: &nbsp;{format(data[index].value)}
-              </div>
-              <br></br>
-              {data[index].text3 > 0 && (
-                <span className="p-mosaic-all">
-                  Убрано: &nbsp;{format(data[index].text3)}
-                  {data[index].text4 > 0 && (
-                    <span className="span-overtime"> ({format(data[index].text4)})</span>
-                  )}
-                </span>
-              )}
-
-              {data[index].text1 > 0 && (
-                <span className="p-mosaic-all">
-                  В работе: &nbsp;{format(data[index].text1)}
-                  {data[index].text2 > 0 && (
-                    <span className="span-overtime">({format(data[index].text2)})</span>
-                  )}
-                </span>
-              )}
-            </>
-
-      }
-        > */}
-
           <div style={{ width: width, height: height, padding: '5px', position: 'relative' }}>
           <div className="mosaic__cart-41" style={{ borderColor: bcolor.color }} >
-            {/* <span className="p-mosaic-name-41" style={{ backgroundColor: bcolor.bgcolor }}>
-              <Text ellips is={true}>{data[index].name}</Text>
-            </span> */}
-            {/* <br/> */}
-            {/* {(data[index].text3 > 0) && 
-              <Text ellipsis={true}>{format(data[index].text3)} из {format(data[index].value)} Га</Text>
-            }
-            {(data[index].text3 === 0) && 
-              <Text ellipsis={true}>{format(data[index].value)} Га</Text>
-            } */}
               <MosaicField cropData={cropData[index]?.fields?.slice().sort((prev, next) => next.sumPlan - prev.sumPlan)} 
                 cropName={cropData[index].cropName} 
                 bcolor={bcolor} 
@@ -123,7 +73,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 
           </div>
           </div>
-        {/* </Tooltip> */}
 
         <div
           style={{

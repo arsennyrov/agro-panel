@@ -31,12 +31,22 @@
     top: 10px;
     left: 10px;
     right: 10px;
+    font-family: 'AvenirNextCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1rem;
 }
 
 .mosaic-field-value {
     margin: 0;
     position: absolute;
     left: 0;
+    font-family: 'AvenirNextCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1rem;
 }
 
 .mosaic-field-plan {

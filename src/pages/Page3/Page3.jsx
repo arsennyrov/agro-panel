@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
 import Propmpt from '../../components/Prompt';
@@ -51,6 +50,7 @@ const Page3 = () => {
                 progress: Math.round(obj.PROGRESS),
                 fieldsCount: obj.FIELDS_COUNT,
                 fieldsComplite: obj.FIELD_COMPLITE,
+                fieldProgress: obj.FIELD_IN_PROGRESS,
                 fields: [],
                 sum: [plan0, 
                       Math.round((plan0-Math.round(obj.FACT))*Math.round(obj.PROGRESS)/100 ), 
@@ -89,6 +89,7 @@ const Page3 = () => {
         let sumFact = 0;
         let sumCount = 0;
         let sumComplite = 0;
+        let sumProgress = 0;
 //--------------------------------------------------------------------------------------        
         for (let i=0; i<fullSort?.length; i++) {
 
@@ -105,7 +106,8 @@ const Page3 = () => {
                 sumPlan = 0;
                 sumFact = 0;
                 sumCount = 0;
-                sumComplite = 0;            
+                sumComplite = 0;   
+                sumProgress = 0;      
             }
             title00 = fullSort[i-1]?.title;
             cropName0 = fullSort[i-1]?.name;
@@ -113,10 +115,11 @@ const Page3 = () => {
             fieldGroup0 = fullSort[i]?.fieldGroup;
             sumCount += fullSort[i]?.fieldsCount;
             sumComplite += fullSort[i]?.fieldsComplite;
+            sumProgress += fullSort[i]?.fieldProgress;
             sumPlan += fullSort[i]?.plan;
             sumFact += fullSort[i]?.fact;
 
-            cropFields0.push({fieldGroup0, sumCount, sumComplite, sumPlan, sumFact});
+            cropFields0.push({fieldGroup0, sumCount, sumComplite, sumProgress, sumPlan, sumFact});
         }
 //---------------------------------------------------------------------------
         sumfullFields.push({
@@ -127,8 +130,10 @@ const Page3 = () => {
             fieldGroup: fieldGroup0,
             fieldsCount: sumCount,
             fieldsComplite: sumComplite,
+            fieldProgress: sumProgress,
         });
         dispatch(saveFullFields(sumfullFields));
+        console.log('sumfullFields', sumfullFields);
 //------------------------------------------------------------------------------------------------
         const sumfullCrops = [];
         titleName0 = fullSort[0]?.titleName;
@@ -367,7 +372,7 @@ const Page3 = () => {
 
     const cropsColor1 = cropStateOptions41();
 
-
+    console.log('region1', region1);
 
 
     const headClick = (index) => (event) => {
