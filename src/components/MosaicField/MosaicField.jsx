@@ -50,6 +50,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     return (
         <>
                 <Tooltip 
+                    color = "rgb(111, 111, 111, .7)"
                     placement="right"
                     title={
                     <div className="mosaic-field-text1">
