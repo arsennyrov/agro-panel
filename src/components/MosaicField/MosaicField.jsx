@@ -57,9 +57,9 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                     <div className="mosaic-field-text1">
                         <p>Поле {data[index].fieldGroup0}</p>
                         { (data[index].sumFact) ? 
-                        <p>{format(data[index].sumFact)} из {format(data[index].sumPlan)} Га</p>
+                        <p>Убрано: {format(data[index].sumFact)} из {format(data[index].sumPlan)} Га</p>
                         :
-                        <p>{format(data[index].sumPlan)} Га</p>                        
+                        <p>Всего: {format(data[index].sumPlan)} Га</p>                        
                         }
                         <p>Полей: {format(data[index].sumCount)}</p>
                         <p>Убрано: {format(data[index].sumComplite)}</p>
