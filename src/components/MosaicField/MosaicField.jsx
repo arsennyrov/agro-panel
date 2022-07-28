@@ -83,7 +83,6 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                 })}
 
 
-
                 <div className="mosaic-field-text">
                     <>
                       <Text className="mosaic-field-name" >Поле {data[index].fieldGroup0}</Text>
@@ -135,9 +134,16 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 
   return (
     <>
+    <Tooltip 
+        color = "rgb(0, 0, 0, .6)"
+        placement="bottom"
+        title={ <span ellipsis={true}>{cropName}</span> }>
+            
     <div className={`mosaic-field-header`} style={{backgroundColor: bgcolor[regNum-1]}}>
         <Text ellipsis={true} style={{margin: '12px'}}>{cropName}</Text>
     </div>
+    </Tooltip>
+
     <div ref={ref} style={{width: '100%', height: '100vh', display: `${containerHeight < containerWidth ? 'flex' : 'block'}`}} className="page4">
         <PlacementBlocks currentWidth={containerWidth} currentHeight={containerHeight} index={0} />
     </div>
