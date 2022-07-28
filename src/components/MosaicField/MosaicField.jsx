@@ -14,8 +14,9 @@ const MosaicField = ({ cropData, cropName, bcolor, regNum }) => {
 const [containerWidth, setContainerWidth] = useState(0)
 const [containerHeight, setContainerHeight] = useState(500)
 const ref = useRef()
-const colors = ['#C49EEA','#9EB3FC','#A5DED0']
 
+const colors = ['#C49EEA','#9EB3FC','#A5DED0']
+const bgcolor = [ 'rgb(241,225,252)', 'rgb(226,232,254)', 'rgb(222,247,243)' ]
 
 const onResize = () => {
     setContainerWidth(ref.current.clientWidth)
@@ -108,7 +109,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
 
   return (
     <>
-    <div className={`mosaic-field-header`}>
+    <div className={`mosaic-field-header`} style={{backgroundColor: bgcolor[regNum-1]}}>
         <Text ellipsis={true} style={{margin: '12px'}}>{cropName}</Text>
     </div>
     <div ref={ref} style={{width: '100%', height: '100vh', display: `${containerHeight < containerWidth ? 'flex' : 'block'}`}} className="page4">
