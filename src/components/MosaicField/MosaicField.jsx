@@ -49,7 +49,9 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     const factWidth = data[index].sumFact * 100 / data[index].sumPlan
     return (
         <>
-                <Tooltip title={
+                <Tooltip 
+                    placement="right"
+                    title={
                     <div className="mosaic-field-text1">
                         <p>Поле {data[index].fieldGroup0}</p>
                         { (data[index].sumFact) ? 
