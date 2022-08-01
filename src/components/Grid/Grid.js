@@ -3,14 +3,13 @@ import { useSelector } from 'react-redux';
 
 import { SvgSelector } from '../../containers/SvgSelector';
 import './Grid.css';
-import Button from '../Button/Button';
 
-const Grid = ({ data, page2Click }) => {
+const Grid = ({ data }) => {
+
+console.log('======data', data);
 
   const checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
 
-  const [data0, setData0] = useState(data);  
-  const data3 = data;
   const [colorBorder, setColorBorder] = useState(false, false, false, false, false, false);
   
   const format = (num) => {
@@ -19,44 +18,20 @@ const Grid = ({ data, page2Click }) => {
       maximumFractionDigits: 0
   }).format(num))}
 
-  const onClick1 = () => {
-    setData0(data);
-  }
-
-  const onClick2 = () => {
-    const data4 = data3.slice(0,data0.length-1);
-    setData0(data4);
-  }
-
   const handleClick = (index) => (event) => {
     const colorInit = [ false, false, false, false, false, false ];
     colorInit[index]=true;
     setColorBorder(colorInit);
   }
-
-  const date = new Date();
-  const day = date.getDate();
-  const month = date.getMonth();
-
+  
   return (
     <div className='grid-container'>
         <div className='grid'>
           <div className='head-wrop'>
             <div className='head'><span className='head-span'>Культуры</span></div>
             <div className='head'> 
-              {/* <Button name={'6'} onClick={onClick1} />
-              <Button name={'-'} onClick={onClick2} /> */}
             </div>
-            {(page2Click === 0) && <>
-                <div className='head'><span className='head-span'>Всего, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Засеяно, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Засеяно <br></br>не в срок, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Засеяно <br></br>сегодня, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Засеяно сегодня <br></br>не в срок, {checkedUnit}</span></div>
-                <div className='head'><span className='head-span'>Засеяно <br></br>всего, {'%'}</span></div>
-              </>
-            }
-            {(page2Click > 0) && <>
+            { <>
                 <div className='head'><span className='head-span'>Всего, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Убрано, {checkedUnit}</span></div>
                 <div className='head'><span className='head-span'>Убрано <br></br>не в срок, {checkedUnit}</span></div>
@@ -66,11 +41,13 @@ const Grid = ({ data, page2Click }) => {
               </>
             }
             </div>
-          {data0.map((item, index) => { 
+          {data.map((item, index) => { 
             return (
               <div className={ colorBorder[index] ? `row-wroper row-wrop${index}` : 'row-wroper row-wrop' } 
                    key={item.id}
-                   onClick={handleClick(index)}>
+                   onClick={handleClick(index)}
+                   style={ (data.length === 2) ?  { top: '-9vh'} : { top: '-1.4vh'}  }
+                   >
                 { item.info && <>
                   <div className='colh col col1'>
                     <div className='svgselector-wropper'>

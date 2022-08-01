@@ -10,6 +10,7 @@ import SvgHome from '../../components/Svg';
 import { changeRegionsData4 } from '../../stores/regionSlice';
 import { area } from '../../containers/regions';
 import Spinner from '../../components/Spinner';
+import dxSankey from 'devextreme/viz/sankey';
 
 let overall = overall1();
 
@@ -32,11 +33,15 @@ const Page1 = () => {
 
     const regionStage4 = useSelector(state => state.regions.regionsData4);  
 
+    console.log('regionStage4', regionStage4);
+
     const transformRegion = (obj={}) => {
         return {
             area: obj.AO__REGION,
             percent: obj.PROGRESS,
             amount: obj.PLAN,
+            fieldCount: obj.FIELD_COUNT,
+            fieldComplite: obj.FIELD_COMPLITE,
             info: true
         }
     }

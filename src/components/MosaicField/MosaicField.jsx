@@ -135,10 +135,10 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
   return (
     <>
     <Tooltip 
-        color = "rgb(0, 0, 0, .6)"
+        color = "rgb(0, 0, 0, .6)"   
         placement="bottom"
         title={ <span ellipsis={true}>{cropName}</span> }>
-            
+
     <div className={`mosaic-field-header`} style={{backgroundColor: bgcolor[regNum-1]}}>
         <Text ellipsis={true} style={{margin: '12px'}}>{cropName}</Text>
     </div>

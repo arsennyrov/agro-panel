@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import { Pagination } from "antd";
 
 import BarChart from '../../components/BarChart';
 import PieChart from '../../components/PieChart';
 import './Page2.css';
 import Grid from '../../components/Grid';
 import { saveFullData4 } from '../../stores/fullSlice';
-import Button from '../../components/Button/Button';
 import { transformFull } from '../../containers/utils';
 import Spinner from '../../components/Spinner';
 
 const Page2 = (props) => {
 
-    const [selected, setSelected] = useState('1');
-    const [page2Click, setPage2Click] = useState(0);  
+    const [selected, setSelected] = useState(1);
     const [loading, setLoading] = useState(true);
-    const [bgColor1, setBgColor1] = useState('#FFFFFF');
-    const [bgColor2, setBgColor2] = useState('#F6F6F6');
-    const [bgColor3, setBgColor3] = useState('#F6F6F6');
-    const [bgColor4, setBgColor4] = useState('#F6F6F6');
-    const [bgColor5, setBgColor5] = useState('#F6F6F6');
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -29,7 +23,6 @@ const Page2 = (props) => {
             const full = resp.data;
             dispatch(saveFullData4(full.value)); 
             setLoading(false);
-            setPage2Click(1);
         });
         }, []);
     
@@ -122,102 +115,30 @@ const Page2 = (props) => {
             return 0;
         });
 
-    const tabCrops41 = [];
-    for (let i=0; i < 6; i++) {
-        tabCrops41.push(sumFullSort[i]);
-    }     
-    const tabCrops42 = [];
-    for (let i=6; i < 12; i++) {
-        tabCrops42.push(sumFullSort[i]);
-    }     
-    const tabCrops43 = [];
-    for (let i=12; i < 18; i++) {
-        tabCrops43.push(sumFullSort[i]);
-    }   
-    const tabCrops44 = [];
-    for (let i=18; i < 24; i++) {
-        tabCrops44.push(sumFullSort[i]);
-    }     
-    const tabCrops45 = [];
-    for (let i=24; i < sumFullSort.length; i++) {
-        tabCrops45.push(sumFullSort[i]);
-    }    
-
-    const onClick2 = () => {
-        setPage2Click(1);
-        setSelected(1);
-        setBgColor1('#FFFFFF')
-        setBgColor2('#F6F6F6')
-        setBgColor3('#F6F6F6')        
-        setBgColor4('#F6F6F6')
-        setBgColor5('#F6F6F6')
+    const onChange = (page, pageSize) => {
+        setSelected(page);
     }
-    const onClick3 = () => {
-        setPage2Click(2);
-        setSelected(2);
-        setBgColor1('#F6F6F6')
-        setBgColor2('#FFFFFF')
-        setBgColor3('#F6F6F6')      
-        setBgColor4('#F6F6F6')
-        setBgColor5('#F6F6F6')
-    }
-    const onClick4 = () => {
-        setPage2Click(3);
-        setSelected(3);
-        setBgColor1('#F6F6F6')
-        setBgColor2('#F6F6F6')
-        setBgColor3('#FFFFFF')        
-        setBgColor4('#F6F6F6')
-        setBgColor5('#F6F6F6')
-    }
-    const onClick5 = () => {
-        setPage2Click(4);
-        setSelected(4);
-        setBgColor1('#F6F6F6')
-        setBgColor2('#F6F6F6')
-        setBgColor3('#F6F6F6')
-        setBgColor4('#FFFFFF')
-        setBgColor5('#F6F6F6')
-    }
-    const onClick6 = () => {
-        setPage2Click(5);
-        setSelected(5);
-        setBgColor1('#F6F6F6')
-        setBgColor2('#F6F6F6')
-        setBgColor3('#F6F6F6')
-        setBgColor4('#F6F6F6')
-        setBgColor5('#FFFFFF')
-    }
-
+  
+    const data0 = sumFullSort.slice(6*(selected-1),Math.min(6*selected, sumFullSort.length))
 
     return (
         <>
-        {loading && 
-        <div className='page3'>
-            <Spinner />
-        </div>}
-        <div className='page2'>
-            <div className='container-tab'>
-                {(page2Click === 1) && <Grid data={tabCrops41} page2Click={page2Click} /> }
-                {(page2Click === 2) && <Grid data={tabCrops42} page2Click={page2Click} /> }
-                {(page2Click === 3) && <Grid data={tabCrops43} page2Click={page2Click} /> }
-                {(page2Click === 4) && <Grid data={tabCrops44} page2Click={page2Click} /> }
-                {(page2Click === 5) && <Grid data={tabCrops45} page2Click={page2Click} /> }
-            </div>
+            {loading && 
+            <div className='page3'>
+                <Spinner />
+            </div>}
+            <div className='page2'>
+                <div className='container-tab'>
+                    <Grid data={data0} />
+                </div>
 
+                <Pagination onChange={onChange} total={50} />
 
-            <div className='page2-buttons'> 
-              <Button className='page2-btn-1' name={'1'} onClick={onClick2} bgcolor={bgColor1} />
-              <Button className='page2-btn-2' name={'2'} onClick={onClick3} bgcolor={bgColor2} />
-              <Button className='page2-btn-3' name={'3'} onClick={onClick4} bgcolor={bgColor3} />
-              <Button className='page2-btn-4' name={'4'} onClick={onClick5} bgcolor={bgColor4} />
-              <Button className='page2-btn-5' name={'5'} onClick={onClick6} bgcolor={bgColor5} />
+                <div className='container-chart'>
+                    <BarChart />
+                    <PieChart /> 
+                </div>
             </div>
-            <div className='container-chart'>
-                <BarChart />
-                <PieChart /> 
-            </div>
-        </div>
         </> 
     );
 };
