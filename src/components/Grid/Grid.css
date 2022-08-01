@@ -11,6 +11,8 @@
 }
 
 .head-wrop {
+  position: relative;
+  top: -.8vh;
   display: grid;
   margin-top: 1.5vh;
   margin-bottom: 1vh;
