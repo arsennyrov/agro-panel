@@ -1,27 +1,33 @@
-export function overall0() {
+export function overAll0() {
     return [   
         {
             area: "Центр",
-            percent: 0,
-            amount: 0,
-            info: false
+            percent: 1,
+            amount: 101,
+            fieldCount: 11,
+            fieldComplite: 111,
+            info: true
         },
         {
             area: "Юг",
-            percent: 0,
-            amount: 0,
-            info: false
+            percent: 2,
+            amount: 202,
+            fieldCount: 12,
+            fieldComplite: 112,
+            info: true
         },
         {
             area: "Север",
-            percent: 0,
-            amount: 0,
-            info: false
+            percent: 3,
+            amount: 303,
+            fieldCount: 13,
+            fieldComplite: 113,
+            info: true
         },
     ]
 }
 
-export function overall1() {
+export function overAll1() {
     return [   
         {
             area: "Центр",
@@ -64,7 +70,7 @@ export function overall1() {
     ]
 };
 
-export function overall2() {
+export function overAll2() {
     return [   
         {
             area: "Центр",
@@ -107,7 +113,7 @@ export function overall2() {
     ]
 };
 
-export function overall3() {
+export function overAll3() {
     return [   
         {
             area: "Центр",
@@ -150,7 +156,7 @@ export function overall3() {
     ]
 };
 
-export function overall4() {
+export function overAll4() {
     return [   
         {
             area: "Центр",

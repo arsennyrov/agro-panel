@@ -5,21 +5,25 @@ import axios from 'axios';
 import Header from '../../components/Header';
 import './Page1.css';
 import Cards from '../../components/Cards/Cards';
-import { overall0, overall1, overall2, overall3, overall4 } from '../../containers/data';
+import { overAll0, overAll1, overAll2, overAll3, overAll4 } from '../../containers/data';
 import SvgHome from '../../components/Svg';
 import { changeRegionsData4 } from '../../stores/regionSlice';
 import { area } from '../../containers/regions';
 import Spinner from '../../components/Spinner';
-import dxSankey from 'devextreme/viz/sankey';
 
-let overall = overall1();
+let overAll = overAll1();
 
-const Page1 = () => {
+const Page1 = ()   => {
 
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
 
-    // const [appState, setAppState] = useState();
+    const defaultLeft = useSelector(state => state.crops.leftRadioGroup[0].name);   
+    let checkedRadioLeft = useSelector(state => state.crops?.selectedRadioLeft); 
+
+    
+    console.log('===================================================defaultLeft', defaultLeft);
+    
   
     useEffect(() => {
     //   const apiUrl = 'http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}';
@@ -31,17 +35,17 @@ const Page1 = () => {
       });
     }, []);
 
-    const regionStage4 = useSelector(state => state.regions.regionsData4);  
+    const regionStage4 = useSelector(state => state.regions?.regionsData4);  
 
     console.log('regionStage4', regionStage4);
 
     const transformRegion = (obj={}) => {
         return {
-            area: obj.AO__REGION,
-            percent: obj.PROGRESS,
-            amount: obj.PLAN,
-            fieldCount: obj.FIELD_COUNT,
-            fieldComplite: obj.FIELD_COMPLITE,
+            area: obj?.AO__REGION,
+            percent: obj?.PROGRESS,
+            amount: obj?.PLAN,
+            fieldCount: obj?.FIELDS_COUNT,
+            fieldComplite: obj?.FIELD_COMPLITE,
             info: true
         }
     }
@@ -54,33 +58,44 @@ const Page1 = () => {
         if (objj) 
             regStage4.push(transformRegion(objj));
     }
-    overall = overall0();
 
-    for (let i=0; i<overall.length; i++) {
-        regStage4.push((overall[i]));
+    // console.log('11111 regStage4', regStage4);
+
+    overAll = overAll0();
+
+    for (let i=0; i<overAll.length; i++) {
+        regStage4.push((overAll[i]));
     }
 
-    const checkedRadioRight = useSelector(state => state.crops.selectedRadioRight);  
+    console.log('22222 regStage4', regStage4);
+
+    const checkedRadioRight = useSelector(state => state.crops?.selectedRadioRight);  
+    checkedRadioLeft = useSelector(state => state.crops?.selectedRadioLeft);  
+
+    const typeLeft = (checkedRadioLeft === 'Количество - Га') ? 1 : 2;
+
+    console.log('checkedRadioRight', checkedRadioRight);
+    console.log('====---===checkedRadioLeft', checkedRadioLeft);
 
     switch (checkedRadioRight) {
         case "Почвоподготовка":        
-            overall = overall1();
+            overAll = regStage4
             break;
         case "Сев":        
-            overall = overall2();
+            overAll = regStage4
             break;
         case "Выращивание":        
-            overall = overall3();
+            overAll = regStage4
             break;
         case "Уборка":        
-            overall = regStage4;
+            overAll = regStage4
             break;
         default:
-            overall = overall1();
+            overAll = regStage4
     }
 
+    const overAll3 = regStage4.slice(0,3)
 
-    // return <Spinner />
 
     return (
         <div className='page1'> 
@@ -89,7 +104,7 @@ const Page1 = () => {
             </div>    
             
             <div className='chart' style={{ fill: "#0f0", }}>
-                    <SvgHome svgFill={[overall[0].info, overall[1].info, overall[2].info]} />
+                    <SvgHome svgFill={[overAll[0].info, overAll[1].info, overAll[2].info]} />
             </div>
             {loading && 
                     <div className='page3'>
@@ -97,7 +112,7 @@ const Page1 = () => {
                     </div>}
 
             <div className='container-cards'>
-                <Cards overall={overall} />
+                <Cards overAll={regStage4} type={typeLeft} />
             </div>
 
         </div>
