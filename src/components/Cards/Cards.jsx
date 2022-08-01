@@ -6,25 +6,19 @@ import { area } from '../../containers/regions';
 import './Cards.css';
 
 
-const Cards = ({overAll, type}) => {
-    // const defaultLeft = useSelector(state => state.crops.leftRadioGroup[0].name);   
-    // const checkedRadioLeft = useSelector(state => state.crops.selectedRadioLeft);  
-    
+const Cards = ({overAll, type, numWork}) => {
     const areas = area();
-    console.log('---areas', areas);
-    console.log('---overall', overAll);
 
     return (
         <>
             {areas.map((item, index) => { 
-                // console.log('------index', index);
-                // console.log('------overall[index]', overall[index]);
                 return (
                 <div className={`card${index+1}`}>
                     <Card 
                         item={item}
                         region={overAll[index]}
                         type={type}
+                        numWork={numWork}
                     /> 
                 </div>
             )})}

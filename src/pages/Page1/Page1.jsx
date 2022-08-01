@@ -18,15 +18,9 @@ const Page1 = ()   => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
 
-    const defaultLeft = useSelector(state => state.crops.leftRadioGroup[0].name);   
     let checkedRadioLeft = useSelector(state => state.crops?.selectedRadioLeft); 
-
-    
-    console.log('===================================================defaultLeft', defaultLeft);
-    
   
     useEffect(() => {
-    //   const apiUrl = 'http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}';
       const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_REGION';
       axios.get(apiUrl).then((resp) => {
         const regions = resp.data;
@@ -59,43 +53,33 @@ const Page1 = ()   => {
             regStage4.push(transformRegion(objj));
     }
 
-    // console.log('11111 regStage4', regStage4);
-
     overAll = overAll0();
 
     for (let i=0; i<overAll.length; i++) {
         regStage4.push((overAll[i]));
     }
 
-    console.log('22222 regStage4', regStage4);
-
     const checkedRadioRight = useSelector(state => state.crops?.selectedRadioRight);  
     checkedRadioLeft = useSelector(state => state.crops?.selectedRadioLeft);  
 
     const typeLeft = (checkedRadioLeft === 'Количество - Га') ? 1 : 2;
 
-    console.log('checkedRadioRight', checkedRadioRight);
-    console.log('====---===checkedRadioLeft', checkedRadioLeft);
-
     switch (checkedRadioRight) {
         case "Почвоподготовка":        
-            overAll = regStage4
+            overAll = overAll1();
             break;
         case "Сев":        
-            overAll = regStage4
+            overAll = overAll2();
             break;
         case "Выращивание":        
-            overAll = regStage4
+            overAll = overAll3();
             break;
         case "Уборка":        
-            overAll = regStage4
+            overAll = regStage4;
             break;
         default:
-            overAll = regStage4
+            overAll = [];
     }
-
-    const overAll3 = regStage4.slice(0,3)
-
 
     return (
         <div className='page1'> 
@@ -109,10 +93,10 @@ const Page1 = ()   => {
             {loading && 
                     <div className='page3'>
                         <Spinner />
-                    </div>}
+                    </div>} 
 
             <div className='container-cards'>
-                <Cards overAll={regStage4} type={typeLeft} />
+                <Cards overAll={overAll} type={typeLeft} numWork={4} />
             </div>
 
         </div>
