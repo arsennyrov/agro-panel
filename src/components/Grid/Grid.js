@@ -6,7 +6,9 @@ import './Grid.css';
 
 const Grid = ({ data, flag }) => {
 
-  const checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
+  let checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
+  checkedUnit = flag === 1 ? 'Га' : 'Шт'
+
   const [colorBorder, setColorBorder] = useState(false, false, false, false, false, false);
   
   const format = (num) => {

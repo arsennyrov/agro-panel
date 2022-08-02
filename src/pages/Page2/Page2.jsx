@@ -137,8 +137,9 @@ const Page2 = (props) => {
   
     const data0 = sumFullSort.slice(6*(selected-1),Math.min(6*selected, sumFullSort.length))
 
-    const flag = 1
-
+    const flag = 1  // При flag = 1 в таблице отображаются данные в Гп,
+                    // При flag = 2 в таблице отображаются данные в Шт
+                    
     return (
         <>
             {loading && 
