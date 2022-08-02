@@ -6,6 +6,8 @@ import './Card.css';
 
 const Card = ({item, region, type, numWork}) => {
 
+    console.log('region', region);
+
     const { widthCard, title, index, color } = item;
 
     let regPercent = 11

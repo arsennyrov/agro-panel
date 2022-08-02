@@ -33,38 +33,38 @@ export function overAll1() {
             area: "Центр",
             percent: 100,
             amount: 50000,
-            info: true
+            info: false
         },
         {
             area: "Юг",
             percent: 100,
             amount: 44000,
-            info: true
+            info: false
         },
         {
             area: "Север",
             percent: 100,
             amount: 42000,
-            info: true
+            info: false
         },
         // ---------------------------------------
         {
             area: "Центр",
             percent: 100,
             amount: 815,
-            info: true
+            info: false
         },
         {
             area: "Юг",
             percent: 100,
             amount: 377,
-            info: true
+            info: false
         },
         {
             area: "Север",
             percent: 100,
             amount: 754,
-            info: true
+            info: false
         }
 
     ]
@@ -76,38 +76,38 @@ export function overAll2() {
             area: "Центр",
             percent: 39,
             amount: 50000,
-            info: true
+            info: false
         },
         {
             area: "Юг",
             percent: 45,
             amount: 44000,
-            info: true
+            info: false
         },
         {
             area: "Север",
             percent: 34,
             amount: 42000,
-            info: true
+            info: false
         },
         // ---------------------------------------
         {
             area: "Центр",
             percent: 39,
             amount: 815,
-            info: true
+            info: false
         },
         {
             area: "Юг",
             percent: 45,
             amount: 377,
-            info: true
+            info: false
         },
         {
             area: "Север",
             percent: 34,
             amount: 752,
-            info: true
+            info: false
         }
 
     ]
@@ -119,7 +119,7 @@ export function overAll3() {
             area: "Центр",
             percent: 12,
             amount: 50000,
-            info: true
+            info: false
         },
         {
             area: "Юг",
@@ -131,7 +131,7 @@ export function overAll3() {
             area: "Север",
             percent: 8,
             amount: 42000,
-            info: true
+            info: false
         },
 
         
