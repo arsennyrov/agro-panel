@@ -17,7 +17,6 @@ const transfCrop = (crop) => {
         } 
     }
 
-    console.log('blocks0', blocks0);
     if (blocks0.length === 3) {
         let a0 = blocks0[0]
         let a1 = blocks0[1]

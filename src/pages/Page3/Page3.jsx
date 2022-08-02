@@ -133,7 +133,6 @@ const Page3 = () => {
             fieldProgress: sumProgress,
         });
         dispatch(saveFullFields(sumfullFields));
-        console.log('sumfullFields', sumfullFields);
 //------------------------------------------------------------------------------------------------
         const sumfullCrops = [];
         titleName0 = fullSort[0]?.titleName;
@@ -371,9 +370,6 @@ const Page3 = () => {
     const regionMain3 = createRegMain(region3).slice();
 
     const cropsColor1 = cropStateOptions41();
-
-    console.log('region1', region1);
-
 
     const headClick = (index) => (event) => {
         const numReg = index.substr(0,1);

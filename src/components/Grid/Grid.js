@@ -4,16 +4,13 @@ import { useSelector } from 'react-redux';
 import { SvgSelector } from '../../containers/SvgSelector';
 import './Grid.css';
 
-const Grid = ({ data }) => {
-
-console.log('======data', data);
+const Grid = ({ data, flag }) => {
 
   const checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
-
   const [colorBorder, setColorBorder] = useState(false, false, false, false, false, false);
   
   const format = (num) => {
-    return (
+    return ( 
     new Intl.NumberFormat("ru-RU", {
       maximumFractionDigits: 0
   }).format(num))}
@@ -23,7 +20,7 @@ console.log('======data', data);
     colorInit[index]=true;
     setColorBorder(colorInit);
   }
-  
+   
   return (
     <div className='grid-container'>
         <div className='grid'>
@@ -42,6 +39,13 @@ console.log('======data', data);
             }
             </div>
           {data.map((item, index) => { 
+
+            const value1 = flag === 1 ? item.plan : item.fieldsCount
+            const value2 = flag === 1 ? item.fact : item.fieldsComplite
+            const value3 = flag === 1 ? item.factOverTime : 0
+            const value4 = flag === 1 ? item.factToday : 0
+            const value5 = flag === 1 ? item.factTodayOver : 0
+            const value6 = flag === 1 ? item.progress.toFixed(1) : (100*item.fieldsComplite/item.fieldsCount).toFixed(1)
             return (
               <div className={ colorBorder[index] ? `row-wroper row-wrop${index}` : 'row-wroper row-wrop' } 
                    key={item.id}
@@ -57,12 +61,12 @@ console.log('======data', data);
 
                   <div className='colh col col2'>
                       <span className='row-span'>{item.name}</span></div>
-                  <div className='colh col col3'><span className='row-span'>{format(item.plan)}</span></div>
-                  <div className='colh col col4'><span className='row-span'>{format(item.fact)}</span></div>
-                  <div className='colh col col5'><span className='row-span'>{format(item.factOverTime)}</span></div>
-                  <div className='colh col col6'><span className='row-span'>{format(item.factToday)}</span></div>
-                  <div className='colh col col7'><span className='row-span'>{format(item.factTodayOver)}</span></div>
-                  <div className='colh col col8'><span className='row-span'>{item.progress.toFixed(1)}</span></div>
+                  <div className='colh col col3'><span className='row-span'>{format(value1)}</span></div>
+                  <div className='colh col col4'><span className='row-span'>{format(value2)}</span></div>
+                  <div className='colh col col5'><span className='row-span'>{format(value3)}</span></div>
+                  <div className='colh col col6'><span className='row-span'>{format(value4)}</span></div>
+                  <div className='colh col col7'><span className='row-span'>{format(value5)}</span></div>
+                  <div className='colh col col8'><span className='row-span'>{value6}</span></div>
                 </>
                 }
                 { !item.info && <>

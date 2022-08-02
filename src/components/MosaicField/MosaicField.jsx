@@ -39,8 +39,6 @@ for (let i = 0; i < data?.length; i += 1) {
     dataS.push((data[i].sumPlan * containerSquare) / dataSum)
 }
 
-console.log('============---==========cropData', cropData, bcolor);
-
 const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
     if (index > dataS.length - 1) return
     const width = currentWidth < currentHeight ? currentWidth : dataS[index] / currentHeight
@@ -114,8 +112,7 @@ const PlacementBlocks = ({currentWidth, currentHeight, index}) => {
                     }
                 </div>
 
-            {console.log('factWidth', factWidth)}
-                            <div style={{ width: `${factWidth}%`, height: '100%', fontSize: ".7vw", backgroundColor: '#EEEEEE', }} 
+                    <div style={{ width: `${factWidth}%`, height: '100%', fontSize: ".7vw", backgroundColor: '#EEEEEE', }} 
                      className="page4__item-block-41" />
 
             </div>

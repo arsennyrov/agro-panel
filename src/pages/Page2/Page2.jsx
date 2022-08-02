@@ -17,8 +17,10 @@ const Page2 = (props) => {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 
+    const checkedRadioLeft = useSelector(state => state.crops?.selectedRadioLeft);  
+
     useEffect(() => {
-          const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_FULL';
+          const apiUrl = 'https://agroinvest-dev002-dev-sap-cloud-dashboard-back-srv.cfapps.eu10.hana.ondemand.com/fw20/FW20_REG_DO_GROUP_CROP';
           axios.get(apiUrl).then((resp) => {
             const full = resp.data;
             dispatch(saveFullData4(full.value)); 
@@ -49,12 +51,16 @@ const Page2 = (props) => {
         let sumFactInTime = 0;
         let sumFactOverTime = 0;
         let sumPlan = 0;
+        let sumFieldsCount = 0
+        let sumFieldsComplite = 0
         for (let i=0; i<fullSort?.length; i++) {
             if (fullSort[i]?.name !== name0) {
                 sumFact = Math.round(sumFact);
                 sumPlan = (sumPlan >= sumFact ) ? Math.round(sumPlan) : sumFact;
                 sumFactInTime = Math.round(sumFactInTime);
                 sumFactOverTime = Math.round(sumFactOverTime);
+                sumFieldsCount = Math.round(sumFieldsCount)
+                sumFieldsComplite = Math.round(sumFieldsComplite)
                 sumfullCrops.push({
                     id: 2100+i,
                     name: name0,
@@ -65,6 +71,8 @@ const Page2 = (props) => {
                     factToday: sumFact/12,
                     factTodayOver: sumFactOverTime/18,
                     progress: (100*sumFact)/sumPlan,
+                    fieldsCount: sumFieldsCount,
+                    fieldsComplite: sumFieldsComplite,
                     info: true,
                 });
                 name0 = fullSort[i]?.name;
@@ -72,16 +80,22 @@ const Page2 = (props) => {
                 sumFactInTime = 0;
                 sumFactOverTime = 0;
                 sumPlan = 0;
+                sumFieldsCount = 0
+                sumFieldsComplite = 0
             }
             sumFact += fullSort[i]?.fact;
             sumFactInTime += fullSort[i]?.factInTime;
             sumFactOverTime += fullSort[i]?.factOverTime;
             sumPlan += fullSort[i]?.plan;
+            sumFieldsCount += fullSort[i]?.fieldsCount
+            sumFieldsComplite += fullSort[i]?.fieldsComplite
         }
         sumPlan = Math.round(sumPlan);
         sumFact = Math.round(sumFact);
         sumFactInTime = Math.round(sumFactInTime);
         sumFactOverTime = Math.round(sumFactOverTime);
+        sumFieldsCount += Math.round(sumFieldsCount)
+        sumFieldsComplite += Math.round(sumFieldsComplite)
         sumfullCrops.push({
             id: 2111,
             name: name0,
@@ -92,6 +106,8 @@ const Page2 = (props) => {
             factToday: sumFact/12,
             factTodayOver: sumFactOverTime/12,
             progress: (100*sumFact)/sumPlan,
+            fieldsCount: sumFieldsCount,
+            fieldsComplite: sumFieldsComplite,
             info: true,
         });
 
@@ -121,6 +137,8 @@ const Page2 = (props) => {
   
     const data0 = sumFullSort.slice(6*(selected-1),Math.min(6*selected, sumFullSort.length))
 
+    const flag = 1
+
     return (
         <>
             {loading && 
@@ -129,7 +147,7 @@ const Page2 = (props) => {
             </div>}
             <div className='page2'>
                 <div className='container-tab'>
-                    <Grid data={data0} />
+                    <Grid data={data0} flag={flag} />
                 </div>
 
                 <Pagination onChange={onChange} total={50} />

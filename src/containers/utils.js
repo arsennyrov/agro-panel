@@ -17,6 +17,8 @@ export const transformFull = (obj={}) => {
       factTodayOver: 0,
       plan: obj.PLAN,
       progress: obj.PROGRESS,
+      fieldsCount: obj.FIELDS_COUNT,
+      fieldsComplite: obj.FIELD_COMPLITE,
       info: true,
   }
 }

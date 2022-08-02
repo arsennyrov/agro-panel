@@ -31,8 +31,6 @@ const Page1 = ()   => {
 
     const regionStage4 = useSelector(state => state.regions?.regionsData4);  
 
-    console.log('regionStage4', regionStage4);
-
     const transformRegion = (obj={}) => {
         return {
             area: obj?.AO__REGION,
