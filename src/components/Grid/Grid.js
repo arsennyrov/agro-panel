@@ -44,9 +44,9 @@ const Grid = ({ data, flag }) => {
 
             const value1 = flag === 1 ? item.plan : item.fieldsCount
             const value2 = flag === 1 ? item.fact : item.fieldsComplite
-            const value3 = flag === 1 ? item.factOverTime : 0
-            const value4 = flag === 1 ? item.factToday : 0
-            const value5 = flag === 1 ? item.factTodayOver : 0
+            const value3 = item.factOverTime
+            const value4 = flag === 1 ? item.factToday : item.factToday / 4
+            const value5 = item.factTodayOver
             const value6 = flag === 1 ? item.progress.toFixed(1) : (100*item.fieldsComplite/item.fieldsCount).toFixed(1)
             return (
               <div className={ colorBorder[index] ? `row-wroper row-wrop${index}` : 'row-wroper row-wrop' } 
