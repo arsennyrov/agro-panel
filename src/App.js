@@ -3,14 +3,14 @@ import Page1 from './pages/Page1';
 import Page2 from './pages/Page2';
 import Page3 from './pages/Page3';
 import Page31 from './pages/Page31';
-import { HashRouter, Routes , Route } from 'react-router-dom';
+import { BrowserRouter, Routes , Route } from 'react-router-dom';
 
 
 function App() {
   return (
 
       <div className="App">
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Page1 />} />
           <Route path="/panels/1" element={<Page1 />} />
@@ -18,7 +18,7 @@ function App() {
           <Route path="/panels/3" element={<Page3 />} />
           <Route path="/panels/:id" element={<Page31 />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
       </div>
     
   );
