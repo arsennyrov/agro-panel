@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { SvgSelector } from '../../containers/SvgSelector';
+import RadioGroup from '../RadioGroup';
 import './Grid.css';
 
 const Grid = ({ data, flag }) => {
 
+  const unitRadioGroup = useSelector(state => state.crops.unitRadioGroup); 
   let checkedUnit = useSelector(state => state.crops.selectedRadioUnit);
-  checkedUnit = flag === 1 ? 'Га' : 'Шт'
+  let flag0 = checkedUnit === 'Га' ? 1 : 2
 
   const [colorBorder, setColorBorder] = useState(false, false, false, false, false, false);
   
@@ -27,7 +29,17 @@ const Grid = ({ data, flag }) => {
     <div className='grid-container'>
         <div className='grid'>
           <div className='head-wrop'>
-            <div className='head'><span className='head-span'>Культуры</span></div>
+            <div className='head0'>
+              <span className='head-span head-span0'>Культуры</span>
+              <div className='unit-radiogroup'>
+                    <RadioGroup 
+                        name={'redioTable'} 
+                        title={unitRadioGroup}
+                        y={'35px'}
+                        fSize={'1.1vw'}
+                    />
+                </div>
+            </div>
             <div className='head'> 
             </div>
             { <>
@@ -42,12 +54,12 @@ const Grid = ({ data, flag }) => {
             </div>
           {data.map((item, index) => { 
 
-            const value1 = flag === 1 ? item.plan : item.fieldsCount
-            const value2 = flag === 1 ? item.fact : item.fieldsComplite
+            const value1 = flag0 === 1 ? item.plan : item.fieldsCount
+            const value2 = flag0 === 1 ? item.fact : item.fieldsComplite
             const value3 = item.factOverTime
-            const value4 = flag === 1 ? item.factToday : item.factToday / 4
+            const value4 = flag0 === 1 ? item.factToday : item.factToday / 4
             const value5 = item.factTodayOver
-            const value6 = flag === 1 ? item.progress.toFixed(1) : (100*item.fieldsComplite/item.fieldsCount).toFixed(1)
+            const value6 = flag0 === 1 ? item.progress.toFixed(1) : (100*item.fieldsComplite/item.fieldsCount).toFixed(1)
             return (
               <div className={ colorBorder[index] ? `row-wroper row-wrop${index}` : 'row-wroper row-wrop' } 
                    key={item.id}

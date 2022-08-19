@@ -9,7 +9,9 @@ const RadioGroup = (props) => {
   const dispatch = useDispatch()
   const { 
       name, 
-      title,   
+      title,
+      y,
+      fSize='1.5vw'
   } = props; 
 
   const handleChange = (e) => {
@@ -21,7 +23,7 @@ const RadioGroup = (props) => {
       case 'right': 
         dispatch(changeRadioRight(e.target.value));
         break;
-      case 'unit': 
+      case 'redioTable': 
         dispatch(changeRadioUnit(e.target.value));
         break;
       default:
@@ -43,7 +45,7 @@ const RadioGroup = (props) => {
               name={name} 
               defaultChecked={(index === selected)}
             />
-            <label htmlFor = {item.id}>
+            <label htmlFor = {item.id} style={{lineHeight: y, fontSize: fSize}}>
                 {item.name}
             </label>
         </div>           

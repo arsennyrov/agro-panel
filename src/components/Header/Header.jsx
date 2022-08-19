@@ -39,12 +39,14 @@ const Header = () => {
                     <RadioGroup 
                         name={nameLeft} 
                         title={leftRadioGroup}
+                        y={'65px'}
                     />
                 </div>
                 <div className='right-radiogroup'>
                     <RadioGroup 
                         name={nameRight} 
                         title={rightRadioGroup}
+                        y={'65px'}
                     />
                 </div>
             </div>
